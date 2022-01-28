@@ -12,6 +12,7 @@ CREATE TABLE "user" (
 	"id" serial PRIMARY KEY,
 	"username" varchar(255) UNIQUE NOT NULL,
 	"password" varchar(255) NOT NULL,
+	"full_name" varchar(255) UNIQUE NOT NULL,
 	"sec_level" integer NOT NULL,
 	"avail_start" DATE NOT NULL,
 	"avail_end" DATE NOT NULL,
@@ -36,5 +37,6 @@ CREATE TABLE "pet" (
 	"owner_id" serial NOT NULL,
 	"weight" integer NOT NULL
 );
+
 
 
