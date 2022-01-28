@@ -3,7 +3,7 @@
 -- You must use double quotes in every query that user is in:
 -- ex. SELECT * FROM "user";
 -- Otherwise you will have errors!
-CREATE TABLE “public.user” (
+CREATE TABLE “user” (
 	“id” serial PRIMARY KEY,
 	“username” varchar(255) UNIQUE NOT NULL,
 	“password” varchar(255) NOT NULL,
