@@ -18,14 +18,14 @@ CREATE TABLE “user” (
 	“flight_direction” VARCHAR(4) NOT NULL,
 	CONSTRAINT “user_pk” PRIMARY KEY (“id”)
 );
-CREATE TABLE “public.flight event” (
+CREATE TABLE “flight_event” (
 	“id” serial NOT NULL,
 	“date” serial NOT NULL,
 	“nyc team leader” integer NOT NULL,
 	“lon team leader” integer NOT NULL,
 	CONSTRAINT “flight event_pk” PRIMARY KEY (“id”)
 );
-CREATE TABLE “public.pet” (
+CREATE TABLE “pet” (
 	“id” serial NOT NULL,
 	“name” varchar(255) NOT NULL,
 	“breed” varchar(255) NOT NULL,
