@@ -3,6 +3,11 @@
 -- You must use double quotes in every query that user is in:
 -- ex. SELECT * FROM "user";
 -- Otherwise you will have errors!
+
+-- USER is a reserved keyword with Postgres
+-- You must use double quotes in every query that user is in:
+-- ex. SELECT * FROM "user";
+-- Otherwise you will have errors!
 CREATE TABLE “user” (
 	“id” serial PRIMARY KEY,
 	“username” varchar(255) UNIQUE NOT NULL,
@@ -15,21 +20,20 @@ CREATE TABLE “user” (
 	“paid” BOOLEAN NOT NULL,
 	“covid_free” BOOLEAN NOT NULL,
 	“in_group” BOOLEAN NOT NULL,
-	“flight_direction” VARCHAR(4) NOT NULL,
-	CONSTRAINT “user_pk” PRIMARY KEY (“id”)
+	“flight_direction” VARCHAR(4) NOT NULL
 );
 CREATE TABLE “flight_event” (
 	“id” serial NOT NULL,
 	“date” serial NOT NULL,
-	“nyc team leader” integer NOT NULL,
-	“lon team leader” integer NOT NULL,
-	CONSTRAINT “flight event_pk” PRIMARY KEY (“id”)
+	“USTeamLead” integer NOT NULL,
+	“EUTeamLead” integer NOT NULL,
+	CONSTRAINT “flight_event_pk” PRIMARY KEY (“id”)
 );
 CREATE TABLE “pet” (
 	“id” serial NOT NULL,
 	“name” varchar(255) NOT NULL,
 	“breed” varchar(255) NOT NULL,
 	“owner_id” serial NOT NULL,
-	“weight” integer(255) NOT NULL,
+	“weight” integer NOT NULL,
 	CONSTRAINT “pet_pk” PRIMARY KEY (“id”)
 );
