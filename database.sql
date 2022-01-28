@@ -14,14 +14,14 @@ CREATE TABLE "user" (
 	"password" varchar(255) NOT NULL,
 	"full_name" varchar(255) UNIQUE NOT NULL,
 	"sec_level" integer NOT NULL,
-	"avail_start" DATE NOT NULL,
-	"avail_end" DATE NOT NULL,
-	"flight_event_id" integer NOT NULL,
-	"signed_contract" BOOLEAN NOT NULL,
-	"paid" BOOLEAN NOT NULL,
-	"covid_free" BOOLEAN NOT NULL,
-	"in_group" BOOLEAN NOT NULL,
-	"flight_direction" VARCHAR(4) NOT NULL
+	"avail_start" DATE DEFAULT NULL,
+	"avail_end" DATE DEFAULT NULL,
+	"flight_event_id" integer DEFAULT NULL,
+	"signed_contract" BOOLEAN DEFAULT NULL,
+	"paid" BOOLEAN DEFAULT NULL,
+	"covid_free" BOOLEAN DEFAULT NULL,
+	"in_group" BOOLEAN DEFAULT NULL,
+	"continent_origin" VARCHAR(2) NOT NULL
 );
 CREATE TABLE "flight_event" (
 	"id" serial PRIMARY KEY,
@@ -37,6 +37,10 @@ CREATE TABLE "pet" (
 	"owner_id" serial NOT NULL,
 	"weight" integer NOT NULL
 );
+
+INSERT INTO "public"."user"("id", "username", "password", "full_name", "sec_level", "continent_origin") 
+VALUES(1, 'AdminRose', 'Flower', 'Rose', 2, 'US') 
+RETURNING "id", "username", "password", "full_name", "sec_level", "avail_start", "avail_end", "flight_event_id", "signed_contract", "paid", "covid_free", "in_group", "continent_origin";
 
 
 
