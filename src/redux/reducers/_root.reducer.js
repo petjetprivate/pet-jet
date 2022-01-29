@@ -2,6 +2,8 @@ import { combineReducers } from 'redux';
 import errors from './errors.reducer';
 import user from './user.reducer';
 import setFlightEvents from './flight_event.reducer';
+import setOneFlightEvent from './setOneFlightEvent.reducer';
+// import editFlightEvent from './editFlightEvent.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -13,6 +15,8 @@ const rootReducer = combineReducers({
   errors, // contains registrationMessage and loginMessage
   user, // will have an id and username if someone is logged in
   setFlightEvents,
+  setOneFlightEvent,
+  // editFlightEvent,
 });
 
 export default rootReducer;

@@ -2,6 +2,9 @@ import axios from 'axios';
 import { put, takeLatest } from 'redux-saga/effects';
 
 function* getFlightEvents() {
+console.log('getFlightEvents:');
+
+
   try {
     const response = yield axios({
       method: 'GET',
