@@ -50,4 +50,27 @@ router.post('/logout', (req, res) => {
   res.sendStatus(200);
 });
 
+router.put("/:id", (req, res) => {
+  let {id} = req.params;
+  console.log('id',id)
+  let query = `update "user"
+					set "full_name"='${req.body.full_name}',
+          "email"='${req.body.email}',
+          "phone"='${req.body.phone}',
+          "avail_start"='${req.body.avail_start}',
+          "avail_end"='${req.body.avail_end}',
+          "continent_origin"='${req.body.continent_origin}'
+					where "id" = ${id} RETURNING *`;
+  pool.query(query)
+    .then((results) => {
+      res.send(results.rows);
+    })
+    .catch((error) => {
+      console.log('user PUT route error /:id', error);
+      res.sendStatus(500);
+    })
+});
+
+
+
 module.exports = router;

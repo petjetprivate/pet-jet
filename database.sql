@@ -13,6 +13,7 @@ CREATE TABLE "user" (
 	"username" varchar(255) UNIQUE NOT NULL,
 	"password" varchar(255) NOT NULL,
 	"full_name" varchar(255) UNIQUE NOT NULL,
+	"email" varchar(255) UNIQUE NOT NULL,
 	"sec_level" integer NOT NULL,
 	"avail_start" DATE DEFAULT NULL,
 	"avail_end" DATE DEFAULT NULL,
