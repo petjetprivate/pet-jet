@@ -20,6 +20,6 @@ function* fetchOneFlightEvent(action) {
   }
 }
 
-export default function* fetchOneHatSaga() {
+export default function* fetchOneFlightSaga() {
   yield takeLatest("FETCH_ONE_FLIGHT_EVENT", fetchOneFlightEvent);
 }

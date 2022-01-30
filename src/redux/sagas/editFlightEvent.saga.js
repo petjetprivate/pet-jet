@@ -1,13 +1,21 @@
 import { put, takeLatest } from "redux-saga/effects";
 import axios from "axios";
 
-function* editFlightEvent() {
+function* editFlightEvent(action) {
+  console.log('SUBMIT EDIT CLICK');
+  console.log('editFlightEvent.saga action:', action);
+  console.log('editFlightEvent.saga action.payload:', action.payload);
+
+  
   try {
     const response = yield axios({
       method: "PUT",
-      url: `/api/hat/${action.payload.id}`,
+      url: `/api/oneFlightEvent/${action.payload.id}`,
       data: {
         name: action.payload.name,
+        date: action.payload.date,
+        USTeamLead: action.payload.USTeamLead,
+        EUTeamLead: action.payload.EUTeamLead,
       },
     });
     yield put({

@@ -1,17 +1,17 @@
-import react, { useEffect } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 function FlightEventPage() {
   const dispatch = useDispatch();
   const flightEvents = useSelector((store) => store.setFlightEvents);
-  const flightToEdit = useSelector((store) => store.setOneFlightEvent);
+  const flightToEdit = useSelector((store) => store.editFlightEvent);
 
   useEffect(() => {
     dispatch({ type: "GET_FLIGHT_EVENTS" });
   }, []);
 
-  const editNameChange = (e) => {
-    console.log('edit flight event name:', e.target.value);
+  const editName = (e) => {
+    console.log("edit flight event name:", e.target.value);
 
     dispatch({
       type: "EDIT_FLIGHT_EVENT_NAME",
@@ -19,8 +19,8 @@ function FlightEventPage() {
     });
   };
 
-  const editDateChange = (e) => {
-    console.log('edit flight event date:', e.target.value);
+  const editDate = (e) => {
+    console.log("edit flight event date:", e.target.value);
 
     dispatch({
       type: "EDIT_FLIGHT_EVENT_DATE",
@@ -29,7 +29,7 @@ function FlightEventPage() {
   };
 
   const editUSTeamLead = (e) => {
-    console.log('edit flight event usteamlead:', e.target.value);
+    console.log("edit flight event usteamlead:", e.target.value);
 
     dispatch({
       type: "EDIT_FLIGHT_EVENT_USTEAMLEAD",
@@ -38,7 +38,7 @@ function FlightEventPage() {
   };
 
   const editEUTeamLead = (e) => {
-    console.log('edit flight event euteamlead:', e.target.value);
+    console.log("edit flight event euteamlead:", e.target.value);
 
     dispatch({
       type: "EDIT_FLIGHT_EVENT_EUTEAMLEAD",
@@ -47,18 +47,23 @@ function FlightEventPage() {
   };
 
   const editFlightEvent = (e) => {
+    console.log("SUBMIT CLICK");
     e.preventDefault();
     dispatch({
       type: "EDIT_FLIGHT_EVENT",
       payload: {
-        name:flightToEdit.name,
+        name: flightToEdit.name,
+        date: flightToEdit.date,
+        USTeamLead: flightToEdit.USTeamLead,
+        EUTeamLead: flightToEdit.EUTeamLead,
+        id: flightToEdit.id,
       },
     });
     dispatch({ type: "GET_FLIGHT_EVENTS" });
   };
 
   const editBtn = (e) => {
-    console.log('e.target.value:', e.target.value);
+    console.log("e.target.value:", e.target.value);
 
     dispatch({
       type: "FETCH_ONE_FLIGHT_EVENT",
@@ -95,19 +100,17 @@ function FlightEventPage() {
       </div>
       <form onSubmit={editFlightEvent}>
         <p>Edit Flight Event Form</p>
-        <input 
-          onChange={editNameChange}
-          value={flightToEdit.name || ""}></input>
-        <input 
-          onChange={editDateChange}
-          value={flightToEdit.date || ""}></input>
-        <input 
+        <input onChange={editName} value={flightToEdit.name || ""} />
+        <input onChange={editDate} value={flightToEdit.date || ""} />
+        <input
           onChange={editUSTeamLead}
-          value={flightToEdit.USTeamLead || ""}></input>
-        <input 
+          value={flightToEdit.USTeamLead || ""}
+        />
+        <input
+          value={flightToEdit.EUTeamLead || ""}
           onChange={editEUTeamLead}
-          value={flightToEdit.EUTeamLead || ""}></input>
-        <button>Submit</button>
+        />
+        <button type="submit">Submit</button>
       </form>
     </div>
   );

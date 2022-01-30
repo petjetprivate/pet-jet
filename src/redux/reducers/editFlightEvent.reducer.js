@@ -1,24 +1,19 @@
 const editFlightEvent = (state = {}, action) => {
-  console.log("editFlightEvent.reducer action:", action);
+  console.log("editFlightEvent.reducer action.payload:", action.payload);
 
   switch (action.type) {
     case "SET_ONE_FLIGHT_EVENT":
       return action.payload;
     case "EDIT_FLIGHT_EVENT":
       return action.payload;
-    // case "EDIT_DESCRIPTION":
-    //   console.log(action.payload)
-    //   return {...state, description: action.payload};
-    // case "EDIT_PHOTO_URl":
-    //   return {...state, photo_url: action.payload};
-    // case "EDIT_HAT_COLOR":
-    //   return {...state, hat_color: action.payload};
-    // case "EDIT_HAT_STYLE":
-    //   return {...state, hat_style: action.payload};
-    // case "EDIT_HAT_FABRIC":
-    //   return {...state, hat_fabric: action.payload};
-    // case "EDIT_HAT_VIBE":
-    //   return {...state, hat_vibe: action.payload};
+    case "EDIT_FLIGHT_EVENT_NAME":
+      return {...state, name: action.payload};
+    case "EDIT_FLIGHT_EVENT_DATE":
+      return {...state, date: action.payload};
+    case "EDIT_FLIGHT_EVENT_USTEAMLEAD":
+      return {...state, USTeamLead: action.payload};
+    case "EDIT_FLIGHT_EVENT_EUTEAMLEAD":
+      return {...state, EUTeamLead: action.payload};
     default:
       return state;
   }

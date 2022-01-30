@@ -15,19 +15,4 @@ router.get('/', (req, res) => {
   })
 });
 
-// router.get('/:id', (req, res) => {
-//   console.log('INSIDE ROUTER.GET:id');
-
-//   const idToGet = req.params.id;
-//   const sqlText = `SELECT * FROM "flight_event WHERE "id"=$1;`;
-  
-//   pool
-//   .query (sqlText, [idToGet])
-//   .then ((results) => res.send(results.rows[0]))
-//   .catch ((error) => {
-//     console.log('ERROR Selection one flight event:')
-//     res.sendStatus(500)
-//   })
-// })
-
 module.exports = router;
