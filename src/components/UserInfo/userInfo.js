@@ -16,9 +16,9 @@ function UserInfo(props) {
 
     const [phone, setPhone] = useState("")
 
-    const [avail_start, setStartDate] = useState("")
+    const [avail_start, setStartDate] = useState("11/11/1111")
 
-    const [avail_end, setEndDate] = useState("")
+    const [avail_end, setEndDate] = useState("11/11/1111")
 
     const [continent_origin, setContinentOrigin] = useState("")
 // Discuss with group how to approach updating pet info
@@ -29,8 +29,8 @@ const updateInfo = (e) => {
     console.log('payload', full_name, email, phone, avail_start, avail_end, continent_origin)
     dispatch({
         type: 'EDIT_USER_INFO',
-        id: user.id,
         payload: {
+            id: user.id,
             full_name,
             email,
             phone,
@@ -69,7 +69,7 @@ const updateInfo = (e) => {
                             </tr>
                             <tr>
                                 <td>{user?.full_name}</td>
-                                <td>{user?.full_name}</td>
+                                <td>{user?.email}</td>
                                 <td>{user?.phone}</td>
                                 <td>{user?.avail_start}</td>
                                 <td>{user?.avail_end}</td>
@@ -81,12 +81,12 @@ const updateInfo = (e) => {
                 <Grid >          
                     <form onSubmit={updateInfo}>
                         <div style={{ margin: 0, padding: 0 }}>
-                            <input className='input' value={full_name} onChange={(e) => setFullName(e.target.value)} placeholder='Full Name' />
-                            <input className='input' value={full_name} onChange={e => setEmail(e.target.value)} placeholder='Email' />
-                            <input className='input' value={phone} onChange={e => setPhone(e.target.value)} placeholder='Phone' />
-                            <input className='input' value={avail_start} onChange={e => setStartDate(e.target.value)} placeholder='Trip Start Date' />
-                            <input className='input' value={avail_end} onChange={e => setEndDate(e.target.value)} placeholder='Trip End Date' />
-                            <input className='input' value={continent_origin} onChange={e => setContinentOrigin(e.target.value)} placeholder='Continent of Origin' />
+                            <input className='input' value={full_name || ""} onChange={(e) => setFullName(e.target.value)} placeholder='Full Name' />
+                            <input className='input' value={email || ""} onChange={e => setEmail(e.target.value)} placeholder='Email' />
+                            <input className='input' value={phone || ""} onChange={e => setPhone(e.target.value)} placeholder='Phone' />
+                            <input className='input' value={avail_start || "11/11/1111"} onChange={e => setStartDate(e.target.value)} placeholder='Trip Start Date' />
+                            <input className='input' value={avail_end || "11/11/1111"} onChange={e => setEndDate(e.target.value)} placeholder='Trip End Date' />
+                            <input className='input' value={continent_origin || ""} onChange={e => setContinentOrigin(e.target.value)} placeholder='Continent of Origin' />
                         </div>
 
                         <div>
