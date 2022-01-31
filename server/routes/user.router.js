@@ -50,8 +50,8 @@ router.post('/logout', (req, res) => {
   res.sendStatus(200);
 });
 
-// experiencing syntax error at or near ":" 
-//can't figure it out as of yet - needs review?
+experiencing syntax error at or near ":" 
+can't figure it out as of yet - needs review?
 router.put("/:id", (req, res) => {
   let {id} = req.params;
   console.log('id',id)
