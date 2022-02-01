@@ -19,11 +19,12 @@ router.put("/:id", (req, res) => {
   console.log('EDIT oneFlightevent.router req.body:', req.body);
   
   const query = `UPDATE "flight_event"
-  SET "name"=$1, "date"=$2, "USTeamLead"=$3, "EUTeamLead"=$4
-  WHERE "id"=$5;`;
+  SET "name"=$1, "dep_date"=$2, "ret_date"=$3, "USTeamLead"=$4, "EUTeamLead"=$5
+  WHERE "id"=$6;`;
   const values = [
     req.body.name,
-    req.body.date,
+    req.body.dep_date,
+    req.body.ret_date,
     req.body.USTeamLead,
     req.body.EUTeamLead,
     req.params.id,

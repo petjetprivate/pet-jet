@@ -5,6 +5,7 @@ import userSaga from './user.saga';
 import flightEventSaga from './flight_event.saga';
 import fetchOneFlightSaga from './fetchOneFlightEvent.saga';
 import editFlightEventSaga from './editFlightEvent.saga';
+import getAllUserSaga from './getAllUser.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -21,5 +22,6 @@ export default function* rootSaga() {
     flightEventSaga(),
     editFlightEventSaga(),
     fetchOneFlightSaga(),
+    getAllUserSaga(),
   ]);
 }

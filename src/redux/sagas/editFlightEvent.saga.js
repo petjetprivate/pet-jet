@@ -13,7 +13,8 @@ function* editFlightEvent(action) {
       url: `/api/oneFlightEvent/${action.payload.id}`,
       data: {
         name: action.payload.name,
-        date: action.payload.date,
+        dep_date: action.payload.dep_date,
+        ret_date: action.payload.ret_date,
         USTeamLead: action.payload.USTeamLead,
         EUTeamLead: action.payload.EUTeamLead,
       },

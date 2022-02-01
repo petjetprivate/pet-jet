@@ -5,9 +5,13 @@ function FlightEventPage() {
   const dispatch = useDispatch();
   const flightEvents = useSelector((store) => store.setFlightEvents);
   const flightToEdit = useSelector((store) => store.editFlightEvent);
+  const passengers = useSelector((store) => store.setUser)
+
+  console.log('passengers:', passengers);
 
   useEffect(() => {
     dispatch({ type: "GET_FLIGHT_EVENTS" });
+    dispatch({ type: "GET_ALL_USER" });
   }, []);
 
   const editName = (e) => {
@@ -19,11 +23,20 @@ function FlightEventPage() {
     });
   };
 
-  const editDate = (e) => {
-    console.log("edit flight event date:", e.target.value);
+  const editDepDate = (e) => {
+    console.log("edit flight event departure date:", e.target.value);
 
     dispatch({
-      type: "EDIT_FLIGHT_EVENT_DATE",
+      type: "EDIT_FLIGHT_EVENT_DEP_DATE",
+      payload: e.target.value,
+    });
+  };
+
+  const editRetDate = (e) => {
+    console.log("edit flight event return date:", e.target.value);
+
+    dispatch({
+      type: "EDIT_FLIGHT_EVENT_RET_DATE",
       payload: e.target.value,
     });
   };
@@ -53,7 +66,8 @@ function FlightEventPage() {
       type: "EDIT_FLIGHT_EVENT",
       payload: {
         name: flightToEdit.name,
-        date: flightToEdit.date,
+        dep_date: flightToEdit.dep_date,
+        ret_date: flightToEdit.ret_date,
         USTeamLead: flightToEdit.USTeamLead,
         EUTeamLead: flightToEdit.EUTeamLead,
         id: flightToEdit.id,
@@ -69,6 +83,8 @@ function FlightEventPage() {
       type: "FETCH_ONE_FLIGHT_EVENT",
       payload: e.target.value,
     });
+
+    // dispatch({ type: "GET_ALL_USER" });
 
     // let el = document.getElementById(e.target.value);
     //   if (el.className === "hidden") {
@@ -101,7 +117,8 @@ function FlightEventPage() {
       <form onSubmit={editFlightEvent}>
         <p>Edit Flight Event Form</p>
         <input onChange={editName} value={flightToEdit.name || ""} />
-        <input onChange={editDate} value={flightToEdit.date || ""} />
+        <input onChange={editDepDate} value={flightToEdit.dep_date || ""} />
+        <input onChange={editRetDate} value={flightToEdit.ret_date || ""} />
         <input
           onChange={editUSTeamLead}
           value={flightToEdit.USTeamLead || ""}
@@ -112,6 +129,14 @@ function FlightEventPage() {
         />
         <button type="submit">Submit</button>
       </form>
+      <p>I sure hope some passengers show up here soon.</p>
+      {passengers.map((passenger) => {
+        return (
+          <ul>
+            <li>{passenger.username}</li>
+          </ul>
+        )
+      })}
     </div>
   );
 }
