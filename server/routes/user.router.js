@@ -53,17 +53,25 @@ router.post('/logout', (req, res) => {
 // experiencing syntax error at or near ":" 
 // can't figure it out as of yet - needs review?
 router.put("/:id", (req, res) => {
-  let {id} = req.params;
-  console.log('id',id)
   let query = `update "user"
-					set "full_name"='${req.body.full_name}',
-          "email"='${req.body.email}',
-          "phone_num"='${req.body.phone}',
-          "avail_start"='${req.body.avail_start}',
-          "avail_end"='${req.body.avail_end}',
-          "continent_origin"='${req.body.continent_origin}'
-					where "id" = ${id} RETURNING *`;
-  pool.query(query)
+					set "full_name"= $1,
+          "email"= $2,
+          "phone_num"= $3,
+          "avail_start"= $4,
+          "avail_end"= $5,
+          "continent_origin"= $6
+          where "id" = $7;`
+          
+          const values = [
+            req.body.full_name,
+            req.body.email,
+            req.body.phone,
+            req.body.avail_start,
+            req.body.avail_end,
+            req.body.continent_origin,
+            req.params.id
+          ]
+  pool.query(query, values)
     .then((results) => {
       res.send(results.rows);
     })

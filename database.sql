@@ -28,7 +28,7 @@ CREATE TABLE "user" (
 CREATE TABLE "flight_event" (
 	"id" serial PRIMARY KEY,
 	"name" varchar(255) NOT NULL,
-	"date" serial NOT NULL,
+	"date" DATE NOT NULL,
 	"USTeamLead" integer NOT NULL,
 	"EUTeamLead" integer NOT NULL
 );

@@ -28,8 +28,8 @@ function* editUser(action) {
       })
       console.log(response.data)
       yield put({ 
-        type: 'EDIT_USER', 
-        payload: response.data
+        type: 'FETCH_USER', 
+        // payload: response.data
       });
     } catch(err) {
       console.error('EDIT USER ERROR', err)
