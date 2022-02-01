@@ -103,7 +103,8 @@ function FlightEventPage() {
             return (
               <li key={event.id}>
                 <p>Flight Name: {event.name}</p>
-                <p>Flight Date: {event.date}</p>
+                <p>Flight Departure Date: {event.dep_date}</p>
+                <p>Flight Return Date: {event.ret_date}</p>
                 <p>NA Team Lead ID: {event.USTeamLead}</p>
                 <p>EU Team Lead ID: {event.EUTeamLead}</p>
                 <button value={event.id} onClick={editBtn}>
@@ -129,12 +130,14 @@ function FlightEventPage() {
         />
         <button type="submit">Submit</button>
       </form>
-      <p>I sure hope some passengers show up here soon.</p>
+      <p>Passengers go here:</p>
       {passengers.map((passenger) => {
         return (
+          <div key={passenger.id}>
           <ul>
             <li>{passenger.username}</li>
           </ul>
+          </div>
         )
       })}
     </div>
