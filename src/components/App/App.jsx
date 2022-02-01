@@ -22,6 +22,7 @@ import RegisterPage from '../RegisterPage/RegisterPage';
 import FlightEventPage from '../FlightEventPage/FlightEventPage';
 
 import './App.css';
+import PeoplePicker from '../PeoplePicker/PeoplePicker';
 
 function App() {
   const dispatch = useDispatch();
@@ -75,6 +76,14 @@ function App() {
             path="/flight_event"
           >
             <FlightEventPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/people_picker"
+          >
+            <PeoplePicker />
           </ProtectedRoute>
 
           <Route
