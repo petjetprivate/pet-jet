@@ -32,6 +32,10 @@ function Nav() {
               Info Page
             </Link>
 
+            <Link className="navLink" to="/flight_event">
+            Flight Event
+            </Link>
+
             <LogOutButton className="navLink" />
           </>
         )}

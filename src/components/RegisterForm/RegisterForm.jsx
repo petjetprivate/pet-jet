@@ -89,7 +89,6 @@ function RegisterForm() {
             type="admPass"
             name="admPass"
             value={admPass}
-            required
             onChange={(event) => setAdmPass(event.target.value)}
           />
         </label>
