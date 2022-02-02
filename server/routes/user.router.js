@@ -23,6 +23,7 @@ router.post('/register', (req, res, next) => {
   const continent_origin = req.body.continent_origin
   const full_name = req.body.full_name
   const sec_level = Number(req.body.sec_level)
+  
 
   const queryText = `INSERT INTO "user" (username, password, continent_origin, full_name, sec_level)
     VALUES ($1, $2, $3, $4, $5) RETURNING id`;
@@ -49,5 +50,38 @@ router.post('/logout', (req, res) => {
   req.logout();
   res.sendStatus(200);
 });
+
+// experiencing syntax error at or near ":" 
+// can't figure it out as of yet - needs review?
+router.put("/:id", (req, res) => {
+  let query = `update "user"
+					set "full_name"= $1,
+          "email"= $2,
+          "phone_num"= $3,
+          "avail_start"= $4,
+          "avail_end"= $5,
+          "continent_origin"= $6
+          where "id" = $7;`
+          
+          const values = [
+            req.body.full_name,
+            req.body.email,
+            req.body.phone,
+            req.body.avail_start,
+            req.body.avail_end,
+            req.body.continent_origin,
+            req.params.id
+          ]
+  pool.query(query, values)
+    .then((results) => {
+      res.send(results.rows);
+    })
+    .catch((error) => {
+      console.log('user PUT route error /:id', error);
+      res.sendStatus(500);
+    })
+});
+
+
 
 module.exports = router;

@@ -31,6 +31,13 @@ function Nav() {
             <Link className="navLink" to="/info">
               Info Page
             </Link>
+            <Link className="navLink" to="/userInfoPage">
+          User's Page
+            </Link>
+
+            <Link className="navLink" to="/UserInfo">
+              User Info
+            </Link>
 
             <Link className="navLink" to="/flight_event">
             Flight Event
@@ -38,6 +45,7 @@ function Nav() {
 
             <Link className="navLink" to="/people_picker">
             People Picker
+
             </Link>
 
             <LogOutButton className="navLink" />
