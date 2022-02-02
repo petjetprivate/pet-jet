@@ -25,9 +25,9 @@ function UserInfo(props) {
 
 useEffect(()=>{
     console.log('user',user)
-    dispatch({
-        type: 'FETCH_USER'
-    });
+    // dispatch({
+    //     type: 'FETCH_USER'
+    // });
     dispatch({
         type: 'SET_USER_TO_EDIT'
     });
