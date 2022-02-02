@@ -5,24 +5,30 @@ import './ZCalendar.css'
 
 function ZCalendar() {
 
-    const [month, setMonth] = useState(0)
+    const [date, setDateState] = useState(new Date())
+    // const date = new Date();
 
-    const date = new Date();
-
+    const [month, setMonthState] = useState(date.getMonth())
     // const month = date.getMonth();
 
+    // const [lastDay, setLastDayState] = useState(new Date(date.getFullYear(), date.getMonth() + month, 0).getDate())
     const lastDay = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate()
 
+
+    // const [firstDayIndex, setFirstDayIndexState] = useState(date.getDay())
     const firstDayIndex = date.getDay();
 
+    // const [lastDayIndex, setLastDayIndexState] = useState(new Date(date.getFullYear(), date.getMonth() + 1, 0).getDay())
     const lastDayIndex = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDay()
 
+    // const [prevLastDay, setPrevLastDayState] = useState(new Date(date.getFullYear(), date.getMonth(), 0).getDate())
     const prevLastDay = new Date(date.getFullYear(), date.getMonth(), 0).getDate()
 
     const nextDaysAmount = 7 - lastDayIndex - 1
 
     console.log('++++++++++++++++++++')
-    console.log(firstDayIndex)
+    console.log(date.getFullYear(), date.getMonth() + month, 0);
+    // console.log(lastDayIndex);
 
     const months = [
         "January",
@@ -38,12 +44,14 @@ function ZCalendar() {
         "November",
         "December",
     ];
+    const [days, setDaysState] = useState([])
+    // const days = []
 
-    const days = []
+    const [prevDays, setPrevDaysState] = useState([])
+    // const prevDays = []
 
-    const prevDays = []
-
-    const nextDays = []
+    const [nextDays, setNextDaysState] = useState([])
+    // const nextDays = []
 
     for(let x = firstDayIndex; x > 0; x--){
         prevDays.push(prevLastDay - x + 1)
@@ -58,21 +66,36 @@ function ZCalendar() {
     }
 
     function setPrevMonth(){
-        date.setMonth(date.getMonth() - 1)
-        console.log(date)
+        
+        console.log('THIS IS THE ORIGINAL MONTH', months[month])
+        setMonthState(month - 1),
+        date.setMonth(month - 1)
+        setDaysState([]),
+        setPrevDaysState([]),
+        setNextDaysState([]),
+        // setLastDayState(new Date(date.getFullYear(), date.getMonth() + month - 1, 0).getDate())
+        
+        console.log('THIS IS THE SUBTRACTED MONTH', months[month - 1])
     }
 
     function setNextMonth(){
-        date.setMonth(date.getMonth() + 1)
-        console.log(date)
+        console.log('THIS IS THE ORIGINAL MONTH', months[month])
+        setMonthState(month + 1),
+        date.setMonth(month + 1)
+        setDaysState([]),
+        setPrevDaysState([]),
+        setNextDaysState([]),
+        // setLastDayState(new Date(date.getFullYear(), date.getMonth() + month - 1, 0).getDate())
+        
+        console.log('THIS IS THE ADDED MONTH MONTH', months[month + 1])
     }
     
 
-    console.log("########################");
-    console.log(date);
-    console.log(month);
-    console.log(days);
-    console.log(lastDay);
+    // console.log("########################");
+    // console.log(date);
+    // console.log(month);
+    // console.log(days);
+    // console.log(lastDay);
     
     return (
         <div class="container">
@@ -80,7 +103,7 @@ function ZCalendar() {
                 <div className="month">
                     <i className="fas fa-angle-left prev" onClick={()=>setPrevMonth()}></i>
                     <div class="date">
-                        <h1>{months[date.getMonth()]}</h1>
+                        <h1>{months[month]}</h1>
                         <p>{date.toDateString()}</p>
                     </div>
                     <i className="fas fa-angle-right next" onClick={()=>setNextMonth()}></i>
@@ -103,7 +126,9 @@ function ZCalendar() {
                         if (day === new Date().getDate() && date.getMonth() === new Date().getMonth()){
                             return (<div class="today">{day}</div>)
                         }
+                        // console.log(day)
                         return (<div>{day}</div>)
+                        
                     })}
 
                     {nextDays.map(nextDate =>{
