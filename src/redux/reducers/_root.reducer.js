@@ -4,6 +4,11 @@ import user from './user.reducer';
 import userInfo from './userInfo.reducer';
 import editUser from './editUser.reducer';
 
+import setFlightEvents from './flight_event.reducer';
+import setOneFlightEvent from './setOneFlightEvent.reducer';
+import editFlightEvent from './editFlightEvent.reducer';
+import setUser from './getAllUser.reducer';
+
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
 // This is imported in index.js as rootSaga
@@ -14,7 +19,12 @@ const rootReducer = combineReducers({
   errors, // contains registrationMessage and loginMessage
   user, // will have an id and username if someone is logged in
   userInfo,
-  editUser
+  editUser,
+  setFlightEvents,
+  setOneFlightEvent,
+  editFlightEvent,
+  setUser,
+
 });
 
 export default rootReducer;

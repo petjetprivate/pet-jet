@@ -12,9 +12,9 @@ CREATE TABLE "user" (
 	"id" serial PRIMARY KEY,
 	"username" varchar(255) UNIQUE NOT NULL,
 	"password" varchar(255) NOT NULL,
-	"full_name" varchar(255) UNIQUE NOT NULL,
-	"email" varchar(255) UNIQUE NOT NULL,
-	"phone" varchar(255) UNIQUE NOT NULL,
+	"full_name" varchar(255) NOT NULL,
+	"phone_num" varchar(11) DEFAULT NULL,
+	"email" varchar(20) DEFAULT NULL,
 	"sec_level" integer NOT NULL,
 	"avail_start" DATE DEFAULT NULL,
 	"avail_end" DATE DEFAULT NULL,
@@ -28,7 +28,8 @@ CREATE TABLE "user" (
 CREATE TABLE "flight_event" (
 	"id" serial PRIMARY KEY,
 	"name" varchar(255) NOT NULL,
-	"date" DATE NOT NULL,
+	"dep_date" DATE DEFAULT NULL,
+	"ret_date" DATE DEFAULT NULL,
 	"USTeamLead" integer NOT NULL,
 	"EUTeamLead" integer NOT NULL
 );

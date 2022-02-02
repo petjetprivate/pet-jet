@@ -19,10 +19,12 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import FlightEventPage from '../FlightEventPage/FlightEventPage';
 
 import UserInfo from '../UserInfo/userInfo';
 
 import './App.css';
+import PeoplePicker from '../PeoplePicker/PeoplePicker';
 
 function App() {
   const dispatch = useDispatch();
@@ -78,13 +80,21 @@ function App() {
             <InfoPage />
           </ProtectedRoute>
 
-          {/* <ProtectedRoute
+          <ProtectedRoute
             // logged in shows InfoPage else shows LoginPage
             exact
-            path="/UserInfo"
+            path="/flight_event"
           >
-            <UserInfo />
-          </ProtectedRoute> */}
+            <FlightEventPage />
+          </ProtectedRoute>
+
+          <ProtectedRoute
+            // logged in shows InfoPage else shows LoginPage
+            exact
+            path="/people_picker"
+          >
+            <PeoplePicker />
+          </ProtectedRoute>
 
           <Route
             exact
