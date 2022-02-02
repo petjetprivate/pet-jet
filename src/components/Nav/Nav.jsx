@@ -35,6 +35,19 @@ function Nav() {
           User's Page
             </Link>
 
+            <Link className="navLink" to="/UserInfo">
+              User Info
+            </Link>
+
+            <Link className="navLink" to="/flight_event">
+            Flight Event
+            </Link>
+
+            <Link className="navLink" to="/people_picker">
+            People Picker
+
+            </Link>
+
             <LogOutButton className="navLink" />
           </>
         )}
