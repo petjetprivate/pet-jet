@@ -2,6 +2,7 @@ import { all } from 'redux-saga/effects';
 import loginSaga from './login.saga';
 import registrationSaga from './registration.saga';
 import userSaga from './user.saga';
+import updateSaga from './editUser.saga';
 import flightEventSaga from './flight_event.saga';
 import fetchOneFlightSaga from './fetchOneFlightEvent.saga';
 import editFlightEventSaga from './editFlightEvent.saga';
@@ -19,6 +20,7 @@ export default function* rootSaga() {
     loginSaga(), // login saga is now registered
     registrationSaga(),
     userSaga(),
+    updateSaga()
     flightEventSaga(),
     editFlightEventSaga(),
     fetchOneFlightSaga(),
