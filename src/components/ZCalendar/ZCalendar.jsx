@@ -16,7 +16,7 @@ function ZCalendar() {
 
 
     // const [firstDayIndex, setFirstDayIndexState] = useState(date.getDay())
-    const firstDayIndex = date.getDay();
+    const firstDayIndex = new Date(date.getFullYear(), date.getMonth(), 1).getDay()
 
     // const [lastDayIndex, setLastDayIndexState] = useState(new Date(date.getFullYear(), date.getMonth() + 1, 0).getDay())
     const lastDayIndex = new Date(date.getFullYear(), date.getMonth() + 1, 0).getDay()
@@ -27,8 +27,8 @@ function ZCalendar() {
     const nextDaysAmount = 7 - lastDayIndex - 1
 
     console.log('++++++++++++++++++++')
-    console.log(date.getFullYear(), date.getMonth() + month, 0);
-    // console.log(lastDayIndex);
+    // console.log(date.getFullYear(), date.getMonth() + month, 0);
+    console.log(firstDayIndex);
 
     const months = [
         "January",
@@ -98,7 +98,7 @@ function ZCalendar() {
     // console.log(lastDay);
     
     return (
-        <div class="container2">
+        <div class="container2" id="theCalendar">
             <div class="calendar">
                 <div className="month">
                     <i className="fas fa-angle-left prev" onClick={()=>setPrevMonth()}></i>
