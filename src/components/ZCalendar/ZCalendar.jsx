@@ -66,7 +66,7 @@ function ZCalendar() {
     }
 
     function setPrevMonth(){
-        
+
         console.log('THIS IS THE ORIGINAL MONTH', months[month])
         setMonthState(month - 1),
         date.setMonth(month - 1)
@@ -98,7 +98,7 @@ function ZCalendar() {
     // console.log(lastDay);
     
     return (
-        <div class="container">
+        <div class="container2">
             <div class="calendar">
                 <div className="month">
                     <i className="fas fa-angle-left prev" onClick={()=>setPrevMonth()}></i>
