@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 import errors from './errors.reducer';
 import user from './user.reducer';
+// import newUser from './newUser.reducer';
 import userInfo from './userInfo.reducer';
 import editUser from './editUser.reducer';
-
 import setFlightEvents from './flight_event.reducer';
 import setOneFlightEvent from './setOneFlightEvent.reducer';
 import editFlightEvent from './editFlightEvent.reducer';
@@ -18,13 +18,13 @@ import setUser from './getAllUser.reducer';
 const rootReducer = combineReducers({
   errors, // contains registrationMessage and loginMessage
   user, // will have an id and username if someone is logged in
+  // newUser,
   userInfo,
   editUser,
   setFlightEvents,
   setOneFlightEvent,
   editFlightEvent,
   setUser,
-
 });
 
 export default rootReducer;

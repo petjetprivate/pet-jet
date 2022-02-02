@@ -23,6 +23,7 @@ router.post('/register', (req, res, next) => {
   const continent_origin = req.body.continent_origin
   const full_name = req.body.full_name
   const sec_level = Number(req.body.sec_level)
+  
 
   const queryText = `INSERT INTO "user" (username, password, continent_origin, full_name, sec_level)
     VALUES ($1, $2, $3, $4, $5) RETURNING id`;
