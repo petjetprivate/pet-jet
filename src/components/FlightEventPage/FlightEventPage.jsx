@@ -73,7 +73,9 @@ function FlightEventPage() {
         id: flightToEdit.id,
       },
     });
+    dispatch({ type: "CLEAR_EDIT_FLIGHT_EVENT"})
     dispatch({ type: "GET_FLIGHT_EVENTS" });
+
   };
 
   const editBtn = (e) => {
@@ -115,16 +117,18 @@ function FlightEventPage() {
           })}
         </ul>
       </div>
-      <form onSubmit={editFlightEvent}>
+      <form onSubmit={editFlightEvent} id="flightEditForm">
         <p>Edit Flight Event Form</p>
-        <input onChange={editName} value={flightToEdit.name || ""} />
-        <input onChange={editDepDate} value={flightToEdit.dep_date || ""} />
-        <input onChange={editRetDate} value={flightToEdit.ret_date || ""} />
+        <input className="input" onChange={editName} value={flightToEdit.name || ""} />
+        <input className="input" onChange={editDepDate} value={flightToEdit.dep_date || ""} />
+        <input className="input" onChange={editRetDate} value={flightToEdit.ret_date || ""} />
         <input
+          className="input"
           onChange={editUSTeamLead}
           value={flightToEdit.USTeamLead || ""}
         />
         <input
+          className="input"
           value={flightToEdit.EUTeamLead || ""}
           onChange={editEUTeamLead}
         />

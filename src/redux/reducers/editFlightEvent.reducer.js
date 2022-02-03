@@ -16,6 +16,8 @@ const editFlightEvent = (state = {}, action) => {
       return { ...state, USTeamLead: action.payload };
     case "EDIT_FLIGHT_EVENT_EUTEAMLEAD":
       return { ...state, EUTeamLead: action.payload };
+    case "CLEAR_EDIT_FLIGHT_EVENT":
+      return {};
     default:
       return state;
   }
