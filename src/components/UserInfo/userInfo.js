@@ -6,7 +6,7 @@ import PDF from '../PDF/PdfDownload';
 
 function UserInfo(props) {
 
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const history = useHistory();
 
   const user = useSelector(store => store.user)
@@ -82,8 +82,8 @@ function UserInfo(props) {
                 </tr>
                 <tr>
                   <td>{user?.full_name}</td>
-                  <td>{user?.full_name}</td>
-                  <td>{user?.phone}</td>
+                  <td>{user?.email}</td>
+                  <td>{user?.phone_num}</td>
                   <td>{user?.avail_start}</td>
                   <td>{user?.avail_end}</td>
                   <td>{user?.continent_origin}</td>
