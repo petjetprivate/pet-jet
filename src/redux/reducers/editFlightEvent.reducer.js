@@ -1,5 +1,5 @@
 const editFlightEvent = (state = {}, action) => {
-  console.log("editFlightEvent.reducer action.payload:", action.payload);
+  // console.log("editFlightEvent.reducer action.payload:", action.payload);
 
   switch (action.type) {
     case "SET_ONE_FLIGHT_EVENT":

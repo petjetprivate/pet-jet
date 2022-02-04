@@ -1,5 +1,5 @@
 const editUser = (state = {}, action) => {
-    console.log("editUser.reducer action.payload:", action.payload);
+    // console.log("editUser.reducer action.payload:", action.payload);
   
     switch (action.type) {
       case 'SET_USER':
