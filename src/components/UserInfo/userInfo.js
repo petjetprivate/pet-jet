@@ -1,11 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { useHistory } from 'react-router';
 import { Container, Grid } from '@mui/material';
 import PDF from '../PDF/PdfDownload';
 
 function UserInfo(props) {
 
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
+  const history = useHistory();
 
   const user = useSelector(store => store.user)
 
@@ -22,12 +24,12 @@ function UserInfo(props) {
   // const [continent_origin, setContinentOrigin] = useState("")
 
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    dispatch({ type: 'FETCH_ONE_USER' });
+  //   dispatch({ type: 'FETCH_ONE_USER' });
 
 
-  }, [])
+  // }, [])
 
   // const updateInfo = (e) => {
 
