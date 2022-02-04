@@ -1,8 +1,14 @@
 const express = require('express');
+const {
+  rejectUnauthenticated,
+} = require('../modules/authentication-middleware');
+const encryptLib = require('../modules/encryption');
 const pool = require('../modules/pool');
+const userStrategy = require('../strategies/user.strategy');
+
 const router = express.Router();
 
-router.get('/:id', (req, res) => {
+router.get('/:id',rejectUnauthenticated, (req, res) => {
   const idToGet = req.params.id;
   const sqlText = `SELECT * FROM "flight_event" WHERE "id"=$1;`;
   
@@ -15,7 +21,7 @@ router.get('/:id', (req, res) => {
   })
 })
 
-router.put("/:id", (req, res) => {
+router.put("/:id", rejectUnauthenticated, (req, res) => {
   console.log('EDIT oneFlightevent.router req.body:', req.body);
   
   const query = `UPDATE "flight_event"
