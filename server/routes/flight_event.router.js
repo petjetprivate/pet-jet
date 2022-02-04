@@ -21,7 +21,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
   })
 });
 
-router.get('/:id',rejectUnauthenticated, (req, res) => {
+router.get('/:id', rejectUnauthenticated, (req, res) => {
   const idToGet = req.params.id;
   const sqlText = `SELECT * FROM "flight_event" WHERE "id"=$1;`;
   
@@ -58,7 +58,7 @@ router.put("/:id", rejectUnauthenticated, (req, res) => {
     });
 });
 
-router.delete('/:id',rejectUnauthenticated, (req, res) => {
+router.delete('/:id', rejectUnauthenticated, (req, res) => {
   const flightToDelete = req.params.id;
   const sqlText = `DELETE FROM "flight_event" WHERE "id"=$1;`;
   

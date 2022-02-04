@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import EditForm from './EditFlightForm.jsx';
 import "./FlightEventPage.css";
 
 function FlightEventPage() {
@@ -86,25 +87,34 @@ function FlightEventPage() {
       type: "FETCH_ONE_FLIGHT_EVENT",
       payload: e.target.value,
     });
-
     // dispatch({ type: "GET_ALL_USER" });
-
-    // let el = document.getElementById(e.target.value);
-    // console.log('e.target.value:*********', e.target.value);
-    // if (el.className === "hidden") {
-    //   el.className = "block";
-    // } else {
-    //   el.className = "hidden";
+    // if() {
+    //   return (
+    //     <EditForm />
+    //   )
     // }
   };
 
   const deleteFlightEvent = (id) => {
-    console.log('DELETE CLICK');
     dispatch({
       type: "DELETE_FLIGHT_EVENT",
       payload: id,
     });
     dispatch({ type: "GET_FLIGHT_EVENTS" });
+  };
+
+  const contractBox = (e) => {
+    if (e.target.checked) {
+      dispatch({
+        type: "CONTRACT_UNCHECK",
+        payload: e.target.value
+      })
+    } else {
+      dispatch({
+        type: "CONTRACT_CHECK",
+        payload: e.target.value
+      })
+    };
   };
 
   return (
@@ -136,7 +146,8 @@ function FlightEventPage() {
           })}
         </div>
       </div>
-      <div id={flightEvents.id} className="">
+      <EditForm />
+      {/* <div id={flightEvents.id} className="">
         <form onSubmit={editFlightEvent}>
           <p>Edit Flight Event Form</p>
           <label htmlFor="name">Name</label>
@@ -175,7 +186,7 @@ function FlightEventPage() {
             onChange={editEUTeamLead}
           />
           <button type="submit">Submit</button>
-        </form>
+        </form> */}
         <p>Passengers:</p>
         <div>
           <table>
@@ -209,6 +220,7 @@ function FlightEventPage() {
                     <td>
                       <label htmlFor="contract">
                         <input
+                          onClick={contractBox}
                           type="checkbox"
                           name="contract"
                           value="signed_contract"
@@ -232,7 +244,7 @@ function FlightEventPage() {
           </table>
         </div>
       </div>
-    </div>
+    // </div>
   );
 }
 
