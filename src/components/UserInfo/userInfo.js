@@ -93,23 +93,10 @@ function UserInfo(props) {
 
           </Grid>
         </div>
-        <Grid >
 
-        <button className='update-btn' onClick={updateBtn}>Update Info</button>
-          {/* <form onSubmit={updateInfo}>
-            <div style={{ margin: 0, padding: 0 }}>
-            <input className='input' value={full_name || ""} onChange={(e) => setFullName(e.target.value)} placeholder='Full Name' />
-            <input className='input' value={email || ""} onChange={e => setEmail(e.target.value)} placeholder='Email' />
-            <input className='input' value={phone || ""} onChange={e => setPhone(e.target.value)} placeholder='Phone' />
-            <input className='input' value={avail_start || "11/11/1111"} onChange={e => setStartDate(e.target.value)} placeholder='Trip Start Date' />
-            <input className='input' value={avail_end || "11/11/1111"} onChange={e => setEndDate(e.target.value)} placeholder='Trip End Date' />
-            <input className='input' value={continent_origin || ""} onChange={e => setContinentOrigin(e.target.value)} placeholder='Continent of Origin' />
-            </div>
-            <div>
-              <button className='button'>Update Information </button>
-            </div>
-          </form> */}
-        </Grid> 
+
+        <button className='button' onClick={updateBtn}>Update Info</button>
+
       </Container>
     </div>
 
