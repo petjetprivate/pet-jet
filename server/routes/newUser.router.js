@@ -49,7 +49,7 @@ router.post('/', rejectUnauthenticated, (req, res) => {
   console.log('user', req.user);
   const sqlText = `
     INSERT INTO "pet"
-      ("name", "breed", "weight", "id")
+      ("name", "breed", "weight", "owner_id")
       VALUES
       ($1, $2, $3, $4);
   `;
