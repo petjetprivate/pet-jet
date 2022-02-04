@@ -50,6 +50,11 @@ function UserInfo(props) {
 
   // }
   
+  const updateBtn  = () => {
+
+    history.push("/userInfoPage")
+
+  }
 
 
 
@@ -83,10 +88,13 @@ function UserInfo(props) {
                 </tr>
               </tbody>
             </table>
+
           </Grid>
         </div>
-        {/* <Grid >
-          <form onSubmit={updateInfo}>
+        <Grid >
+
+        <button className='update-btn' onClick={updateBtn}>Update Info</button>
+          {/* <form onSubmit={updateInfo}>
             <div style={{ margin: 0, padding: 0 }}>
             <input className='input' value={full_name || ""} onChange={(e) => setFullName(e.target.value)} placeholder='Full Name' />
             <input className='input' value={email || ""} onChange={e => setEmail(e.target.value)} placeholder='Email' />
@@ -98,8 +106,8 @@ function UserInfo(props) {
             <div>
               <button className='button'>Update Information </button>
             </div>
-          </form>
-        </Grid> */}
+          </form> */}
+        </Grid> 
       </Container>
     </div>
 
