@@ -58,4 +58,16 @@ router.put("/:id", rejectUnauthenticated, (req, res) => {
     });
 });
 
+router.delete('/:id',rejectUnauthenticated, (req, res) => {
+  const flightToDelete = req.params.id;
+  const sqlText = `DELETE FROM "flight_event" WHERE "id"=$1;`;
+  
+  pool
+  .query (sqlText, [flightToDelete])
+  .then(() => res.sendStatus(202))
+  .catch((error) => {
+    console.log("DELETE server error:", error);
+  });
+})
+
 module.exports = router;
