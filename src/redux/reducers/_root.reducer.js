@@ -8,6 +8,7 @@ import setFlightEvents from './flight_event.reducer';
 import setOneFlightEvent from './setOneFlightEvent.reducer';
 import editFlightEvent from './editFlightEvent.reducer';
 import setUser from './getAllUser.reducer';
+import selectedDate from './admin.selectedDate.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -25,6 +26,7 @@ const rootReducer = combineReducers({
   setOneFlightEvent,
   editFlightEvent,
   setUser,
+  selectedDate,
 });
 
 export default rootReducer;

@@ -4,9 +4,12 @@ import ZCalendar from "../ZCalendar/ZCalendar";
 import './PeoplePicker.css'
 
 function PeoplePicker() {
-    
+const selectedDate = useSelector((store) => store.selectedDate);
     return (
-        <div class="peoplePickerControl">
+        <div className="peoplePickerControl">
+            <h1>{'year:',selectedDate.year}</h1>
+            <h1>{'month:',selectedDate.month}</h1>
+            <h1>{'day:',selectedDate.day}</h1>
         <ZCalendar/>
         </div>
     )
