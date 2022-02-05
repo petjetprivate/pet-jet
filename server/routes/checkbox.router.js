@@ -9,7 +9,7 @@ const userStrategy = require("../strategies/user.strategy");
 const router = express.Router();
 
 router.put("/:id", rejectUnauthenticated, (req, res) => {
-  console.log("EDIT checkbox.router req.body:", req.body);
+  console.log("EDIT checkbox.router req.body.signed_contract:", req.body.signed_contract);
   console.log("req.params.id:", req.params.id);
 
   if (req.body.signed_contract === false) {
@@ -29,7 +29,7 @@ router.put("/:id", rejectUnauthenticated, (req, res) => {
   UPDATE "user"
   SET "signed_contract"=$1
   WHERE "id"=$2;`;
-    const values = [false, req.user.id]
+    const values = [false, req.params.id]
     pool
     .query(query, values)
     .then(() => res.sendStatus(202))

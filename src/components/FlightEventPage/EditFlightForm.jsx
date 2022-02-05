@@ -5,6 +5,7 @@ function EditForm() {
   const dispatch = useDispatch();
   const flightEvents = useSelector((store) => store.setFlightEvents);
   const flightToEdit = useSelector((store) => store.editFlightEvent);
+  const checkboxes = useSelector((store) => store.checkboxes)
 
   const editName = (e) => {
     console.log("edit flight event name:", e.target.value);

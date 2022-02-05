@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import EditForm from './EditFlightForm.jsx';
+import UserTable from "./UserTable.jsx";
 import "./FlightEventPage.css";
 
 function FlightEventPage() {
@@ -107,14 +108,15 @@ function FlightEventPage() {
 
   const contractBox = (e) => {
     console.log('e.target.value:', e.target.value );
+    console.log('e.target.checked:', e.target.checked );
     if (e.target.checked) {
       dispatch({
-        type: "CONTRACT_UNCHECK",
+        type: "CONTRACT_CHECK",
         payload: e.target.value
       })
-    } else {
+    } else if (!e.target.checked) {
       dispatch({
-        type: "CONTRACT_CHECK",
+        type: "CONTRACT_UNCHECK",
         payload: e.target.value
       })
     };
@@ -150,6 +152,7 @@ function FlightEventPage() {
         </div>
       </div>
       <EditForm />
+      <UserTable />
       {/* <div id={flightEvents.id} className="">
         <form onSubmit={editFlightEvent}>
           <p>Edit Flight Event Form</p>
@@ -190,7 +193,7 @@ function FlightEventPage() {
           />
           <button type="submit">Submit</button>
         </form> */}
-        <p>Passengers:</p>
+        {/* <p>Passengers:</p>
         <div>
           <table>
             <thead>
@@ -248,8 +251,8 @@ function FlightEventPage() {
             </tbody>
           </table>
         </div>
-      </div>
-    // </div>
+      </div> */}
+     </div>
   );
 }
 
