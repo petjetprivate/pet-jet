@@ -37,7 +37,8 @@ router.get('/:id', rejectUnauthenticated, (req, res) => {
 router.put("/:id", rejectUnauthenticated, (req, res) => {
   console.log('EDIT oneFlightevent.router req.body:', req.body);
   
-  const query = `UPDATE "flight_event"
+  const query = `
+  UPDATE "flight_event"
   SET "name"=$1, "dep_date"=$2, "ret_date"=$3, "USTeamLead"=$4, "EUTeamLead"=$5
   WHERE "id"=$6;`;
   const values = [

@@ -12,6 +12,8 @@ const userRouter = require('./routes/user.router');
 const newUserRouter = require('./routes/newUser.router');
 const flightEventRouter = require('./routes/flight_event.router');
 const getAllUserRouter = require('./routes/getAllUser.router');
+const checkboxRouter = require('./routes/checkbox.router');
+
 // Body parser middleware
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -28,6 +30,7 @@ app.use('/api/user', userRouter);
 app.use('/api/newUser', newUserRouter);
 app.use('/api/flight_event', flightEventRouter);
 app.use('/api/getAllUser', getAllUserRouter);
+app.use('/api/checkbox', checkboxRouter);
 
 // Serve static files
 app.use(express.static('build'));

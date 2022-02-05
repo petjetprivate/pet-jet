@@ -5,7 +5,7 @@ function* checkContractBox(action) {
   try {
     const response = yield axios({
       method: "PUT",
-      url: `/api/user/${action.payload.id}`,
+      url: `/api/checkbox/${action.payload.id}`,
       data: {
         signed_contract: true
       },
@@ -19,10 +19,12 @@ function* checkContractBox(action) {
 };
 
 function* uncheckContractBox(action) {
+  console.log('uncheckcontractbox:', action.payload);
+  
   try {
     const response = yield axios({
       method: "PUT",
-      url: `/api/user/${action.payload.id}`,
+      url: `/api/checkbox/${action.payload}`,
       data: {
         signed_contract: false
       },
