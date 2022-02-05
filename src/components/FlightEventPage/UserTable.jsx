@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 function UserTable() {
@@ -6,10 +6,11 @@ function UserTable() {
   const flightEvents = useSelector((store) => store.setFlightEvents);
   const flightToEdit = useSelector((store) => store.editFlightEvent);
   const passengers = useSelector((store) => store.setUser);
+  const [contract, setContract] = useState("")
 
-  // useEffect(() => {
-  //   dispatch({ type: "GET_ALL_USER" });
-  // }, []);
+  useEffect(() => {
+    dispatch({ type: "GET_ALL_USER" });
+  }, []);
 
   const contractBox = (e) => {
     console.log("e.target.value:", e.target.value);
@@ -66,8 +67,10 @@ function UserTable() {
                 <td>
                   <label htmlFor="contract">
                     <input
+                      checked={passenger.signed_contract}
+                      autoComplete="off"
                       id={passenger.id}
-                      onClick={contractBox}
+                      onChange={contractBox}
                       type="checkbox"
                       name="contract"
                       value={passenger.signed_contract}
