@@ -10,14 +10,14 @@ const router = express.Router();
 
 router.put("/:id", rejectUnauthenticated, (req, res) => {
   console.log("EDIT checkbox.router req.body:", req.body);
-  console.log("req.body:", req.body);
+  console.log("req.params.id:", req.params.id);
 
   if (req.body.signed_contract === false) {
     const query = `
   UPDATE "user"
   SET "signed_contract"=$1
   WHERE "id"=$2;`;
-    const values = [true, req.user.id]
+    const values = [true, req.params.id]
     pool
     .query(query, values)
     .then(() => res.sendStatus(202))
