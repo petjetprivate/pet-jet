@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 function UserTable() {
@@ -6,7 +6,6 @@ function UserTable() {
   const flightEvents = useSelector((store) => store.setFlightEvents);
   const flightToEdit = useSelector((store) => store.editFlightEvent);
   const passengers = useSelector((store) => store.setUser);
-  const [contract, setContract] = useState("")
 
   useEffect(() => {
     dispatch({ type: "GET_ALL_USER" });
@@ -33,6 +32,39 @@ function UserTable() {
       });
     }
   };
+
+  const paidBox = (e) => {
+    console.log("e.target.value:", e.target.value);
+    console.log("e.target.checked:", e.target.checked);
+    if (!e.target.checked) {
+      dispatch({
+        type: "PAID_UNCHECK",
+        payload: {
+          paid: e.target.value,
+          id: e.target.id
+        }
+      });
+    } else if (e.target.checked) {
+      dispatch({
+        type: "PAID_CHECK",
+        payload: {
+          paid: e.target.value,
+          id: e.target.id
+        }
+      });
+    }
+  };
+
+  const covidBox = (e) => {
+    console.log('covidBox:', e.target.value);
+    dispatch({
+      type: "COVID_CHECK",
+      payload: {
+        covid_free: e.target.value,
+        id: e.target.id
+      }
+    })
+  }
 
   return (
     <div>
@@ -78,18 +110,30 @@ function UserTable() {
                   </label>
                 </td>
                 <td>
+                <label htmlFor="paid">
                   <input
+                    checked={passenger.paid}
+                    autoComplete="off"
+                    id={passenger.id}
+                    onChange={paidBox}
                     type="checkbox"
                     name="paid"
-                    // value="paid"
+                    value={passenger.paid}
                   />
+                  </label>
                 </td>
                 <td>
+                  <label htmlFor="covid">
                   <input
+                    checked={passenger.covid_free}
+                    autoComplete="off"
+                    id={passenger.id}
+                    onChange={covidBox}
                     type="checkbox"
-                    name="covid_free"
-                    // value="covid_free"
+                    name="covid"
+                    value={passenger.covid_free}
                   />
+                  </label>
                 </td>
               </tr>
             );

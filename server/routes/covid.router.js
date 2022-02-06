@@ -9,13 +9,13 @@ const userStrategy = require("../strategies/user.strategy");
 const router = express.Router();
 
   router.put("/:id", rejectUnauthenticated, (req, res) => {
-    console.log("EDIT checkbox.router req.body.signed_contract:", req.body.signed_contract);
+    console.log("EDIT covid.router req.body.covid_free:", req.body.covid_free);
     console.log("req.params.id:", req.params.id);
   
-    if (req.body.signed_contract === false) {
+    if (req.body.covid_free === false) {
       const query = `
     UPDATE "user"
-    SET "signed_contract"=$1
+    SET "covid_free"=$1
     WHERE "id"=$2;`;
       const values = [true, req.params.id]
       pool
@@ -27,7 +27,7 @@ const router = express.Router();
     } else {
       const query = `
     UPDATE "user"
-    SET "signed_contract"=$1
+    SET "covid_free"=$1
     WHERE "id"=$2;`;
       const values = [false, req.params.id]
       pool

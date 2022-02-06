@@ -10,7 +10,7 @@ const checkbox = (state = {}, action) => {
       return { ...state, name: action.payload };
     case "EDIT_PAID":
       return { ...state, date: action.payload };
-    case "EDIT_CONTINENT":
+    case "EDIT_COVID":
       return { ...state, date: action.payload };
     default:
       return state;

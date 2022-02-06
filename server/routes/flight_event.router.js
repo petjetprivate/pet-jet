@@ -13,7 +13,7 @@ router.get('/', rejectUnauthenticated, (req, res) => {
   
 
   pool
-  .query (`SELECT * FROM "flight_event";`)
+  .query (`SELECT * FROM "flight_event" ORDER BY "dep_date" ASC;`)
   .then ((results) => res.send(results.rows))
   .catch ((error) => {
     console.log('ERROR SELECTING ALL FROM "flight_event"')
