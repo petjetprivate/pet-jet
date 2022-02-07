@@ -19,16 +19,16 @@ function UserTable() {
         type: "CONTRACT_UNCHECK",
         payload: {
           signed_contract: e.target.value,
-          id: e.target.id
-        }
+          id: e.target.id,
+        },
       });
     } else if (e.target.checked) {
       dispatch({
         type: "CONTRACT_CHECK",
         payload: {
           signed_contract: e.target.value,
-          id: e.target.id
-        }
+          id: e.target.id,
+        },
       });
     }
   };
@@ -41,30 +41,43 @@ function UserTable() {
         type: "PAID_UNCHECK",
         payload: {
           paid: e.target.value,
-          id: e.target.id
-        }
+          id: e.target.id,
+        },
       });
     } else if (e.target.checked) {
       dispatch({
         type: "PAID_CHECK",
         payload: {
           paid: e.target.value,
-          id: e.target.id
-        }
+          id: e.target.id,
+        },
       });
     }
   };
 
   const covidBox = (e) => {
-    console.log('covidBox:', e.target.value);
-    dispatch({
-      type: "COVID_CHECK",
-      payload: {
-        covid_free: !(e.target.value),
-        id: e.target.id
-      }
-    })
-  }
+    console.log("covidBox:", e.target.value);
+    console.log(typeof e.target.value);
+    // const covidReady = e.target.value;
+
+    if (e.target.checked) {
+      dispatch({
+        type: "COVID_CHECK",
+        payload: {
+          covid_free: false,
+          id: e.target.id,
+        },
+      });
+    } else {
+      dispatch({
+        type: "COVID_CHECK",
+        payload: {
+          covid_free: true,
+          id: e.target.id,
+        },
+      });
+    }
+  };
 
   return (
     <div>
@@ -110,29 +123,29 @@ function UserTable() {
                   </label>
                 </td>
                 <td>
-                <label htmlFor="paid">
-                  <input
-                    checked={passenger.paid}
-                    autoComplete="off"
-                    id={passenger.id}
-                    onChange={paidBox}
-                    type="checkbox"
-                    name="paid"
-                    value={passenger.paid}
-                  />
+                  <label htmlFor="paid">
+                    <input
+                      checked={passenger.paid}
+                      autoComplete="off"
+                      id={passenger.id}
+                      onChange={paidBox}
+                      type="checkbox"
+                      name="paid"
+                      value={passenger.paid}
+                    />
                   </label>
                 </td>
                 <td>
                   <label htmlFor="covid">
-                  <input
-                    checked={passenger.covid_free}
-                    autoComplete="off"
-                    id={passenger.id}
-                    onChange={covidBox}
-                    type="checkbox"
-                    name="covid"
-                    value={passenger.covid_free}
-                  />
+                    <input
+                      checked={passenger.covid_free}
+                      autoComplete="off"
+                      id={passenger.id}
+                      onChange={covidBox}
+                      type="checkbox"
+                      name="covid"
+                      value={passenger.covid_free}
+                    />
                   </label>
                 </td>
               </tr>
