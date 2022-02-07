@@ -1,5 +1,5 @@
 const editFlightEvent = (state = {}, action) => {
-  console.log("editFlightEvent.reducer action.payload:", action.payload);
+  // console.log("editFlightEvent.reducer action.payload:", action.payload);
 
   switch (action.type) {
     case "SET_ONE_FLIGHT_EVENT":
@@ -16,6 +16,8 @@ const editFlightEvent = (state = {}, action) => {
       return { ...state, USTeamLead: action.payload };
     case "EDIT_FLIGHT_EVENT_EUTEAMLEAD":
       return { ...state, EUTeamLead: action.payload };
+    case "CLEAR_EDIT_FLIGHT_EVENT":
+      return {};
     default:
       return state;
   }

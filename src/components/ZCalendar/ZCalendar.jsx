@@ -5,6 +5,7 @@ import './ZCalendar.css'
 
 function ZCalendar() {
 
+    const dispatch = useDispatch();
     const [date, setDateState] = useState(new Date())
     // const date = new Date();
 
@@ -26,9 +27,10 @@ function ZCalendar() {
 
     const nextDaysAmount = 7 - lastDayIndex - 1
 
-    console.log('++++++++++++++++++++')
+
+    // console.log('++++++++++++++++++++')
     // console.log(date.getFullYear(), date.getMonth() + month, 0);
-    console.log(firstDayIndex);
+    // console.log(firstDayIndex);
 
     const months = [
         "January",
@@ -53,6 +55,10 @@ function ZCalendar() {
     const [nextDays, setNextDaysState] = useState([])
     // const nextDays = []
 
+    // setDaysState([]);
+    // setPrevDaysState([]);
+    // setNextDaysState([]);
+
     for(let x = firstDayIndex; x > 0; x--){
         prevDays.push(prevLastDay - x + 1)
     }
@@ -65,29 +71,66 @@ function ZCalendar() {
         nextDays.push(j)
     }
 
-    function setPrevMonth(){
 
-        console.log('THIS IS THE ORIGINAL MONTH', months[month])
-        setMonthState(month - 1),
-        date.setMonth(month - 1)
-        setDaysState([]),
-        setPrevDaysState([]),
-        setNextDaysState([]),
+
+    function setPrevMonth(){
+        // console.log('THIS IS THE ORIGINAL MONTH', months[month])
+        if (date.getMonth() === 0){
+            console.log('You are in january!!!!');
+            setMonthState(11);
+            date.setFullYear(date.getFullYear() - 1);
+            date.setMonth(11);
+            setDaysState([]);
+            setPrevDaysState([]);
+            setNextDaysState([]);
+        }else{
+            setMonthState(month - 1);
+            date.setMonth(month - 1);
+            setDaysState([]);
+            setPrevDaysState([]);
+            setNextDaysState([]);
+        }
         // setLastDayState(new Date(date.getFullYear(), date.getMonth() + month - 1, 0).getDate())
         
-        console.log('THIS IS THE SUBTRACTED MONTH', months[month - 1])
+        // console.log('THIS IS THE SUBTRACTED MONTH', months[month - 1])
     }
 
     function setNextMonth(){
-        console.log('THIS IS THE ORIGINAL MONTH', months[month])
-        setMonthState(month + 1),
-        date.setMonth(month + 1)
-        setDaysState([]),
-        setPrevDaysState([]),
-        setNextDaysState([]),
+        // console.log('THIS IS THE ORIGINAL MONTH', months[month]);
+        if(date.getMonth() === 11){
+            console.log('You are in december!!!!');
+            setMonthState(0);
+            date.setFullYear(date.getFullYear() + 1);
+            date.setMonth(0);
+            setDaysState([]);
+            setPrevDaysState([]);
+            setNextDaysState([]);
+        } else {
+        setMonthState(month + 1);
+        date.setMonth(month + 1);
+        setDaysState([]);
+        setPrevDaysState([]);
+        setNextDaysState([]);
+        }
         // setLastDayState(new Date(date.getFullYear(), date.getMonth() + month - 1, 0).getDate())
         
-        console.log('THIS IS THE ADDED MONTH MONTH', months[month + 1])
+        // console.log('THIS IS THE ADDED MONTH MONTH', months[month + 1])
+    }
+
+
+    function selectDay(day){
+        console.log(date.getFullYear(), date.getMonth(), day);
+        setDaysState([]);
+        setPrevDaysState([]);
+        setNextDaysState([]);
+        dispatch({
+            type: 'SET_SELECTED_DATE',
+            payload: {
+                year: date.getFullYear(),
+                month: date.getMonth(),
+                day: day
+            }
+        });
     }
     
 
@@ -96,13 +139,15 @@ function ZCalendar() {
     // console.log(month);
     // console.log(days);
     // console.log(lastDay);
+
+    
     
     return (
-        <div class="container2" id="theCalendar">
-            <div class="calendar">
+        <div className="container2" id="theCalendar">
+            <div className="calendar">
                 <div className="month">
                     <i className="fas fa-angle-left prev" onClick={()=>setPrevMonth()}></i>
-                    <div class="date">
+                    <div className="date">
                         <h1>{months[month]}</h1>
                         <p>{date.toDateString()}</p>
                     </div>
@@ -117,22 +162,22 @@ function ZCalendar() {
                     <div>Fri</div>
                     <div>Sat</div>
                 </div>
-                <div class="days">
+                <div className="days">
                     {prevDays.map(prevDate =>{
-                        return (<div class="prev-date">{prevDate}</div>)
+                        return (<div className="prev-date" onClick={()=>setPrevMonth()} key={prevDate}>{prevDate}</div>)
                     })}
 
                     {days.map(day =>{
-                        if (day === new Date().getDate() && date.getMonth() === new Date().getMonth()){
-                            return (<div class="today">{day}</div>)
+                        if (day === new Date().getDate() && date.getMonth() === new Date().getMonth() && date.getFullYear() === new Date().getFullYear()){
+                            return (<div className="today" onClick={()=>selectDay(day)} key={day}>{day}</div>)
                         }
                         // console.log(day)
-                        return (<div>{day}</div>)
+                        return (<div onClick={()=>selectDay(day)} key={day}>{day}</div>)
                         
                     })}
 
                     {nextDays.map(nextDate =>{
-                        return (<div class="next-date">{nextDate}</div>)
+                        return (<div className="next-date" onClick={()=>setNextMonth()} key={nextDate}>{nextDate}</div>)
                     })}
                 </div>
             </div>

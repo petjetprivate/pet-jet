@@ -1,4 +1,4 @@
-/* * {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -7,7 +7,7 @@
 
 html{
     font-size: 62.5%;
-} */
+}
 
 .container2{
     width:100%;
@@ -24,6 +24,8 @@ html{
     height: 52rem;
     background-color: #222227;
     box-shadow: 0 .5rem 3rem rgba(0, 0, 0, 0.4);
+    border-radius: 5px;
+    overflow: hidden;
 }
 
 .month{
@@ -35,7 +37,7 @@ html{
     align-items: center;
     padding:0 2rem;
     text-align: center;
-    text-shadow: 0 .3rem .5rem rgba(0, 0, 0, 0.5)
+    text-shadow: 0 .3rem .5rem rgba(0, 0, 0, 0.5);
 }
 
 .month i{
