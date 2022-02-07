@@ -78,12 +78,14 @@ function* uncheckPaidBox(action) {
 }
 
 function* covidBox(action) {
+  console.log('checkbox.saga covidBox action.payload.covid_free:', action.payload.covid_free);
+  
   try {
     const response = yield axios({
       method: "PUT",
       url: `/api/covid/${action.payload.id}`,
       data: {
-        covid_free: `${action.payload.covid_free}`
+        covid_free: action.payload.covid_free
       }
     })
     yield put({

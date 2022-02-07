@@ -60,7 +60,7 @@ function UserTable() {
     dispatch({
       type: "COVID_CHECK",
       payload: {
-        covid_free: e.target.value,
+        covid_free: !(e.target.value),
         id: e.target.id
       }
     })
