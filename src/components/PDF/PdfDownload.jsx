@@ -9,15 +9,16 @@ function usefulInfo() {
 
     return (
 
-        <div>
+        <div className='pdf'>
             <Container>
-                <Grid>
+                <h4>Important Documents</h4>
+                <Grid className='pdf-Doc'>
 
                     <a href="../pdf/agreement.pdf" download>
                         Download Charter Agreement📮</a>
                 </Grid>
 
-                <Grid>
+                <Grid className='pdf-Doc'>
                     <a href="../pdf/sample.pdf" download>
                         Download Sample Itinerary📮</a>
                 </Grid>
