@@ -39,22 +39,6 @@ function FlightEventPage() {
     dispatch({ type: "GET_FLIGHT_EVENTS" });
   };
 
-  const contractBox = (e) => {
-    console.log("e.target.value:", e.target.value);
-    console.log("e.target.checked:", e.target.checked);
-    if (e.target.checked) {
-      dispatch({
-        type: "CONTRACT_CHECK",
-        payload: e.target.value,
-      });
-    } else if (!e.target.checked) {
-      dispatch({
-        type: "CONTRACT_UNCHECK",
-        payload: e.target.value,
-      });
-    }
-  };
-
   return (
     <div className="fixTableHead">
       <div>
