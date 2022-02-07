@@ -1,5 +1,6 @@
 import React, { useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
+import './UserInfoPage.css'; 
 
 
 
@@ -57,6 +58,31 @@ const handleAddUserInfoSubmit = (event) => {
 
   return(
     <><div>
+    <table>
+      <tbody>
+        <tr>
+          <th>Full Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Trip Start Date</th>
+          <th>Trip End Date </th>
+          <th>Continent of Origin </th>
+        </tr>
+        <tr>
+          <td>{user?.full_name}</td>
+          <td>{user?.email}</td>
+          <td>{user?.phone_num}</td>
+          <td>{user?.avail_start}</td>
+          <td>{user?.avail_end}</td>
+          <td>{user?.continent_origin}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+    
+    
+    
+    <div>
         <h2>Add User's Information</h2>
         <form onSubmit={(e)=>handleAddUserInfoSubmit(e)}>
         <input
@@ -110,6 +136,24 @@ const handleAddUserInfoSubmit = (event) => {
         <button type="submit">Add</button>
       </form>
     </div>
+    {/* <div>
+    <table>
+      <tbody>
+        <tr>
+          <th>Pet's Name</th>
+          <th>Breed</th>
+          <th>Weight</th>
+        </tr>
+        <tr>
+          <td>{user?.name}</td>
+          <td>{user?.breed}</td>
+          <td>{user?.weight}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+     */}
+    
         <div>
         <h2>Add Pet's Information</h2>
         <form onSubmit={(e)=>handleAddPetSubmit(e)}>
@@ -140,7 +184,7 @@ const handleAddUserInfoSubmit = (event) => {
         <button type="submit">Add</button>
       </form>
     </div>
-    </>
+        </>
   )
   
 }
