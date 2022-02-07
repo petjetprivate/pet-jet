@@ -5,10 +5,10 @@ function EditForm() {
   const dispatch = useDispatch();
   const flightEvents = useSelector((store) => store.setFlightEvents);
   const flightToEdit = useSelector((store) => store.editFlightEvent);
-  const checkboxes = useSelector((store) => store.checkboxes)
+  const passengers = useSelector((store) => store.setUser);
 
   const editName = (e) => {
-    console.log("edit flight event name:", e.target.value);
+    // console.log("edit flight event name:", e.target.value);
 
     dispatch({
       type: "EDIT_FLIGHT_EVENT_NAME",
@@ -17,7 +17,7 @@ function EditForm() {
   };
 
   const editDepDate = (e) => {
-    console.log("edit flight event departure date:", e.target.value);
+    // console.log("edit flight event departure date:", e.target.value);
 
     dispatch({
       type: "EDIT_FLIGHT_EVENT_DEP_DATE",
@@ -26,7 +26,7 @@ function EditForm() {
   };
 
   const editRetDate = (e) => {
-    console.log("edit flight event return date:", e.target.value);
+    // console.log("edit flight event return date:", e.target.value);
 
     dispatch({
       type: "EDIT_FLIGHT_EVENT_RET_DATE",
@@ -35,7 +35,7 @@ function EditForm() {
   };
 
   const editUSTeamLead = (e) => {
-    console.log("edit flight event usteamlead:", e.target.value);
+    // console.log("edit flight event usteamlead:", e.target.value);
 
     dispatch({
       type: "EDIT_FLIGHT_EVENT_USTEAMLEAD",
@@ -44,7 +44,7 @@ function EditForm() {
   };
 
   const editEUTeamLead = (e) => {
-    console.log("edit flight event euteamlead:", e.target.value);
+    // console.log("edit flight event euteamlead:", e.target.value);
 
     dispatch({
       type: "EDIT_FLIGHT_EVENT_EUTEAMLEAD",
@@ -71,7 +71,15 @@ function EditForm() {
   };
 
 return (
-<div id={flightEvents.id} className="">
+<div id={flightToEdit.id} className="">
+  <ul>
+  {passengers.map((flyer) => {
+    if (flyer.flight_event_id === flightToEdit.id)
+    return (
+      <li>{flyer.full_name}</li>
+    )
+  })}
+  </ul>
         <form onSubmit={editFlightEvent}>
           <p>Edit Flight Event Form</p>
           <label htmlFor="name">Name</label>

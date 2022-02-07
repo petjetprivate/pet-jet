@@ -12,8 +12,8 @@ function UserTable() {
   }, []);
 
   const contractBox = (e) => {
-    console.log("e.target.value:", e.target.value);
-    console.log("e.target.checked:", e.target.checked);
+    // console.log("e.target.value:", e.target.value);
+    // console.log("e.target.checked:", e.target.checked);
     if (!e.target.checked) {
       dispatch({
         type: "CONTRACT_UNCHECK",
@@ -34,8 +34,8 @@ function UserTable() {
   };
 
   const paidBox = (e) => {
-    console.log("e.target.value:", e.target.value);
-    console.log("e.target.checked:", e.target.checked);
+    // console.log("e.target.value:", e.target.value);
+    // console.log("e.target.checked:", e.target.checked);
     if (!e.target.checked) {
       dispatch({
         type: "PAID_UNCHECK",
@@ -56,8 +56,8 @@ function UserTable() {
   };
 
   const covidBox = (e) => {
-    console.log("covidBox:", e.target.value);
-    console.log(typeof e.target.value);
+    // console.log("covidBox:", e.target.value);
+    // console.log(typeof e.target.value);
     // const covidReady = e.target.value;
 
     if (e.target.checked) {

@@ -21,7 +21,7 @@ function FlightEventPage() {
   }, []);
 
   const editBtn = (e) => {
-    console.log("e.target.value:", e.target.value);
+    // console.log("e.target.value:", e.target.value);
 
     setToggle(!toggle);
 

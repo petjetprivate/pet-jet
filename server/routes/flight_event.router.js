@@ -23,10 +23,10 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 
 router.get('/:id', rejectUnauthenticated, (req, res) => {
   const idToGet = req.params.id;
-  const sqlText = `SELECT * FROM "flight_event"
-  JOIN "user"
-  ON "user"."flight_event_id"="flight_event"."id"
-  WHERE "flight_event"."id"=$1;`;
+  const sqlText = `
+  SELECT * FROM "flight_event"
+  WHERE "flight_event"."id"=$1;
+  `;
   
   pool
   .query (sqlText, [idToGet])
