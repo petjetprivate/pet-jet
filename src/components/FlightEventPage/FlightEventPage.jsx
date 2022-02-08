@@ -57,7 +57,7 @@ function FlightEventPage() {
                   <p>
                     NA Team Lead ID:{" "}
                     {passengers.map((lead) => {
-                      if (lead.id === flightToEdit.USTeamLead) {
+                      if (lead.id === event.USTeamLead) {
                         return `${lead.full_name}`;
                       }
                     })}
@@ -65,7 +65,7 @@ function FlightEventPage() {
                   <p>
                     EU Team Lead ID:{" "}
                     {passengers.map((lead) => {
-                      if (lead.id === flightToEdit.EUTeamLead) {
+                      if (lead.id === event.EUTeamLead) {
                         return `${lead.full_name}`;
                       }
                     })}
