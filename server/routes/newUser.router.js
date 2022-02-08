@@ -43,4 +43,35 @@ router.put('/:id', rejectUnauthenticated, (req, res) => {
 });
 
 
+router.post('/', rejectUnauthenticated, (req, res) => {
+  console.log('/pet POST route');
+  console.log(req.body);
+  console.log('user', req.user);
+  const sqlText = `
+    INSERT INTO "pet"
+      ("name", "breed", "weight", "owner_id")
+      VALUES
+      ($1, $2, $3, $4);
+  `;
+  console.log('body',req.body)
+  const sqlValues = [
+    req.body.name,
+    req.body.breed,
+    req.body.weight,
+    req.user.id,
+  ];
+  pool.query(sqlText, sqlValues)
+    .then((dbRes) => {
+      res.sendStatus(200)
+    })
+    .catch((dbErr) => {
+      console.error(dbErr);
+      res.sendStatus(500);
+    });
+});
+
+
+
+
+
 module.exports = router;
