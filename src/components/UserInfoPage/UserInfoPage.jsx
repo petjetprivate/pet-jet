@@ -1,5 +1,6 @@
 import React, { useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
+import './UserInfoPage.css'; 
 
 
 
@@ -7,15 +8,18 @@ import { useDispatch, useSelector } from "react-redux";
 
 const UserInfoPage = () => {
   const user = useSelector((store) => store.user);
-  const [full_name, setName] = useState("");
+  const [full_name, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [phone_num, setPhone_Num] = useState("");
   const [continent_origin, setContinent_origin] = useState("");
   const [avail_start, setAvail_start] = useState("11/11/1111");
   const [avail_end, setAvail_end] = useState("");
-  const [petWeight, setPetWeight] = useState("");
+  const [name, setName] = useState("");
+  const [breed, setBreed] = useState("");
+  const [weight, setWeight] = useState("");
   const dispatch = useDispatch();
   const userId = user.id;
+  const ownerId = user.id;
 
   console.log('new_user*************', user);
 
@@ -36,10 +40,49 @@ const handleAddUserInfoSubmit = (event) => {
     })
   }
 
+  const handleAddPetSubmit = (event) => {
+    event.preventDefault();
+    console.log('click **********');
+      dispatch({
+        type:'ADD_PET_INFO',
+        payload:{
+        ownerId,
+        name,
+        breed,
+        weight,
+       }
+      })
+    }
+
 
 
   return(
     <><div>
+    <table>
+      <tbody>
+        <tr>
+          <th>Full Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Trip Start Date</th>
+          <th>Trip End Date </th>
+          <th>Continent of Origin </th>
+        </tr>
+        <tr>
+          <td>{user?.full_name}</td>
+          <td>{user?.email}</td>
+          <td>{user?.phone_num}</td>
+          <td>{user?.avail_start}</td>
+          <td>{user?.avail_end}</td>
+          <td>{user?.continent_origin}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+    
+    
+    
+    <div>
         <h2>Add User's Information</h2>
         <form onSubmit={(e)=>handleAddUserInfoSubmit(e)}>
         <input
@@ -49,7 +92,7 @@ const handleAddUserInfoSubmit = (event) => {
           required="required"
           placeholder="Enter your name..."
           value={full_name}
-          onChange={(e)=>setName(e.target.value)} />
+          onChange={(e)=>setFullName(e.target.value)} />
         <input
           class = "input"
           type="text"
@@ -80,7 +123,7 @@ const handleAddUserInfoSubmit = (event) => {
           name="avail_start"
           required="required"
           value={avail_start}
-          placeholder="11/11/1111"
+          placeholder=""
           onChange={(e)=>setAvail_start(e.target.value)} />
           <input
           class = "input"
@@ -88,14 +131,62 @@ const handleAddUserInfoSubmit = (event) => {
           name="avail_end"
           required="required"
           value={avail_end}
-          placeholder="11/11/1111"
+          placeholder=""
           onChange={(e)=>setAvail_end(e.target.value)} />
         <button type="submit">Add</button>
       </form>
     </div>
-    <div>
-    </div></>
+    {/* <div>
+    <table>
+      <tbody>
+        <tr>
+          <th>Pet's Name</th>
+          <th>Breed</th>
+          <th>Weight</th>
+        </tr>
+        <tr>
+          <td>{user?.name}</td>
+          <td>{user?.breed}</td>
+          <td>{user?.weight}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+     */}
+    
+        <div>
+        <h2>Add Pet's Information</h2>
+        <form onSubmit={(e)=>handleAddPetSubmit(e)}>
+        <input
+          class = "input"
+          type="text"
+          name="Name"
+          required="required"
+          placeholder="Enter your pet's name..."
+          value={name}
+          onChange={(e)=>setName(e.target.value)} />
+        <input
+          class = "input"
+          type="text"
+          name="breed"
+          value={breed}
+          required="required"
+          placeholder="Enter your animal's breed..."
+          onChange={(e)=>setBreed(e.target.value)} />
+        <input
+          class = "input"
+          type="text"
+          name="weight"
+          required="required"
+          value={weight}
+          placeholder="Enter your animal's weight..."
+          onChange={(e)=>setWeight(e.target.value)} />
+        <button type="submit">Add</button>
+      </form>
+    </div>
+        </>
   )
+  
 }
 
 
