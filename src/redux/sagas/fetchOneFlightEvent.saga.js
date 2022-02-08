@@ -9,7 +9,7 @@ function* fetchOneFlightEvent(action) {
   try {
     const response = yield axios({
       method: "GET",
-      url: `/api/oneFlightEvent/${action.payload}`,
+      url: `/api/flight_event/${action.payload}`,
     });
     yield put({
       type: "SET_ONE_FLIGHT_EVENT",
