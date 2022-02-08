@@ -5,6 +5,11 @@ import PassengerList from "./PassengerList";
 import './PeoplePicker.css'
 
 function PeoplePicker() {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch({ type: 'GET_ALL_USER' });
+    }, []);
     const selectedDate = useSelector((store) => store.selectedDate);
         return (
             <div className="peoplePickerControl">

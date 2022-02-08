@@ -21,8 +21,9 @@ html{
 
 .calendar{
     margin: 10px;
-    width:30%;
-    height: 95%;
+    margin-left: 40px;
+    width:20%;
+    height:min-content;
     background-color: #222227;
     box-shadow: 0 .5rem 3rem rgba(0, 0, 0, 0.4);
     border-radius: 5px;
@@ -31,8 +32,8 @@ html{
 
 .month{
     width:100%;
-    height:25%;
-    background-color: #167e56;
+    height:20%;
+    background-color: #715fbe;
     display:flex;
     justify-content: space-between;
     align-items: center;
@@ -82,13 +83,14 @@ html{
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    padding: .2rem;
+    padding: .3rem;
+
 }
 
 .days div{
     font-size: 1rem;
     margin: 0.3rem;
-    width:14%;
+    width:11.5%;
     height: 2.5rem;
     display: flex;
     justify-content: center;
@@ -109,5 +111,5 @@ html{
 }
 
 .today{
-    background-color: #167e56;
+    background-color: #715fbe;
 }
