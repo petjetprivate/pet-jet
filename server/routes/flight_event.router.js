@@ -24,8 +24,10 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 router.get('/:id', rejectUnauthenticated, (req, res) => {
   const idToGet = req.params.id;
   const sqlText = `
-  SELECT * FROM "flight_event"
-  WHERE "flight_event"."id"=$1;
+  SELECT "flight_event"."id", "name", cast("dep_date" as varchar(10)), cast("ret_date" as varchar(10)), "USTeamLead", "EUTeamLead" FROM "flight_event"
+    JOIN "user"
+    ON "user"."flight_event_id"="flight_event"."id"
+    WHERE "flight_event"."id"=$1;
   `;
   
   pool

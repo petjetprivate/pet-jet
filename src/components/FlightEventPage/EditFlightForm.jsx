@@ -90,6 +90,7 @@ function EditForm() {
         <label htmlFor="departure">Departure</label>
         <input
           name="departure"
+          type="date"
           className="input"
           onChange={editDepDate}
           value={flightToEdit.dep_date || ""}
@@ -97,6 +98,7 @@ function EditForm() {
         <label htmlFor="return">Return</label>
         <input
           name="return"
+          type="date"
           className="input"
           onChange={editRetDate}
           value={flightToEdit.ret_date || ""}

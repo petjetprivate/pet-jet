@@ -52,8 +52,8 @@ function FlightEventPage() {
                     <img alt="pet jet lazer airliner" />
                   </p> */}
                   <p>Flight Name: {event.name}</p>
-                  <p>Flight Departure Date: {event.dep_date}</p>
-                  <p>Flight Return Date: {event.ret_date}</p>
+                  <p>Flight Departure Date: {event.dep_date.split('T')[0]}</p>
+                  <p>Flight Return Date: {event.ret_date.split('T')[0]}</p>
                   <p>
                     NA Team Lead ID:{" "}
                     {passengers.map((lead) => {
