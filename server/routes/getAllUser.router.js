@@ -11,7 +11,7 @@ const router = express.Router();
 router.get('/', rejectUnauthenticated, (req, res) => {
   // Send back user object from the session (previously queried from the database)
   pool
-  .query (`SELECT * FROM "user";`)
+  .query (`SELECT * FROM "user" ORDER BY "id" ASC;`)
   .then ((results) => res.send(results.rows))
   .catch ((error) => {
     console.log('ERROR SELECTING ALL FROM "user"')

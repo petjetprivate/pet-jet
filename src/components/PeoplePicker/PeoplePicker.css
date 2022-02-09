@@ -7,10 +7,10 @@
 } */
 
 .passengerTable{
-    text-align: center;
-    align-items: center;
+    text-align: center !important;
+    align-items: center !important;
 }
 
 .passengerTable th {
-    padding: 20px;
+    padding: 20px !important;
 }

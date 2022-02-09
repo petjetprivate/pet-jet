@@ -10,7 +10,7 @@ function* editFlightEvent(action) {
   try {
     const response = yield axios({
       method: "PUT",
-      url: `/api/oneFlightEvent/${action.payload.id}`,
+      url: `/api/flight_event/${action.payload.id}`,
       data: {
         name: action.payload.name,
         dep_date: action.payload.dep_date,

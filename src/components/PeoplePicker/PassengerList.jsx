@@ -1,18 +1,19 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import './PeoplePicker.css'
-
+let selectedLeads = []
+let selectedPassengers = []
 
 function PassengerList() {
-        const date = new Date();
+    const [flightName, setFlightName] = useState('');
+    const date = new Date();
     const dispatch = useDispatch();
     const passengers = useSelector((store) => store.setUser);
     const rawSelectedDate = useSelector((store) => store.selectedDate);
-    console.log('########################################')
-    console.log(rawSelectedDate)
+    // console.log('########################################')
+    // console.log(rawSelectedDate)
     const selectedDate = new Date (rawSelectedDate.year, rawSelectedDate.month, rawSelectedDate.day, 0, 0, 0, 0).toString()
-    console.log(selectedDate)
-
+    // console.log(selectedDate)
 
     const getDatesBetween = (startDate, endDate) => {
         const dates = [];
@@ -33,16 +34,52 @@ function PassengerList() {
                 currentDate.getDate() + 1, // Will increase month if over range
             );
         }
-        console.log(dates)
+        // console.log(dates)
         return dates;
     };
 
+    function selectPassenger(passenger){
+        selectedPassengers.push(passenger)
+        // console.log(selectedPassengers)
+    }
+
+    function selectLead(passenger){
+        console.log('click worked')
+        if (selectedLeads.length < 2){
+            for (let lead of selectedLeads){
+                if (lead.continent_origin === passenger.continent_origin){
+                    return(alert('That regions lead has already been selected'))
+                    
+                }
+            }
+            selectedLeads.push(passenger)
+            console.log('THESE ARE THE SELECTED LEADS',selectedLeads)
+        }
+
+    }
+
+    function SubmitGroups(){
+        console.log('These are the selected leads for the flight event',selectedLeads)
+        dispatch({
+            type: 'CREATE_FLIGHT_EVENT',
+            payload: {
+                group: selectedPassengers,
+                name: flightName,
+                leads: selectedLeads
+            }
+        })
+        setFlightName('')
+    }
 
 
     // console.log(new Date (passengers[11].avail_start))
     return (
         <div className="passengerList">
             <p>Passengers:</p>
+            <input type="text" value={flightName} onChange={(e) => setFlightName(e.target.value)}/>
+            <button type="button" onClick={() => SubmitGroups()}>
+                submit groups
+            </button>
         <div>
         <table className="passengerTable">
         <thead>
@@ -63,9 +100,9 @@ function PassengerList() {
                 const start = new Date (passenger.avail_start)
                 const end = new Date (passenger.avail_end)
                 const dates = getDatesBetween(start, end)
-                console.log('')
-                console.log(selectedDate)
-                console.log('')
+                // console.log('')
+                // console.log(selectedDate)
+                // console.log('')
                     if (dates.includes(selectedDate)){
                         return (
                         <tr key={passenger.id}>
@@ -77,19 +114,19 @@ function PassengerList() {
                         <td>{passenger.avail_end.split('T')[0]}</td>
                         <td>{passenger.continent_origin}</td>
                         <td>
-                            <label htmlFor="contract">
                             <input
+                                onClick={() => selectPassenger(passenger)}
                                 type="checkbox"
-                                name="contract"
-                                value="signed_contract"
+                                name="group"
+                                value="selected"
                             />
-                            </label>
                         </td>
                         <td>
                             <input 
+                            onClick={() => selectLead(passenger)}
                             type="checkbox" 
-                            name="paid" 
-                            value="paid" 
+                            name="team_lead" 
+                            value="lead" 
                             />
                         </td>
                         </tr>

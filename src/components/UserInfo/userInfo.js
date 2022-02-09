@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 import { Container, Grid } from '@mui/material';
 import PDF from '../PDF/PdfDownload';
+import './userInfo.css';
 
 function UserInfo(props) {
 
@@ -64,20 +65,21 @@ function UserInfo(props) {
 
     <div>
       <Container className='white-container-transfer' maxWidth="xl">
-        <h1>User Info</h1>
+        <h1>Welcome To Pet Jet</h1>
         <Grid>
           <PDF />
         </Grid>
         <div>
           <Grid>
             <table className='card'>
+              <caption>Your Information</caption>
               <tbody>
                 <tr>
                   <th>Full Name</th>
                   <th>Email</th>
                   <th>Phone</th>
-                  <th>Trip Start Date</th>
-                  <th>Trip End Date </th>
+                  <th>Upcoming Trip Start Date</th>
+                  <th>Upcoming Trip End Date </th>
                   <th>Continent of Origin </th>
                 </tr>
                 <tr>
@@ -95,7 +97,7 @@ function UserInfo(props) {
         </div>
 
 
-        <button className='button' onClick={updateBtn}>Update Info</button>
+        <button className='button' onClick={updateBtn}>Update</button>
 
       </Container>
     </div>
