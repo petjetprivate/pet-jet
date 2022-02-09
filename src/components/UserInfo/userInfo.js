@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 import { Container, Grid } from '@mui/material';
 import PDF from '../PDF/PdfDownload';
+import Chart from './chart';
 import './userInfo.css';
 
 function UserInfo(props) {
@@ -103,25 +104,23 @@ function UserInfo(props) {
                 <tr>
                   <th>Pet Name</th>
                   <th>Breed</th>
-                  <th>Phone</th>
                   <th>Weight</th>
-
                 </tr>
                 <tr>
                   <td>{pet.name}</td>
                   <td>{pet.breed}</td>
                   <td>{pet.weight}</td>
-
                 </tr>
               </tbody>
             </table>
-
           </Grid>
+          <button className='button' onClick={updateBtn}>Update</button>
         </div>
-
-
-        <button className='button' onClick={updateBtn}>Update</button>
-
+        <div>
+        <Grid>
+          <Chart />
+        </Grid>
+        </div>
       </Container>
     </div>
 
