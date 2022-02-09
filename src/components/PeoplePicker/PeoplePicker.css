@@ -5,3 +5,12 @@
     font-family: "Quicksand", sans-serif;
     font-size: 62.5%;
 } */
+
+.passengerTable{
+    text-align: center !important;
+    align-items: center !important;
+}
+
+.passengerTable th {
+    padding: 20px !important;
+}

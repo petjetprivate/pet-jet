@@ -74,4 +74,68 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
   });
 })
 
+router.post('/', rejectUnauthenticated, (req, res) => {
+  const { group, name, leads } = req.body;
+  let USLead = ''
+  let EULead = ''
+  // console.log(req.body)
+  for (let lead of leads){
+    if (lead.continent_origin === 'US'){
+      USLead = lead
+    }else {
+      EULead = lead
+    }
+  }
+
+  const postText = `
+  INSERT INTO "flight_event" ("name", "USTeamLead", "EUTeamLead")
+  VALUES ($1, $2, $3)
+  RETURNING id
+  `;
+  // console.log('body',req.body)
+  const postValues = [name, USLead.id, EULead.id];
+
+  pool.query(postText, postValues)
+  .then(result => {
+    //Now that both are done, send back success!
+    res.send(result.rows[0]);
+}).catch(err => {
+    console.log('THIS IS A CREATE FLIGHT EVENT ISSUE', err);
+    res.sendStatus(500)
+})
+})
+
+
+
+router.put("/", rejectUnauthenticated, (req, res) => {  
+  // console.log('UPDATE USER FLIGHT EVENT REQ.BODY:',req.body)
+  let payload = req.body.actionPlusPostResponse.action.payload
+  let id = req.body.actionPlusPostResponse.postResponse.id
+  // console.log('THIS IS WHAT PAYLOAD IS', payload)
+  let userIDs = []
+  for (let person of payload.group){
+    userIDs.push(person.id)
+  }
+  // console.log(userIDs)
+
+  let p = "";
+  p += userIDs.join(` OR "id" = `)
+  console.log(p)
+
+  const query = `
+  UPDATE "user"
+  SET "flight_event_id"=$1
+  WHERE "id" = ${p};`;
+  const values = [
+    id
+  ];
+
+  pool
+    .query(query, values)
+    .then(() => res.sendStatus(202))
+    .catch((error) => {
+      console.log("error:", error);
+    });
+});
+
 module.exports = router;

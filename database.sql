@@ -14,7 +14,7 @@ CREATE TABLE "user" (
 	"password" varchar(255) NOT NULL,
 	"full_name" varchar(255) NOT NULL,
 	"phone_num" varchar(11) DEFAULT NULL,
-	"email" varchar(20) DEFAULT NULL,
+	"email" varchar(255) DEFAULT NULL,
 	"sec_level" integer NOT NULL,
 	"avail_start" DATE DEFAULT NULL,
 	"avail_end" DATE DEFAULT NULL,
