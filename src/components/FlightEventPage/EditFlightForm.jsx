@@ -70,56 +70,101 @@ function EditForm() {
     dispatch({ type: "GET_FLIGHT_EVENTS" });
   };
 
-return (
-<div id={flightToEdit.id} className="">
-  <ul>
-  {passengers.map((flyer) => {
-    if (flyer.flight_event_id === flightToEdit.id)
-    return (
-      <li>{flyer.full_name}</li>
-    )
-  })}
-  </ul>
-        <form onSubmit={editFlightEvent}>
-          <p>Edit Flight Event Form</p>
-          <label htmlFor="name">Name</label>
-          <input
-            name="name"
-            className="input"
-            onChange={editName}
-            value={flightToEdit.name || ""}
-          />
-          <label htmlFor="departure">Departure</label>
-          <input
-            name="departure"
-            className="input"
-            onChange={editDepDate}
-            value={flightToEdit.dep_date || ""}
-          />
-          <label htmlFor="return">Return</label>
-          <input
-            name="return"
-            className="input"
-            onChange={editRetDate}
-            value={flightToEdit.ret_date || ""}
-          />
-          <label htmlFor="naLead">NA Team Lead</label>
-          <input
-            name="naLead"
-            className="input"
-            onChange={editUSTeamLead}
-            value={flightToEdit.USTeamLead || ""}
-          />
-          <label htmlFor="euLead">EU Team Lead</label>
+  return (
+    <div id={flightToEdit.id} className="">
+      <ul>
+        {passengers.map((flyer) => {
+          if (flyer.flight_event_id === flightToEdit.id)
+            return <li key={flyer.id}>{flyer.full_name}</li>;
+        })}
+      </ul>
+      <form onSubmit={editFlightEvent}>
+        <p>Edit Flight Event Form</p>
+        <label htmlFor="name">Name</label>
+        <input
+          name="name"
+          className="input"
+          onChange={editName}
+          value={flightToEdit.name || ""}
+        />
+        <label htmlFor="departure">Departure</label>
+        <input
+          name="departure"
+          className="input"
+          onChange={editDepDate}
+          value={flightToEdit.dep_date || ""}
+        />
+        <label htmlFor="return">Return</label>
+        <input
+          name="return"
+          className="input"
+          onChange={editRetDate}
+          value={flightToEdit.ret_date || ""}
+        />
+        <label htmlFor="naLead">NA Team Lead</label>
+        {/* <input
+          name="naLead"
+          className="input"
+          onChange={editUSTeamLead}
+          value={flightToEdit.USTeamLead || ""}
+        /> */}
+        {/* <label htmlFor="euLead">EU Team Lead</label>
           <input
             name="euLead"
             className="input"
             value={flightToEdit.EUTeamLead || ""}
             onChange={editEUTeamLead}
-          />
-          <button type="submit">Submit</button>
-        </form>
+          /> */}
+        <div className="dropdown">
+          <select onChange={editUSTeamLead}>
+            <option disabled value="0">
+              Select NA TeamLead
+            </option>
+            <option>
+              {passengers.map((lead) => {
+                if (lead.id === flightToEdit.USTeamLead) {
+                  return `${lead.full_name}`;
+                }
+              })}
+            </option>
+            {passengers.map((flyer) => {
+              if (flyer.flight_event_id === flightToEdit.id && flyer.id != flightToEdit.USTeamLead) {
+                return (
+                  <option key={flyer.id} value={flyer.id}>
+                    {flyer.full_name}
+                  </option>
+                );
+              }
+            })}
+          </select>
         </div>
-)};
+        <div className="dropdown">
+          <select onChange={editEUTeamLead}>
+            <option disabled value="0">
+              Select EU TeamLead
+            </option>
+            <option>
+              {passengers.map((lead) => {
+                if (lead.id === flightToEdit.EUTeamLead) {
+                  return `${lead.full_name}`;
+                }
+              })}
+            </option>
+            {passengers.map((flyer) => {
+              if (flyer.flight_event_id === flightToEdit.id && flyer.id != flightToEdit.EUTeamLead) {
+                return (
+                  <option key={flyer.id} value={flyer.id}>
+                    {flyer.full_name}
+                  </option>
+                );
+              }
+            })}
+          </select>
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  );
+}
 
 export default EditForm;

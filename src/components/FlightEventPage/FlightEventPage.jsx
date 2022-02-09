@@ -54,8 +54,22 @@ function FlightEventPage() {
                   <p>Flight Name: {event.name}</p>
                   <p>Flight Departure Date: {event.dep_date}</p>
                   <p>Flight Return Date: {event.ret_date}</p>
-                  <p>NA Team Lead ID: {event.USTeamLead}</p>
-                  <p>EU Team Lead ID: {event.EUTeamLead}</p>
+                  <p>
+                    NA Team Lead ID:{" "}
+                    {passengers.map((lead) => {
+                      if (lead.id === event.USTeamLead) {
+                        return `${lead.full_name}`;
+                      }
+                    })}
+                  </p>
+                  <p>
+                    EU Team Lead ID:{" "}
+                    {passengers.map((lead) => {
+                      if (lead.id === event.EUTeamLead) {
+                        return `${lead.full_name}`;
+                      }
+                    })}
+                  </p>
                   <button value={event.id} onClick={editBtn}>
                     EDIT
                   </button>
@@ -72,8 +86,7 @@ function FlightEventPage() {
         </div>
       </div>
       {/* <LineGraph /> */}
-      {toggle && 
-      <EditForm />}
+      {toggle && <EditForm />}
       <UserTable />
     </div>
   );
