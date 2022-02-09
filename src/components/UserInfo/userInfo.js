@@ -11,6 +11,9 @@ function UserInfo(props) {
   const history = useHistory();
 
   const user = useSelector(store => store.user)
+  
+  // Do we have a pet reducer? Add pet input is nto functioning
+  const pet = useSelector(store => store.user)
 
   // const [full_name, setFullName] = useState("")
 
@@ -89,6 +92,26 @@ function UserInfo(props) {
                   <td>{user?.avail_start}</td>
                   <td>{user?.avail_end}</td>
                   <td>{user?.continent_origin}</td>
+                </tr>
+              </tbody>
+            </table>
+          </Grid>
+          <Grid>
+            <table className='card'>
+              <caption>Your Pet Information</caption>
+              <tbody>
+                <tr>
+                  <th>Pet Name</th>
+                  <th>Breed</th>
+                  <th>Phone</th>
+                  <th>Weight</th>
+
+                </tr>
+                <tr>
+                  <td>{pet.name}</td>
+                  <td>{pet.breed}</td>
+                  <td>{pet.weight}</td>
+
                 </tr>
               </tbody>
             </table>
