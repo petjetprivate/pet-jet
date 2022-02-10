@@ -2,9 +2,9 @@ import { combineReducers } from 'redux';
 
 const usersInfo = (state = {}, action) => {
   switch (action.type) {
-    case 'SET_USER':
+    case 'SET_PET':
       return action.payload;
-    case 'CLEAR_USER_INFO':
+    case 'CLEAR_INFO':
       return {}
     default:
       return state;
@@ -15,6 +15,7 @@ const usersInfo = (state = {}, action) => {
 const petInfo = (state = {}, action) => {
   switch (action.type) {
     case 'SET_PET_INFO':
+      console.log('pet',action)
       return action.payload;
     case 'CLEAR_PET_INFO':
       return {}

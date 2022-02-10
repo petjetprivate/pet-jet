@@ -8,6 +8,7 @@ import './UserInfoPage.css';
 
 const UserInfoPage = () => {
   const user = useSelector((store) => store.user);
+  const pet = useSelector((store) => store.pet)
   const [full_name, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [phone_num, setPhone_Num] = useState("");
@@ -22,6 +23,14 @@ const UserInfoPage = () => {
   const ownerId = user.id;
 
   console.log('new_user*************', user);
+
+
+useEffect(()=>{
+  dispatch({
+    type:"GET_PET_INFO"
+  })
+},[])
+console.log("pet",pet)
 
 const handleAddUserInfoSubmit = (event) => {
   event.preventDefault();
@@ -136,7 +145,7 @@ const handleAddUserInfoSubmit = (event) => {
         <button type="submit">Add</button>
       </form>
     </div>
-    {/* <div>
+    <div>
     <table>
       <tbody>
         <tr>
@@ -145,14 +154,21 @@ const handleAddUserInfoSubmit = (event) => {
           <th>Weight</th>
         </tr>
         <tr>
-          <td>{user?.name}</td>
-          <td>{user?.breed}</td>
-          <td>{user?.weight}</td>
+          {pet.map((v)=>{
+            return(
+              <>
+              <td>{v?.name}</td>
+              <td>{v?.breed}</td>
+              <td>{v?.weight}</td>
+              </>
+            )
+
+          })}
         </tr>
       </tbody>
     </table>
   </div>
-     */}
+     
     
         <div>
         <h2>Add Pet's Information</h2>

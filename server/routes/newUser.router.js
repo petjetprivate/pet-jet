@@ -70,8 +70,58 @@ router.post('/', rejectUnauthenticated, (req, res) => {
     });
 });
 
+router.get('/', rejectUnauthenticated, (req, res) => {
+  console.log('/pet POST route');
+  console.log(req.body);
+  console.log('user', req.user);
+  const sqlText = `
+    SELECT * 
+    FROM "pet"
+      WHERE "owner_id" = '${req.user.id}'
+  `;
+  pool.query(sqlText)
+    .then((result) => {
+      res.send(result.rows)
+    })
+    .catch((dbErr) => {
+      console.error(dbErr);
+      res.sendStatus(500);
+    });
+});
+
+
+router.put('/:id', rejectUnauthenticated, (req, res) => {
+  console.log('/newUser POST route');
+  console.log(req.body);
+  console.log('is authenticated?', req.isAuthenticated());
+  console.log('user',req.body.password);
+  const sqlText = `
+  UPDATE "pet"
+  set "name" = $1,
+  "breed" = $2,
+  "weight" = $3,
+  WHERE "id" = $4
+  RETURNING *`;
+  console.log('body',req.body)
+  const sqlValues = [
+    
+    req.body.name,
+    req.body.breed,
+    req.body.email,
+    req.body.weight,
+    req.params.id
+  ];
+  pool.query(sqlText, sqlValues)
+    .then((dbRes) => {
+      res.sendStatus(200);
+    })
+    .catch((dbErr) => {
+      console.error(dbErr);
+      res.sendStatus(500);
+    });
+});
 
 
 
-
+ 
 module.exports = router;

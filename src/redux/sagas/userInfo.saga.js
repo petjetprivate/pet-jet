@@ -24,9 +24,30 @@ function* AddPet(action) {
       url: '/api/newUser',
       data: action.payload
     })
-    console.log("lets see",action.payload);
+    yield put({
+      type: 'SET_PET_INFO',
+      payload: action.payload,
+    })
+   
   } catch(err) {
     console.error('ADD ERROR', err)
+  }
+};
+
+function* fetchPets(action) {
+  try {
+    console.log('action',action)
+    const response = yield axios({
+      method: 'GET',
+      url: '/api/newUser',
+    })
+    console.log(response.data)
+    yield put({
+      type: 'SET_PET_INFO',
+      payload: response.data
+    })
+  } catch(err) {
+    console.error('ADD error', err)
   }
 };
 
@@ -34,6 +55,7 @@ function* AddPet(action) {
 function* userInfoSaga() {
   yield takeLatest('ADD_USER_INFO', AddUser);
   yield takeLatest('ADD_PET_INFO', AddPet);
+  yield takeLatest('GET_PET_INFO', fetchPets);
 }
 
 export default userInfoSaga;
