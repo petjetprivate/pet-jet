@@ -108,36 +108,28 @@ function EditForm({flipToggle}) {
             value={flightToEdit.ret_date || ""}
           />
         </label>
-        <label htmlFor="naLead">
-          NA Team Lead
-          <div className="dropdown">
-            <select onChange={editUSTeamLead}>
-              <option disabled value="0">
-                Select US TeamLead
-              </option>
-              <option>
-                {passengers.map((lead) => {
-                  if (lead.id === flightToEdit.USTeamLead) {
-                    return `${lead.full_name}`;
+        <div className="dropdown">
+            <label htmlFor="naLead">
+              NA Team Lead
+              <select
+                onChange={editUSTeamLead}
+                value={flightToEdit.USTeamLead}
+                >
+                {passengers.map((flyer) => {
+                  if (
+                    flyer.flight_event_id === flightToEdit.id &&
+                    flyer.continent_origin === "US"
+                  ) {
+                    return (
+                      <option key={flyer.id} value={flyer.id}>
+                        {flyer.full_name}
+                      </option>
+                    );
                   }
                 })}
-              </option>
-              {passengers.map((flyer) => {
-                if (
-                  flyer.flight_event_id === flightToEdit.id &&
-                  flyer.id != flightToEdit.USTeamLead &&
-                  flyer.continent_origin === "US"
-                ) {
-                  return (
-                    <option key={flyer.id} value={flyer.id}>
-                      {flyer.full_name}
-                    </option>
-                  );
-                }
-              })}
-            </select>
+              </select>
+            </label>
           </div>
-        </label>
           <div className="dropdown">
             <label htmlFor="euLead">
               EU Team Lead
