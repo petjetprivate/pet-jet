@@ -20,6 +20,9 @@ function FlightEventPage() {
     dispatch({ type: "GET_ALL_USER" });
   }, []);
 
+  const flipToggle = () => {
+    setToggle(!toggle);
+  }
   const editBtn = (e) => {
     // console.log("e.target.value:", e.target.value);
 
@@ -86,7 +89,7 @@ function FlightEventPage() {
         </div>
       </div>
       {/* <LineGraph /> */}
-      {toggle && <EditForm />}
+      {toggle && <EditForm flipToggle={flipToggle}/>}
       <UserTable />
     </div>
   );

@@ -13,7 +13,7 @@ CREATE TABLE "user" (
 	"username" varchar(255) UNIQUE NOT NULL,
 	"password" varchar(255) NOT NULL,
 	"full_name" varchar(255) NOT NULL,
-	"phone_num" varchar(11) DEFAULT NULL,
+	"phone_num" varchar(15) DEFAULT NULL,
 	"email" varchar(255) DEFAULT NULL,
 	"sec_level" integer NOT NULL,
 	"avail_start" DATE DEFAULT NULL,
@@ -30,8 +30,8 @@ CREATE TABLE "flight_event" (
 	"name" varchar(255) NOT NULL,
 	"dep_date" DATE DEFAULT NULL,
 	"ret_date" DATE DEFAULT NULL,
-	"USTeamLead" integer NOT NULL,
-	"EUTeamLead" integer NOT NULL
+	"USTeamLead" integer DEFAULT NULL,
+	"EUTeamLead" integer DEFAULT NULL
 );
 
 CREATE TABLE "pet" (
@@ -42,19 +42,19 @@ CREATE TABLE "pet" (
 	"weight" integer NOT NULL
 );
 
-INSERT INTO "public"."user"("username", "password", "full_name", "sec_level", "continent_origin") 
-VALUES('AdminRose', '$2a$10$TZ3rW70oJIgNQ/2ulfsutuuotLCEo42USxgfiSBxSqVPf6gqq2jdG', 'Rose', '2', 'US'), 
-('Joe', '$2a$10$TZ3rW70oJIgNQ/2ulfsutuuotLCEo42USxgfiSBxSqVPf6gqq2jdG', 'Joseph', '2', 'EU'),
-('Mary', '$2a$10$TZ3rW70oJIgNQ/2ulfsutuuotLCEo42USxgfiSBxSqVPf6gqq2jdG', 'Marietta', '1', 'US'),
-('Malcolm', '$2a$10$TZ3rW70oJIgNQ/2ulfsutuuotLCEo42USxgfiSBxSqVPf6gqq2jdG', 'Malcolm', '0', 'US'),
-('OmahaTodd', '$2a$10$TZ3rW70oJIgNQ/2ulfsutuuotLCEo42USxgfiSBxSqVPf6gqq2jdG', 'Toddrick von Waddingham', '0', 'EU'),
-('Denice', '$2a$10$TZ3rW70oJIgNQ/2ulfsutuuotLCEo42USxgfiSBxSqVPf6gqq2jdG', 'Denice Power', '0', 'EU'),
-('WhiskyBill', '$2a$10$TZ3rW70oJIgNQ/2ulfsutuuotLCEo42USxgfiSBxSqVPf6gqq2jdG', 'Whisker Billiam', '0', 'US'),
-('Jerome', '$2a$10$TZ3rW70oJIgNQ/2ulfsutuuotLCEo42USxgfiSBxSqVPf6gqq2jdG', 'Jerome Horton', '2', 'US'),
-('Amber', '$2a$10$TZ3rW70oJIgNQ/2ulfsutuuotLCEo42USxgfiSBxSqVPf6gqq2jdG', 'Amber Sorenson', '2', 'US'),
-('Zane', '$2a$10$TZ3rW70oJIgNQ/2ulfsutuuotLCEo42USxgfiSBxSqVPf6gqq2jdG', 'Zane Klausing', '2', 'US'),
-('TheADog', '$2a$10$TZ3rW70oJIgNQ/2ulfsutuuotLCEo42USxgfiSBxSqVPf6gqq2jdG', 'Adam Iverson', '2', 'US'),
-('Trooms', '$2a$10$TZ3rW70oJIgNQ/2ulfsutuuotLCEo42USxgfiSBxSqVPf6gqq2jdG', 'Harry S. Truman', '0', 'US')
-RETURNING "username", "password", "full_name", "sec_level", "avail_start", "avail_end", "flight_event_id", "signed_contract", "paid", "covid_free", "in_group", "continent_origin";
+INSERT INTO "public"."user"("username", "password", "full_name", "phone_num", "email", "sec_level", "avail_start", "avail_end", "continent_origin") 
+VALUES('AdminRose', '$2a$10$TZ3rW70oJIgNQ/2ulfsutuuotLCEo42USxgfiSBxSqVPf6gqq2jdG', 'Rose', '6128005555', 'rose@horns.com', '2', '2022-10-29', '2022-10-31', 'US'), 
+('Joe', '$2a$10$TZ3rW70oJIgNQ/2ulfsutuuotLCEo42USxgfiSBxSqVPf6gqq2jdG', 'Joseph', '5128806000', 'joe@joe.com', '2',  '2022-09-17', '2022-09-30', 'EU'),
+('Mary', '$2a$10$TZ3rW70oJIgNQ/2ulfsutuuotLCEo42USxgfiSBxSqVPf6gqq2jdG', 'Marietta', '5559990000', 'marietta@georgia.gov', '1', '2022-03-19', '2022-11-11', 'US'),
+('Malcolm', '$2a$10$TZ3rW70oJIgNQ/2ulfsutuuotLCEo42USxgfiSBxSqVPf6gqq2jdG', 'Malcolm', '55554444', 'little@middle.com', '0', '2022-05-01', '2023-05-31', 'US'),
+('OmahaTodd', '$2a$10$TZ3rW70oJIgNQ/2ulfsutuuotLCEo42USxgfiSBxSqVPf6gqq2jdG', 'Toddrick von Waddingham', '1234441233', 'omaha@todd.com', '0', '2022-04-11', '2022-12-31', 'EU'),
+('Denice', '$2a$10$TZ3rW70oJIgNQ/2ulfsutuuotLCEo42USxgfiSBxSqVPf6gqq2jdG', 'Denice Power', '6053526834', 'denice@knees.com', '2022-03-17', '2023-03-17', '0', 'EU'),
+('WhiskyBill', '$2a$10$TZ3rW70oJIgNQ/2ulfsutuuotLCEo42USxgfiSBxSqVPf6gqq2jdG', 'Whisker Billiam', '6059521619', 'fan@twins.com', '0', '2022-09-01', '2022-10-20', 'US'),
+('Jerome', '$2a$10$TZ3rW70oJIgNQ/2ulfsutuuotLCEo42USxgfiSBxSqVPf6gqq2jdG', 'Jerome Horton', '6080059944', 'jerome@horton.com', '2', '2022-04-04', '2022-04-30', 'US'),
+('Amber', '$2a$10$TZ3rW70oJIgNQ/2ulfsutuuotLCEo42USxgfiSBxSqVPf6gqq2jdG', 'Amber Sorenson', '9208785656', 'amber@sorenson.com', '2', '2022-08-01', '2022-08-31', 'US'),
+('Zane', '$2a$10$TZ3rW70oJIgNQ/2ulfsutuuotLCEo42USxgfiSBxSqVPf6gqq2jdG', 'Zane Klausing', '888300033', 'zane@klausing.com', '2', '2023-01-01', '2023-03-31', 'US'),
+('TheADog', '$2a$10$TZ3rW70oJIgNQ/2ulfsutuuotLCEo42USxgfiSBxSqVPf6gqq2jdG', 'Adam Iverson', '5123528716', 'adam@iverson.com', '2', '2022-03-01', '2022-05-31', 'US'),
+('Trooms', '$2a$10$TZ3rW70oJIgNQ/2ulfsutuuotLCEo42USxgfiSBxSqVPf6gqq2jdG', 'Harry S. Truman', '1800333444', 'harry@truman.com', '0', '2022-02-14', '2024-01-01', 'US')
+RETURNING "username", "password", "full_name", "sec_level", "avail_start", "avail_end", "flight_event_id", "signed_contract", "paid", "covid_free", "continent_origin";
 
 
