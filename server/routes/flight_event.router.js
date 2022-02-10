@@ -24,7 +24,9 @@ router.get('/', rejectUnauthenticated, (req, res) => {
 router.get('/:id', rejectUnauthenticated, (req, res) => {
   const idToGet = req.params.id;
   const sqlText = `
-  SELECT * FROM "flight_event"
+  SELECT "id", "name", TO_CHAR("dep_date",'YYYY-MM-DD') AS "dep_date",
+  TO_CHAR("ret_date",'YYYY-MM-DD') AS "ret_date", "USTeamLead", "EUTeamLead"
+  FROM "flight_event"
   WHERE "flight_event"."id"=$1;
   `;
   

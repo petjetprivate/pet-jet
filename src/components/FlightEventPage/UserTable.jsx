@@ -105,8 +105,8 @@ function UserTable() {
                 <td>{passenger.full_name}</td>
                 <td>{passenger.phone_num}</td>
                 <td>{passenger.email}</td>
-                <td>{passenger.avail_start}</td>
-                <td>{passenger.avail_end}</td>
+                <td>{passenger.avail_start.split('T')[0]}</td>
+                <td>{passenger.avail_end.split('T')[0]}</td>
                 <td>{passenger.flight_event_id}</td>
                 <td>{passenger.continent_origin}</td>
                 <td>
