@@ -90,7 +90,12 @@ function App() {
             exact
             path="/flight_event"
           >
+            {user.sec_level === 2 ?
             <FlightEventPage />
+            
+            :
+            <Redirect to="/UserInfo" />
+          }
           </ProtectedRoute>
 
           <ProtectedRoute
@@ -98,7 +103,12 @@ function App() {
             exact
             path="/people_picker"
           >
+            {user.sec_level === 2 ?
             <PeoplePicker />
+            
+            :
+            <Redirect to="/UserInfo" />
+            }
           </ProtectedRoute>
 
           <Route

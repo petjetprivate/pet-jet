@@ -12,9 +12,9 @@ const usersInfo = (state = {}, action) => {
 };
 
 
-const petInfo = (state = {}, action) => {
+const petInfo = (state = [], action) => {
   switch (action.type) {
-    case 'SET_PET_INFO':
+    case 'SET_PET':
       return action.payload;
     case 'CLEAR_PET_INFO':
       return {}

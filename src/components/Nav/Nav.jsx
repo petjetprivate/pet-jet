@@ -24,21 +24,22 @@ function Nav() {
         {/* If a user is logged in, show these links */}
         {user.id && (
           <>
-            <Link className="navLink" to="/user">
+            {/* <Link className="navLink" to="/user">
               Home
-            </Link>
-
+            </Link> */}
+{/* 
             <Link className="navLink" to="/info">
               Info Page
-            </Link>
-            <Link className="navLink" to="/userInfoPage">
+            </Link> */}
+            {/* <Link className="navLink" to="/userInfoPage">
           User's Page
-            </Link>
+            </Link> */}
 
             <Link className="navLink" to="/UserInfo">
               User Info
             </Link>
-
+            {user.sec_level === 2 &&
+            <>
             <Link className="navLink" to="/flight_event">
             Flight Event
             </Link>
@@ -47,14 +48,15 @@ function Nav() {
             People Picker
 
             </Link>
-
+            </>
+            }
             <LogOutButton className="navLink" />
           </>
         )}
 
-        <Link className="navLink" to="/about">
+        {/* <Link className="navLink" to="/about">
           About
-        </Link>
+        </Link> */}
       </div>
     </div>
   );
