@@ -19,7 +19,6 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-import UserInfoPage from '../UserInfoPage/UserInfoPage';
 import FlightEventPage from '../FlightEventPage/FlightEventPage';
 import UserInfo from '../UserInfo/userInfo';
 import './App.css';
@@ -77,12 +76,6 @@ function App() {
             path="/info"
           >
             <InfoPage />
-          </ProtectedRoute>
-          <ProtectedRoute
-            exact
-            path="/userInfoPage"
-          >
-            <UserInfoPage />
           </ProtectedRoute>
 
           <ProtectedRoute
