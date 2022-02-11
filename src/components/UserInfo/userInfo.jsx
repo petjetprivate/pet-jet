@@ -7,9 +7,12 @@ import PDF from '../PDF/PdfDownload';
 import Chart from './chart';
 import './userInfo.css';
 // import FlightView from '../FlightView/FlightView';
+import EditUserInfoForm from "./EditUserInfoForm.jsx";
+import EditPetInfoForm from './EditPetInfo';
 
 function UserInfo(props) {
-
+  const [toggle, setToggle] = useState(false);
+  const [toggle2, setToggle2] = useState(false);
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -38,35 +41,31 @@ function UserInfo(props) {
       payload: user.id
   });
 
+  dispatch({ 
+    type: 'FETCH_USER',
+});
+
 
   }, [])
 
-  // const updateInfo = (e) => {
-
-  //   e.preventDefault()
-  //   // console.log('payload', full_name, email, phone, avail_start, avail_end, continent_origin)
-  //   // dispatch({
-  //   //   type: "EDIT_USER_INFO",
-  //   //   id: user.id,
-  //   //   payload: {
-  //   //     full_name,
-  //   //     email,
-  //   //     phone,
-  //   //     avail_start,
-  //   //     avail_end,
-  //   //     continent_origin
-
-  //   dispatch({
-  //     type: 'FETCH_ONE_USER'
-  //   })
-
-  // }
-  
-  const updateBtn  = () => {
-
-    history.push("/userInfoPage")
-
+  const flipToggle = () => {
+    setToggle(!toggle);
   }
+
+  const flipToggle2 = () => {
+    setToggle2(!toggle2);
+  }
+
+  const editBtn = (e) => {
+    // console.log("e.target.value:", e.target.value);
+    setToggle(!toggle);
+  };
+
+  const editBtn2 = (e) => {
+    // console.log("e.target.value:", e.target.value);
+    setToggle2(!toggle2);
+  };
+  
 
 
 
@@ -102,6 +101,15 @@ function UserInfo(props) {
               </tbody>
             </table>
           </Grid>
+          <button className='button' onClick={editBtn}>
+                    Update
+                  </button>
+                  {toggle && <EditUserInfoForm flipToggle={flipToggle}/>}
+
+
+
+
+
           <Grid>
             <table className='card'>
               <caption>Your Pet Information</caption>
@@ -125,7 +133,10 @@ function UserInfo(props) {
               </tbody>
             </table>
           </Grid>
-          <button className='button' onClick={updateBtn}>Update</button>
+          <button className='button' onClick={editBtn2}>
+                    Add Pet
+                  </button>
+          {toggle2 && <EditPetInfoForm flipToggle2={flipToggle2}/>}
         </div>
         {/* <div><FlightView /></div> */}
         <div>

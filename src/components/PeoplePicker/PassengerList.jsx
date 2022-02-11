@@ -103,7 +103,7 @@ function PassengerList() {
                 // console.log('')
                 // console.log(selectedDate)
                 // console.log('')
-                    if (dates.includes(selectedDate)){
+                    if (dates.includes(selectedDate) && passenger.flight_event_id === null){
                         return (
                         <tr key={passenger.id}>
                         <td>{passenger.username}</td>
