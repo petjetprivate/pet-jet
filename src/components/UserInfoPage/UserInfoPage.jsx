@@ -72,8 +72,8 @@ const handleAddUserInfoSubmit = (event) => {
           <td>{user?.full_name}</td>
           <td>{user?.email}</td>
           <td>{user?.phone_num}</td>
-          <td>{user?.avail_start}</td>
-          <td>{user?.avail_end}</td>
+          <td>{user?.avail_start.split('T')[0]}</td>
+          <td>{user?.avail_end.split('T')[0]}</td>
           <td>{user?.continent_origin}</td>
         </tr>
       </tbody>
