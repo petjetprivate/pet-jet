@@ -86,7 +86,7 @@ const handleAddUserInfoSubmit = (event) => {
         <h2>Add User's Information</h2>
         <form onSubmit={(e)=>handleAddUserInfoSubmit(e)}>
         <input
-          class = "input"
+          className = "input"
           type="text"
           name="Name"
           required="required"
@@ -94,7 +94,7 @@ const handleAddUserInfoSubmit = (event) => {
           value={full_name}
           onChange={(e)=>setFullName(e.target.value)} />
         <input
-          class = "input"
+          className = "input"
           type="text"
           name="email"
           value={email}
@@ -102,7 +102,7 @@ const handleAddUserInfoSubmit = (event) => {
           placeholder="Enter your email..."
           onChange={(e)=>setEmail(e.target.value)} />
         <input
-          class = "input"
+          className = "input"
           type="text"
           name="phone_num"
           required="required"
@@ -110,7 +110,7 @@ const handleAddUserInfoSubmit = (event) => {
           placeholder="Enter your phone number..."
           onChange={(e)=>setPhone_Num(e.target.value)} />
           <input
-          class = "input"
+          className = "input"
           type="text"
           name="continent_origin"
           required="required"
@@ -118,7 +118,7 @@ const handleAddUserInfoSubmit = (event) => {
           placeholder="Enter continent of origin..."
           onChange={(e)=>setContinent_origin(e.target.value)} />
           <input
-          class = "input"
+          className = "input"
           type="date"
           name="avail_start"
           required="required"
@@ -126,7 +126,7 @@ const handleAddUserInfoSubmit = (event) => {
           placeholder=""
           onChange={(e)=>setAvail_start(e.target.value)} />
           <input
-          class = "input"
+          className = "input"
           type="date"
           name="avail_end"
           required="required"
