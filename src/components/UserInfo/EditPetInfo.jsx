@@ -2,24 +2,17 @@ import React, { useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 
-const EditPetInfoForm = () => {
+const EditPetInfoForm = ({flipToggle2}) => {
 const user = useSelector((store) => store.user);
-const [full_name, setFullName] = useState("");
-const [email, setEmail] = useState("");
-const [phone_num, setPhone_Num] = useState("");
-const [continent_origin, setContinent_origin] = useState("");
-const [avail_start, setAvail_start] = useState("11/11/1111");
-const [avail_end, setAvail_end] = useState("");
+
 const [name, setName] = useState("");
 const [breed, setBreed] = useState("");
 const [weight, setWeight] = useState("");
 const dispatch = useDispatch();
-const userId = user.id;
+
 const ownerId = user.id;
 
-const handleAddPetSubmit = (event) => {
-event.preventDefault();
-    console.log('click **********');
+const handleAddPetSubmit = () => {
     dispatch({
         type:'ADD_PET_INFO',
         payload:{
@@ -29,11 +22,13 @@ event.preventDefault();
         weight,
     }
     })
-    dispatch({
-        type:'FETCH_PET_DATA',
-        payload: user.id
-    })
-    }
+    flipToggle2()
+    // dispatch({
+    //     type:'FETCH_PET_DATA',
+    //     payload: user.id
+    // })
+
+}
 
 
 
@@ -41,7 +36,7 @@ return(
     <>
         <div>
         <h2>Add Pet's Information</h2>
-        <form onSubmit={(e)=>handleAddPetSubmit(e)}>
+        <form onSubmit={()=>handleAddPetSubmit()}>
         <input
         className = "input"
         type="text"

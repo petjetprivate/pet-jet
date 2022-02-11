@@ -133,9 +133,9 @@ function UserInfo(props) {
             </table>
           </Grid>
           <button className='button' onClick={editBtn2}>
-                    Update
+                    Add Pet
                   </button>
-          {toggle2 && <EditPetInfoForm flipToggle={flipToggle2}/>}
+          {toggle2 && <EditPetInfoForm flipToggle2={flipToggle2}/>}
         </div>
         <div>
           <Chart />

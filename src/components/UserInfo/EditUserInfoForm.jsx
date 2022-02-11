@@ -2,7 +2,7 @@ import React, { useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 
-const EditUserInfoForm = () => {
+const EditUserInfoForm = ({flipToggle}) => {
 const user = useSelector((store) => store.user);
 const [full_name, setFullName] = useState("");
 const [email, setEmail] = useState("");
@@ -34,6 +34,7 @@ event.preventDefault();
         avail_end,
     }
 })
+flipToggle()
 }
 
 

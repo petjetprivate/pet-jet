@@ -28,6 +28,7 @@ function* AddPet(action) {
       url: '/api/newUser',
       data: action.payload
     })
+    yield put ({type: 'FETCH_PET_DATA'})
     console.log("lets see",action.payload);
   } catch(err) {
     console.error('ADD ERROR', err)
