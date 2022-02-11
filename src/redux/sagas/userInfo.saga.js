@@ -4,12 +4,16 @@ import { put, takeLatest } from 'redux-saga/effects';
 
 
 
+
 function* AddUser(action) {
   try {
     const response = yield axios({
       method: 'PUT',
       url: `/api/newUser/${action.payload.userId}`,
       data: action.payload
+    })
+    yield put({
+      type: 'FETCH_USER'
     })
   } catch(err) {
     console.error('ADD ERROR', err)
@@ -31,6 +35,7 @@ function* AddPet(action) {
 };
 
 function* fetchPet (action){
+  
   try{
     const response = yield axios({
       method: 'GET',
