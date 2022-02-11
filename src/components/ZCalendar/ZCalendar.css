@@ -10,8 +10,8 @@ html{
 }
 
 .container2{
-    width:100%;
-    height: 50vh;
+    width:26%;
+    height: auto;
     background-color: #12121f;
     color:#eee;
     display:flex;
@@ -21,8 +21,10 @@ html{
 
 .calendar{
     margin: 10px;
-    margin-left: 40px;
-    width:20%;
+    margin-left: 50px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width:80%;
     height:min-content;
     background-color: #222227;
     box-shadow: 0 .5rem 3rem rgba(0, 0, 0, 0.4);

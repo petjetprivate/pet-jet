@@ -30,10 +30,26 @@ function* AddPet(action) {
   }
 };
 
+function* fetchPet (action){
+  try{
+    const response = yield axios({
+      method: 'GET',
+      url:`/api/newUser/${action.payload}`
+    })
+    yield put({
+      type: 'SET_PET',
+      payload: response.data
+    })
+  }catch(err) {
+    console.error('FETCH PET ERROR', err)
+  }
+}
+
 
 function* userInfoSaga() {
   yield takeLatest('ADD_USER_INFO', AddUser);
   yield takeLatest('ADD_PET_INFO', AddPet);
+  yield takeLatest('FETCH_PET_DATA', fetchPet);
 }
 
 export default userInfoSaga;

@@ -1,16 +1,29 @@
-/* .peoplePickerControl{
+.peoplePickerControl{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    display: flex;
     font-family: "Quicksand", sans-serif;
-    font-size: 62.5%;
-} */
+    /* font-size: 62.5%; */
+}
 
 .passengerTable{
     text-align: center !important;
     align-items: center !important;
+    padding-left: 60px;
+    padding-right: 60px;
 }
 
-.passengerTable th {
-    padding: 20px !important;
+.passengerTable thead th {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    width:11%;
+    background-color: #04AA6D;
+    color:honeydew;
+    border: .5px solid #ddd;
+    margin: -1px;
+}
+
+.passengerTable thead tr {
+    width: 100%;
 }
