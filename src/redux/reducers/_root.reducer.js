@@ -10,7 +10,7 @@ import editFlightEvent from './editFlightEvent.reducer';
 import setUser from './getAllUser.reducer';
 import selectedDate from './admin.selectedDate.reducer';
 import petInfo from './userInfo.reducer';
-
+import setAdminView from './setAdminViewPassengers.reducer';
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
 // This is imported in index.js as rootSaga
@@ -28,7 +28,8 @@ const rootReducer = combineReducers({
   editFlightEvent,
   setUser,
   selectedDate,
-  petInfo
+  petInfo,
+  setAdminView
 });
 
 export default rootReducer;

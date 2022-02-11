@@ -17,15 +17,15 @@ function flightChart() {
         labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"],
         datasets: [
             {
-                label: "Departure Dates",
-                data: [33, 53, 85, 41, 44, 65, 23, 56, 75, 60, 38, 49],
+                label: "Leaving US",
+                data: [2, 13, 20, 9, 15, 5, 12, 17, 8, 10, 15, 7],
                 fill: true,
                 backgroundColor: "rgba(75,192,192,0.2)",
                 borderColor: "rgba(75,192,192,1)"
             },
             {
-                label: "Return Dates",
-                data: [33, 25, 45, 51, 54, 76, 33, 65, 40, 64, 70, 80 ],
+                label: "Leaving EU",
+                data: [12, 5, 10, 18, 7, 19, 6, 14, 20, 14, 8, 12 ],
                 fill: false,
                 borderColor: "#742774"
             }

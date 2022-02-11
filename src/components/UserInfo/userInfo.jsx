@@ -6,6 +6,7 @@ import { Container, Grid } from '@mui/material';
 import PDF from '../PDF/PdfDownload';
 import Chart from './chart';
 import './userInfo.css';
+// import FlightView from '../FlightView/FlightView';
 
 function UserInfo(props) {
 
@@ -126,6 +127,7 @@ function UserInfo(props) {
           </Grid>
           <button className='button' onClick={updateBtn}>Update</button>
         </div>
+        {/* <div><FlightView /></div> */}
         <div>
           <Chart />
         </div>
