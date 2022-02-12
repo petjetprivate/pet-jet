@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
-import { useEffect } from 'react';
 import { Container, Grid } from '@mui/material';
 import PDF from '../PDF/PdfDownload';
 import Chart from './chart';
