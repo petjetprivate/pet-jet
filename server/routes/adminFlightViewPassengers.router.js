@@ -11,7 +11,7 @@ const router = express.Router();
 router.get("/", (req, res) => {
   console.log("inside adminFlightView.router req.user:", req.user);
 
-const queryText = `SELECT * FROM "user" WHERE "flight_event_id"=$1 AND "continent_origin"=$2;`;
+const queryText = `SELECT * FROM "user" WHERE "flight_event_id"=$1 AND "continent_origin"=$2 ORDER BY "id" ASC;`;
 const queryValues = [req.user.flight_event_id, req.user.continent_origin]
   pool
     .query(queryText, queryValues)

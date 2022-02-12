@@ -13,13 +13,13 @@ console.log('passengers:', passengers);
   }, []);
 
   const contractBox = (e) => {
-    // console.log("covidBox:", e.target.value);
+    console.log("covidBox:", e.target.value);
     // console.log(typeof e.target.value);
     // const covidReady = e.target.value;
 
     if (e.target.checked) {
       dispatch({
-        type: "COVID_CHECK",
+        type: "LEAD_COVID_CHECK",
         payload: {
           contract: false,
           id: e.target.id,
@@ -27,7 +27,7 @@ console.log('passengers:', passengers);
       });
     } else {
       dispatch({
-        type: "COVID_CHECK",
+        type: "LEAD_COVID_CHECK",
         payload: {
           contract: true,
           id: e.target.id,
@@ -43,7 +43,7 @@ console.log('passengers:', passengers);
 
     if (e.target.checked) {
       dispatch({
-        type: "PAID_CHECK",
+        type: "LEAD_PAID_CHECK",
         payload: {
           paid: false,
           id: e.target.id,
@@ -51,7 +51,7 @@ console.log('passengers:', passengers);
       });
     } else {
       dispatch({
-        type: "PAID_CHECK",
+        type: "LEAD_PAID_CHECK",
         payload: {
           paid: true,
           id: e.target.id,
@@ -67,7 +67,7 @@ console.log('passengers:', passengers);
 
     if (e.target.checked) {
       dispatch({
-        type: "COVID_CHECK",
+        type: "LEAD_COVID_CHECK",
         payload: {
           covid_free: false,
           id: e.target.id,
@@ -75,7 +75,7 @@ console.log('passengers:', passengers);
       });
     } else {
       dispatch({
-        type: "COVID_CHECK",
+        type: "LEAD_COVID_CHECK",
         payload: {
           covid_free: true,
           id: e.target.id,
