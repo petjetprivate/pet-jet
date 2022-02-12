@@ -70,7 +70,18 @@ router.post('/', rejectUnauthenticated, (req, res) => {
     });
 });
 
-
+router.get('/:id', rejectUnauthenticated, (req, res) => {
+  pool
+  .query (`
+  SELECT * FROM "pet"
+  WHERE "owner_id" = ${req.user.id}
+  ;`)
+  .then ((results) => res.send(results.rows))
+  .catch ((error) => {
+    console.log('ERROR SELECTING ALL FROM "user"')
+    res.sendStatus(500)
+  })
+});
 
 
 

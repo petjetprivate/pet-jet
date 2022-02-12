@@ -19,7 +19,6 @@ import InfoPage from '../InfoPage/InfoPage';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
-import UserInfoPage from '../UserInfoPage/UserInfoPage';
 import FlightEventPage from '../FlightEventPage/FlightEventPage';
 import UserInfo from '../UserInfo/userInfo';
 import './App.css';
@@ -78,19 +77,18 @@ function App() {
           >
             <InfoPage />
           </ProtectedRoute>
-          <ProtectedRoute
-            exact
-            path="/userInfoPage"
-          >
-            <UserInfoPage />
-          </ProtectedRoute>
 
           <ProtectedRoute
             // logged in shows InfoPage else shows LoginPage
             exact
             path="/flight_event"
           >
+            {user.sec_level === 2 ?
             <FlightEventPage />
+            
+            :
+            <Redirect to="/UserInfo" />
+          }
           </ProtectedRoute>
 
           <ProtectedRoute
@@ -98,7 +96,12 @@ function App() {
             exact
             path="/people_picker"
           >
+            {user.sec_level === 2 ?
             <PeoplePicker />
+            
+            :
+            <Redirect to="/UserInfo" />
+            }
           </ProtectedRoute>
 
           <Route

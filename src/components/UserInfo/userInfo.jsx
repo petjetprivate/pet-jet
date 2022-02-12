@@ -1,22 +1,24 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
+import { useEffect } from 'react';
 import { Container, Grid } from '@mui/material';
 import PDF from '../PDF/PdfDownload';
 import Chart from './chart';
 import './userInfo.css';
+import EditUserInfoForm from "./EditUserInfoForm.jsx";
+import EditPetInfoForm from './EditPetInfo';
 
 function UserInfo(props) {
 
+  const [toggle, setToggle] = useState(false);
+  const [toggle2, setToggle2] = useState(false);
   const dispatch = useDispatch();
   const history = useHistory();
 
   const user = useSelector(store => store.user)
-
-
-  // Do we have a pet reducer? Add pet input is nto functioning
-  const pet = useSelector(store => store.user)
   const chart = useSelector(store => store.setChart);
+  const pets = useSelector(store => store.petInfo)
 
   useEffect(() => {
     dispatch({
@@ -24,18 +26,6 @@ function UserInfo(props) {
     })
 
   }, []);
-
-  // const [full_name, setFullName] = useState("")
-
-  // const [email, setEmail] = useState("")
-
-  // const [phone, setPhone] = useState("")
-
-  // const [avail_start, setStartDate] = useState("11/11/1111")
-
-  // const [avail_end, setEndDate] = useState("11/11/1111")
-
-  // const [continent_origin, setContinentOrigin] = useState("")
 
 
   useEffect(() => {
@@ -45,32 +35,23 @@ function UserInfo(props) {
 
   }, [])
 
-  const updateInfo = (e) => {
-
-    e.preventDefault()
-    // console.log('payload', full_name, email, phone, avail_start, avail_end, continent_origin)
-    // dispatch({
-    //   type: "EDIT_USER_INFO",
-    //   id: user.id,
-    //   payload: {
-    //     full_name,
-    //     email,
-    //     phone,
-    //     avail_start,
-    //     avail_end,
-    //     continent_origin
-
-    dispatch({
-      type: 'FETCH_ONE_USER'
-    })
-
+  const flipToggle = () => {
+    setToggle(!toggle);
   }
 
-  const updateBtn = () => {
-
-    history.push("/userInfoPage")
-
+  const flipToggle2 = () => {
+    setToggle2(!toggle2);
   }
+
+
+  const editBtn = (e) => {
+    setToggle(!toggle);
+  };
+
+  const editBtn2 = (e) => {
+    setToggle2(!toggle2);
+  };
+  
 
   console.log()
 
@@ -91,21 +72,30 @@ function UserInfo(props) {
                   <th>Full Name</th>
                   <th>Email</th>
                   <th>Phone</th>
-                  <th>Upcoming Trip Start Date</th>
-                  <th>Upcoming Trip End Date </th>
+                  <th>Available Start Date</th>
+                  <th>Available End Date </th>
                   <th>Continent of Origin </th>
                 </tr>
                 <tr>
                   <td>{user?.full_name}</td>
                   <td>{user?.email}</td>
                   <td>{user?.phone_num}</td>
-                  <td>{user?.avail_start}</td>
-                  <td>{user?.avail_end}</td>
+                  <td>{user?.avail_start?.split('T')[0]}</td>
+                  <td>{user?.avail_end?.split('T')[0]}</td>
                   <td>{user?.continent_origin}</td>
                 </tr>
               </tbody>
             </table>
           </Grid>
+          <button className='button' onClick={editBtn}>
+                    Update
+                  </button>
+                  {toggle && <EditUserInfoForm flipToggle={flipToggle}/>}
+
+
+
+
+
           <Grid>
             <table className='card'>
               <caption>Your Pet Information</caption>
@@ -115,15 +105,24 @@ function UserInfo(props) {
                   <th>Breed</th>
                   <th>Weight</th>
                 </tr>
-                <tr>
-                  <td>{pet.name}</td>
-                  <td>{pet.breed}</td>
-                  <td>{pet.weight}</td>
-                </tr>
+                {pets.petInfo.map((pet) => {
+                        return (
+                        <tr key={pet.id}>
+                        <td>{pet.name}</td>
+                        <td>{pet.breed}</td>
+                        <td>{pet.weight + 'lbs'}</td>
+                        </tr>
+                    )
+                }
+            )}
+
               </tbody>
             </table>
           </Grid>
-          <button className='button' onClick={updateBtn}>Update</button>
+          <button className='button' onClick={editBtn2}>
+                    Add Pet
+                  </button>
+          {toggle2 && <EditPetInfoForm flipToggle2={flipToggle2}/>}
         </div>
         <div>
           <Grid>
