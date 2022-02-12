@@ -28,7 +28,7 @@ function* teamLeadPaidBox(action) {
       method: "PUT",
       url: `/api/paid/${action.payload.id}`,
       data: {
-        covid_free: action.payload.paid
+        paid: action.payload.paid
       }
     })
     yield put({
@@ -39,7 +39,27 @@ function* teamLeadPaidBox(action) {
   }
 }
 
+function* teamLeadContractBox(action) {
+  console.log('contractbox.saga action.payload:', action.payload);
+
+  try {
+    const response = yield axios({
+      method: "PUT",
+      url: `/api/checkbox/${action.payload.id}`,
+      data: action.payload
+    })
+    yield put({
+      type: "GET_ADMIN_FLIGHT_VIEW_PASSENGERS",
+    })
+  } catch (error) {
+    window.alert("nooo way")
+  }
+}
+
+
+
 export default function* teamLeadCheckboxSaga() {
   yield takeLatest("LEAD_COVID_CHECK", teamLeadCovidBox);
   yield takeLatest("LEAD_PAID_CHECK", teamLeadPaidBox);
+  yield takeLatest("LEAD_CONTRACT_CHECK", teamLeadContractBox);
 }

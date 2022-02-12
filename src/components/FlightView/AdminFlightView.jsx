@@ -13,23 +13,23 @@ console.log('passengers:', passengers);
   }, []);
 
   const contractBox = (e) => {
-    console.log("covidBox:", e.target.value);
+    console.log("contractBox:", e.target.value);
     // console.log(typeof e.target.value);
     // const covidReady = e.target.value;
 
     if (e.target.checked) {
       dispatch({
-        type: "LEAD_COVID_CHECK",
+        type: "LEAD_CONTRACT_CHECK",
         payload: {
-          contract: false,
+          signed_contract: false,
           id: e.target.id,
         },
       });
     } else {
       dispatch({
-        type: "LEAD_COVID_CHECK",
+        type: "LEAD_CONTRACT_CHECK",
         payload: {
-          contract: true,
+          signed_contract: true,
           id: e.target.id,
         },
       });
