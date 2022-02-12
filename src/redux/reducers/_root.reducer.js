@@ -9,6 +9,7 @@ import setOneFlightEvent from './setOneFlightEvent.reducer';
 import editFlightEvent from './editFlightEvent.reducer';
 import setUser from './getAllUser.reducer';
 import selectedDate from './admin.selectedDate.reducer';
+import setChart from './chart.reducers';
 import petInfo from './userInfo.reducer';
 
 // rootReducer is the primary reducer for our entire project
@@ -28,6 +29,7 @@ const rootReducer = combineReducers({
   editFlightEvent,
   setUser,
   selectedDate,
+  setChart,
   petInfo
 });
 
