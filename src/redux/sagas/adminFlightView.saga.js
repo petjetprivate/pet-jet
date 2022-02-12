@@ -6,7 +6,7 @@ function* adminFlightView(action) {
   try {
     const response = yield axios({
       method: "GET",
-      url: '/api/adminFlightViewPassengers',
+      url: `/api/adminFlightViewPassengers`,
     });
     yield put({
       type: "SET_ADMIN_FLIGHT_VIEW_PASSENGERS",

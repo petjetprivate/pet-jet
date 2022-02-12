@@ -7,7 +7,9 @@ function AdminFlightView() {
   const passengers = useSelector((store) => store.setAdminView);
 console.log('passengers:', passengers);
   useEffect(() => {
-    dispatch({ type: "GET_ADMIN_FLIGHT_VIEW_PASSENGERS" });
+    dispatch({ 
+      type: "GET_ADMIN_FLIGHT_VIEW_PASSENGERS",
+    });
   }, []);
 
   const contractBox = (e) => {
