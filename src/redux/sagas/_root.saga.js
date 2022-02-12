@@ -12,6 +12,7 @@ import deleteFlightSaga from './deleteFlight.saga';
 import editContractBox from './checkbox.saga';
 import adminFlightViewSaga from './adminFlightView.saga';
 import teamLeadCheckboxSaga from './teamLeadCheckbox.saga';
+import chartSaga from './chart.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -35,5 +36,6 @@ export default function* rootSaga() {
     editContractBox(),
     adminFlightViewSaga(),
     teamLeadCheckboxSaga(),
+    chartSaga()
   ]);
 }

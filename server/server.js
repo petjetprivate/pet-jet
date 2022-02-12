@@ -16,6 +16,7 @@ const checkboxRouter = require('./routes/checkbox.router');
 const paidRouter = require('./routes/paid.router');
 const covidRouter = require('./routes/covid.router');
 const adminFlightViewRouter = require('./routes/adminFlightViewPassengers.router');
+const chartRouter = require('./routes/chart.router');
 
 // Body parser middleware
 app.use(bodyParser.json());
@@ -37,6 +38,8 @@ app.use('/api/checkbox', checkboxRouter);
 app.use('/api/paid', paidRouter);
 app.use('/api/covid', covidRouter);
 app.use('/api/adminFlightViewPassengers', adminFlightViewRouter);
+app.use('/api/chart', chartRouter);
+
 // Serve static files
 app.use(express.static('build'));
 

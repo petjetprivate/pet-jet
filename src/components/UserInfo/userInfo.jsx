@@ -1,7 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
-import { useEffect } from 'react';
 import { Container, Grid } from '@mui/material';
 import PDF from '../PDF/PdfDownload';
 import Chart from './chart';
@@ -11,39 +10,27 @@ import EditUserInfoForm from "./EditUserInfoForm.jsx";
 import EditPetInfoForm from './EditPetInfo';
 
 function UserInfo(props) {
+
   const [toggle, setToggle] = useState(false);
   const [toggle2, setToggle2] = useState(false);
   const dispatch = useDispatch();
   const history = useHistory();
 
   const user = useSelector(store => store.user)
-  
-  // Do we have a pet reducer? Add pet input is nto functioning
+  const chart = useSelector(store => store.setChart);
   const pets = useSelector(store => store.petInfo)
 
-  // const [full_name, setFullName] = useState("")
+  useEffect(() => {
+    dispatch({
+      type: "GET_CHARTS_INFO"
+    })
 
-  // const [email, setEmail] = useState("")
-
-  // const [phone, setPhone] = useState("")
-
-  // const [avail_start, setStartDate] = useState("11/11/1111")
-
-  // const [avail_end, setEndDate] = useState("11/11/1111")
-
-  // const [continent_origin, setContinentOrigin] = useState("")
+  }, []);
 
 
   useEffect(() => {
 
-    dispatch({ 
-      type: 'FETCH_PET_DATA',
-      payload: user.id
-  });
-
-  dispatch({ 
-    type: 'FETCH_USER',
-});
+    dispatch({ type: 'FETCH_ONE_USER' });
 
 
   }, [])
@@ -56,18 +43,17 @@ function UserInfo(props) {
     setToggle2(!toggle2);
   }
 
+
   const editBtn = (e) => {
-    // console.log("e.target.value:", e.target.value);
     setToggle(!toggle);
   };
 
   const editBtn2 = (e) => {
-    // console.log("e.target.value:", e.target.value);
     setToggle2(!toggle2);
   };
   
 
-
+  console.log()
 
   return (
 
@@ -140,7 +126,9 @@ function UserInfo(props) {
         </div>
         {/* <div><FlightView /></div> */}
         <div>
-          <Chart />
+          <Grid>
+            {!chart.isLoading && <Chart />}
+          </Grid>
         </div>
       </Container>
     </div>
