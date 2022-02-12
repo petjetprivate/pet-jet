@@ -1,7 +1,7 @@
 import React from 'react';
 import LogOutButton from '../LogOutButton/LogOutButton';
 import {useSelector} from 'react-redux';
-import AdminFlightView from '../FlightView/AdminFlightView';
+import UserFlightView from '../FlightView/UserFlightView';
 
 
 function UserPage() {
@@ -9,7 +9,7 @@ function UserPage() {
   const user = useSelector((store) => store.user);
   return (
     <div className="container">
-      <AdminFlightView />
+      <UserFlightView />
       <h2>Welcome, {user.username}!</h2>
       <p>Your ID is: {user.id}</p>
       <LogOutButton className="btn" />

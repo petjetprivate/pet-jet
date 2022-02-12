@@ -5,7 +5,7 @@ function AdminFlightView() {
   const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
   const passengers = useSelector((store) => store.setAdminView);
-console.log('passengers:', passengers);
+  
   useEffect(() => {
     dispatch({ 
       type: "GET_ADMIN_FLIGHT_VIEW_PASSENGERS",
@@ -85,8 +85,8 @@ console.log('passengers:', passengers);
   };
 
   return (
-    // <h1>goat</h1>
     <div>
+      <h1>Flight Event Contacts</h1>
       <table>
         <thead>
           <tr>

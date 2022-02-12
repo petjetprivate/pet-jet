@@ -8,6 +8,8 @@ import './userInfo.css';
 // import FlightView from '../FlightView/FlightView';
 import EditUserInfoForm from "./EditUserInfoForm.jsx";
 import EditPetInfoForm from './EditPetInfo';
+import AdminFlightView from '../FlightView/AdminFlightView';
+import UserFlightView from '../FlightView/UserFlightView';
 
 function UserInfo(props) {
 
@@ -124,7 +126,8 @@ function UserInfo(props) {
                   </button>
           {toggle2 && <EditPetInfoForm flipToggle2={flipToggle2}/>}
         </div>
-        {/* <div><FlightView /></div> */}
+        {/* <AdminFlightView /> */}
+        {/* <UserFlightView /> */}
         <div>
           <Grid>
             {!chart.isLoading && <Chart />}
