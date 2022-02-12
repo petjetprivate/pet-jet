@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router';
 import { Container, Grid } from '@mui/material';
@@ -8,13 +8,22 @@ import './userInfo.css';
 
 function UserInfo(props) {
 
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const history = useHistory();
 
   const user = useSelector(store => store.user)
-  
+
+
   // Do we have a pet reducer? Add pet input is nto functioning
   const pet = useSelector(store => store.user)
+  const chart = useSelector(store => store.setChart);
+
+  useEffect(() => {
+    dispatch({
+      type: "GET_CHARTS_INFO"
+    })
+
+  }, []);
 
   // const [full_name, setFullName] = useState("")
 
@@ -29,41 +38,41 @@ function UserInfo(props) {
   // const [continent_origin, setContinentOrigin] = useState("")
 
 
-  // useEffect(() => {
+  useEffect(() => {
 
-  //   dispatch({ type: 'FETCH_ONE_USER' });
+    dispatch({ type: 'FETCH_ONE_USER' });
 
 
-  // }, [])
+  }, [])
 
-  // const updateInfo = (e) => {
+  const updateInfo = (e) => {
 
-  //   e.preventDefault()
-  //   // console.log('payload', full_name, email, phone, avail_start, avail_end, continent_origin)
-  //   // dispatch({
-  //   //   type: "EDIT_USER_INFO",
-  //   //   id: user.id,
-  //   //   payload: {
-  //   //     full_name,
-  //   //     email,
-  //   //     phone,
-  //   //     avail_start,
-  //   //     avail_end,
-  //   //     continent_origin
+    e.preventDefault()
+    // console.log('payload', full_name, email, phone, avail_start, avail_end, continent_origin)
+    // dispatch({
+    //   type: "EDIT_USER_INFO",
+    //   id: user.id,
+    //   payload: {
+    //     full_name,
+    //     email,
+    //     phone,
+    //     avail_start,
+    //     avail_end,
+    //     continent_origin
 
-  //   dispatch({
-  //     type: 'FETCH_ONE_USER'
-  //   })
+    dispatch({
+      type: 'FETCH_ONE_USER'
+    })
 
-  // }
-  
-  const updateBtn  = () => {
+  }
+
+  const updateBtn = () => {
 
     history.push("/userInfoPage")
 
   }
 
-
+  console.log()
 
   return (
 
@@ -117,9 +126,9 @@ function UserInfo(props) {
           <button className='button' onClick={updateBtn}>Update</button>
         </div>
         <div>
-        <Grid>
-          <Chart />
-        </Grid>
+          <Grid>
+            {!chart.isLoading && <Chart />}
+          </Grid>
         </div>
       </Container>
     </div>

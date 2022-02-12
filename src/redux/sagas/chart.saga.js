@@ -8,6 +8,7 @@ function* getChartInfo() {
             method: 'GET',
             url: '/api/chart',
         })
+  
         yield put({
             type: 'SET_CHARTS',
             payload: response.data
