@@ -16,13 +16,15 @@ function UserFlightView() {
   return (
     <div>
       <h1>YOUR TEAM LEAD</h1>
-      <ul>
         {lead.map((one) => {
           return (
-            <li key={one.id}>{one.username}</li>
+            <ul key={one.id}>
+            <li>{one.username}</li>
+            <li>Phone: {one.phone_num}</li>
+            <li>Email: {one.email}</li>
+            </ul>
           )
         })}
-      </ul>
     </div>
   );
 }
