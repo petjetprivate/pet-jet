@@ -16,7 +16,7 @@ router.get("/", (req, res) => {
     // .query (`SELECT "id", "full_name", "phone_num", "email", "avail_start", "avail_end" FROM "user";`)
     .then((results) => res.send(results.rows))
     .catch((error) => {
-      console.log('ERROR SELECTING ALL FROM "flight_event"');
+      console.log('ERROR SELECTING ALL FROM "user"');
       res.sendStatus(500);
     });
 });

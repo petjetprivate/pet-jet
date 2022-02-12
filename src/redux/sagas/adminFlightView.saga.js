@@ -6,12 +6,11 @@ function* adminFlightView(action) {
   try {
     const response = yield axios({
       method: "GET",
-      url: `/api/adminFlightViewPassengers`,
+      url: '/api/adminFlightViewPassengers',
     });
-    //action.payload will be req.params on the ^^ server side ^^
-    // call the dispatch that GETs the shelf items
     yield put({
       type: "SET_ADMIN_FLIGHT_VIEW_PASSENGERS",
+      payload: response.data
     });
   } catch (error) {
     console.log("error getting users from Client to Server", error);
