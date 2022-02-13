@@ -32,6 +32,11 @@ const initialData = {
 
 function flightChart() {
 
+    // import all passengers flight dates for departure and return useSelector
+    // const user = useSelector(store => store.user)
+    // link it to data to show demand in chart
+
+    
     const chart = useSelector(store => store.setChart)
     const [data, setData] = useState(initialData)
     const people = useSelector(store => store.user)
@@ -41,7 +46,7 @@ function flightChart() {
     function getDates() {
         
         setData(prev=>{
-             let prevData = JSON.parse(JSON.stringify(prev))
+            let prevData = JSON.parse(JSON.stringify(prev))
             prevData.datasets[0].data = chart.dataForUs;
             prevData.datasets[1].data = chart.dataForEu;
 

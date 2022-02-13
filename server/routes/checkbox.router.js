@@ -9,7 +9,7 @@ const userStrategy = require("../strategies/user.strategy");
 const router = express.Router();
 
   router.put("/:id", rejectUnauthenticated, (req, res) => {
-    console.log("EDIT checkbox.router req.body.signed_contract:", req.body.signed_contract);
+    console.log("EDIT checkbox.router req.body.signed_contract:", req.body);
     console.log("req.params.id:", req.params.id);
   
     if (req.body.signed_contract === false) {
