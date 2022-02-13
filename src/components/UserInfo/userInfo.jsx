@@ -51,13 +51,15 @@ function UserInfo(props) {
 
   return (
     <div>
-      <Container className="white-container-transfer" maxWidth="xl">
-        <h1>Welcome To Pet Jet</h1>
-        <Grid>
-          <PDF />
-        </Grid>
-        <div>
-          <Grid>
+      <div className="flightView">
+        {user?.sec_level > 0 && <AdminFlightView className="flightView"/>}
+        {user?.sec_level < 1 && <UserFlightView className="flightView"/>}
+        </div>
+      {/* <Container className="white-container-transfer" maxWidth="xl"> */}
+        {/* <h1>Welcome To Pet Jet</h1> */}
+          <PDF className="pdf"/>
+        <div className="tables">
+          <div>
             <table className="card">
               <caption>Your Information</caption>
               <tbody>
@@ -79,13 +81,13 @@ function UserInfo(props) {
                 </tr>
               </tbody>
             </table>
-          </Grid>
+          </div>
           <button className="button" onClick={editBtn}>
             Update
           </button>
           {toggle && <EditUserInfoForm flipToggle={flipToggle} />}
 
-          <Grid>
+          <div>
             <table className="card">
               <caption>Your Pet Information</caption>
               <tbody>
@@ -105,20 +107,20 @@ function UserInfo(props) {
                 })}
               </tbody>
             </table>
-          </Grid>
+          </div>
           <button className="button" onClick={editBtn2}>
             Add Pet
           </button>
           {toggle2 && <EditPetInfoForm flipToggle2={flipToggle2} />}
         </div>
-        <div>
-        {user?.sec_level > 0 && <AdminFlightView />}
-        {user?.sec_level <1 && <UserFlightView />}
+        {/* <div className="flightView">
+        {user?.sec_level > 0 && <AdminFlightView className="flightView"/>}
+        {user?.sec_level < 1 && <UserFlightView className="flightView"/>}
+        </div> */}
+        <div className="chartBox">
+          {!chart.isLoading && <Chart />}
         </div>
-        <div>
-          <Grid>{!chart.isLoading && <Chart />}</Grid>
-        </div>
-      </Container>
+      {/* </Container> */}
     </div>
   );
 }

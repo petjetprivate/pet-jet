@@ -12,18 +12,24 @@
     align-items: center !important;
     padding-left: 60px;
     padding-right: 60px;
+    height: 100%;
 }
 
 .passengerTable thead th {
     padding-left: 15px !important;
     padding-right: 15px !important;
     width:11%;
-    background-color: #04AA6D;
+    background-color: #715FBE;
     color:honeydew;
     border: .5px solid #ddd;
     margin: -1px;
+    border-radius: 5px;
 }
 
 .passengerTable thead tr {
     width: 100%;
+}
+
+.flightNameInput {
+    float: right;
 }
