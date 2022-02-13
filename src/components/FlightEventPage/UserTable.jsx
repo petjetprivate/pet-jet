@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import './UserTable.css'
 
 function UserTable() {
   const dispatch = useDispatch();
@@ -81,7 +82,8 @@ function UserTable() {
 
   return (
     <div>
-      <table>
+      <h1>User Table</h1>
+      <table className="userTable">
         <thead>
           <tr>
             <th>Username</th>

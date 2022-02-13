@@ -1,29 +1,34 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
+import React from "react";
+import { useDispatch } from "react-redux";
+import SweetAlert from 'react-bootstrap-sweetalert';
 
 function LogOutButton(props) {
   const dispatch = useDispatch();
-
+  
   const handleSignOut = () => {
-    swal({
-        title: "Are you sure you want to sign out?",
-        text: "You will lose all progress",
-        icon: "warning",
-        buttons: true,
-        dangerMode: true,
+    console.log('click');
+
+    dispatch({
+      type: "LOGOUT"
     })
-        .then((willExit) => {
-            if (willExit) {
-                dispatch({ type: 'LOGOUT' })
-                swal("Signed out Successfully!", {
-                    icon: "success",
-                });
-                navigate.push('/')
-            } else {
-                swal("Awesome! Continue planning your trip");
-            }
-        });
-      }
+    // swal({
+    //   title: "Are you sure you want to sign out?",
+    //   text: "You will lose all progress",
+    //   icon: "warning",
+    //   buttons: true,
+    //   dangerMode: true,
+    // }).then((willExit) => {
+    //   if (willExit) {
+    //     dispatch({ type: "LOGOUT" });
+    //     swal("Signed out Successfully!", {
+    //       icon: "success",
+    //     });
+    //     navigate.push("/");
+    //   } else {
+    //     swal("Awesome! Continue planning your trip");
+    //   }
+    // });
+  };
 
   return (
     <button

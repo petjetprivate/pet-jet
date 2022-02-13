@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import "./EditFlightForm.css";
 
-function EditForm({flipToggle}) {
+function EditForm({ flipToggle }) {
   const dispatch = useDispatch();
   const flightEvents = useSelector((store) => store.setFlightEvents);
   const flightToEdit = useSelector((store) => store.editFlightEvent);
@@ -71,14 +72,17 @@ function EditForm({flipToggle}) {
 
   return (
     <div>
-      <ul>
-        {passengers.map((flyer) => {
-          if (flyer.flight_event_id === flightToEdit.id)
-            return <li key={flyer.id}>{flyer.full_name}</li>;
-        })}
-      </ul>
-      <form onSubmit={editFlightEvent}>
-        <p>Edit Flight Event Form</p>
+      <div className="onThisFlight">
+        <h1>Passengers On This Flight</h1>
+        <ul className="flightList">
+          {passengers.map((flyer) => {
+            if (flyer.flight_event_id === flightToEdit.id)
+              return <li key={flyer.id}>{flyer.full_name}</li>;
+          })}
+        </ul>
+      </div>
+      <form className="editFlightForm" onSubmit={editFlightEvent}>
+        <h1>Edit Flight Event Form</h1>
         <label htmlFor="name">
           Name
           <input
@@ -109,49 +113,39 @@ function EditForm({flipToggle}) {
           />
         </label>
         <div className="dropdown">
-            <label htmlFor="naLead">
-              NA Team Lead
-              <select
-                onChange={editUSTeamLead}
-                value={flightToEdit.USTeamLead}
-                >
-                {passengers.map((flyer) => {
-                  if (
-                    flyer.flight_event_id === flightToEdit.id &&
-                    flyer.continent_origin === "US"
-                  ) {
-                    return (
-                      <option key={flyer.id} value={flyer.id}>
-                        {flyer.full_name}
-                      </option>
-                    );
-                  }
-                })}
-              </select>
-            </label>
-          </div>
-          <div className="dropdown">
-            <label htmlFor="euLead">
-              EU Team Lead
-              <select
-                onChange={editEUTeamLead}
-                value={flightToEdit.EUTeamLead}
-                >
-                {passengers.map((flyer) => {
-                  if (
-                    flyer.flight_event_id === flightToEdit.id &&
-                    flyer.continent_origin === "EU"
-                  ) {
-                    return (
-                      <option key={flyer.id} value={flyer.id}>
-                        {flyer.full_name}
-                      </option>
-                    );
-                  }
-                })}
-              </select>
-            </label>
-          </div>
+          <select onChange={editUSTeamLead} value={flightToEdit.USTeamLead}>
+            {passengers.map((flyer) => {
+              if (
+                flyer.flight_event_id === flightToEdit.id &&
+                flyer.continent_origin === "US"
+              ) {
+                return (
+                  <option key={flyer.id} value={flyer.id}>
+                    {flyer.full_name}
+                  </option>
+                );
+              }
+            })}
+          </select>
+          <label htmlFor="naLead">NA Team Lead</label>
+        </div>
+        <div className="dropdown">
+          <select onChange={editEUTeamLead} value={flightToEdit.EUTeamLead}>
+            {passengers.map((flyer) => {
+              if (
+                flyer.flight_event_id === flightToEdit.id &&
+                flyer.continent_origin === "EU"
+              ) {
+                return (
+                  <option key={flyer.id} value={flyer.id}>
+                    {flyer.full_name}
+                  </option>
+                );
+              }
+            })}
+          </select>
+          <label htmlFor="euLead">EU Team Lead</label>
+        </div>
         <button type="submit">Submit</button>
       </form>
     </div>

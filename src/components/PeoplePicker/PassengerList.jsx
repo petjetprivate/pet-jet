@@ -9,6 +9,7 @@ function PassengerList() {
     const date = new Date();
     const dispatch = useDispatch();
     const passengers = useSelector((store) => store.setUser);
+    console.log('passengers:', passengers);
     const rawSelectedDate = useSelector((store) => store.selectedDate);
     // console.log('########################################')
     // console.log(rawSelectedDate)
