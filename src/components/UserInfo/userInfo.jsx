@@ -28,6 +28,7 @@ function UserInfo(props) {
 
   useEffect(() => {
     dispatch({ type: "FETCH_ONE_USER" });
+    dispatch({ type: 'FETCH_PET_DATA' });
   }, []);
 
   const flipToggle = () => {
@@ -111,8 +112,8 @@ function UserInfo(props) {
           {toggle2 && <EditPetInfoForm flipToggle2={flipToggle2} />}
         </div>
         <div>
-        {user.sec_level > 0 && <AdminFlightView />}
-        {user.sec_level <1 && <UserFlightView />}
+        {user?.sec_level > 0 && <AdminFlightView />}
+        {user?.sec_level <1 && <UserFlightView />}
         </div>
         <div>
           <Grid>{!chart.isLoading && <Chart />}</Grid>

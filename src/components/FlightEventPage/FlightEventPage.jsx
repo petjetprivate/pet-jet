@@ -23,8 +23,6 @@ function FlightEventPage() {
     setToggle(!toggle);
   }
   const editBtn = (e) => {
-    // console.log("e.target.value:", e.target.value);
-
     setToggle(!toggle);
 
     dispatch({
@@ -42,7 +40,7 @@ function FlightEventPage() {
   };
 
   return (
-    <div className="fixTableHead">
+    <div>
       <div>
         <h1>Flight Event Page</h1>
         <div className="flexbox neighbors">
@@ -50,9 +48,6 @@ function FlightEventPage() {
             return (
               <div className="eventCard" key={event.id}>
                 <div className="flightEventContainer">
-                  {/* <p>
-                    <img alt="pet jet lazer airliner" />
-                  </p> */}
                   <p>Flight Name: {event.name}</p>
                   <p>Flight Departure Date: {event.dep_date?.split('T')[0] || ''}</p>
                   <p>Flight Return Date: {event.ret_date?.split('T')[0] || ''}</p>
