@@ -10,8 +10,13 @@ function Nav() {
   return (
     <div className="nav">
       <Link to="/home">
-        <h2 className="nav-title">Prime Solo Project</h2>
+        <h2 className="nav-title">Pet Jet</h2>
       </Link>
+
+      {user.id &&
+        <h1 className="h1">Hi {user.full_name}!</h1>
+      }  
+
       <div>
         {/* If no user is logged in, show these links */}
         {!user.id && (
@@ -24,20 +29,9 @@ function Nav() {
         {/* If a user is logged in, show these links */}
         {user.id && (
           <>
-            {/* <Link className="navLink" to="/user">
-              Home
-            </Link> */}
-{/* 
-            <Link className="navLink" to="/info">
-              Info Page
-            </Link> */}
-            {/* <Link className="navLink" to="/userInfoPage">
-          User's Page
-            </Link> */}
-
-            <Link className="navLink" to="/UserInfo">
+            {/* <Link className="navLink" to="/UserInfo">
               User Info
-            </Link>
+            </Link> */}
             {user.sec_level === 2 &&
             <>
             <Link className="navLink" to="/flight_event">
