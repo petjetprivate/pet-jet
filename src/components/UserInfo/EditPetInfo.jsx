@@ -35,7 +35,7 @@ const handleAddPetSubmit = () => {
 return(
     <>
         <div>
-        <h2>Add Pet's Information</h2>
+        {/* <h2>Add Pet's Information</h2> */}
         <form onSubmit={()=>handleAddPetSubmit()}>
             <label htmlFor="Name">Enter Pet Name</label>
         <input

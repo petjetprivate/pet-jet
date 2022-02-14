@@ -14,8 +14,8 @@ function UserFlightView() {
   }, []);
 
   return (
-    <div>
-      <h1>YOUR TEAM LEAD</h1>
+    <div className="teamLead">
+      <p>TEAM LEAD</p>
         {lead.map((one) => {
           return (
             <ul key={one.id}>

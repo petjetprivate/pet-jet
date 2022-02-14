@@ -52,14 +52,13 @@ function UserInfo(props) {
   return (
     <div>
       <div className="flightView">
-        {user?.sec_level > 0 && <AdminFlightView className="flightView"/>}
+        {user?.sec_level > 0 && <AdminFlightView className="admin flightView"/>}
         {user?.sec_level < 1 && <UserFlightView className="flightView"/>}
         </div>
       {/* <Container className="white-container-transfer" maxWidth="xl"> */}
-        {/* <h1>Welcome To Pet Jet</h1> */}
           <PDF className="pdf"/>
         <div className="tables">
-          <div>
+          {/* <div> */}
             <table className="card">
               <caption>Your Information</caption>
               <tbody>
@@ -112,11 +111,7 @@ function UserInfo(props) {
             Add Pet
           </button>
           {toggle2 && <EditPetInfoForm flipToggle2={flipToggle2} />}
-        </div>
-        {/* <div className="flightView">
-        {user?.sec_level > 0 && <AdminFlightView className="flightView"/>}
-        {user?.sec_level < 1 && <UserFlightView className="flightView"/>}
-        </div> */}
+        {/* </div> */}
         <div className="chartBox">
           {!chart.isLoading && <Chart />}
         </div>
