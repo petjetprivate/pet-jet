@@ -1,6 +1,5 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-import SweetAlert from 'react-bootstrap-sweetalert';
 
 function LogOutButton(props) {
   const dispatch = useDispatch();

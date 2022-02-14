@@ -22,9 +22,9 @@
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   width: 17rem;
-  height: 17rem;
   padding: 2rem;
-  margin: 2rem;
+  margin-left: 2rem;
+  margin-bottom: 2rem;
   background-color: #66411981;
   color: white;
   border-radius: 5px;
@@ -37,8 +37,8 @@
 
 .flexbox {
   display: flex;
-  width: 65rem;
-  justify-content: flex-start;
+  width: 100%;
+  justify-content: flex;
   flex-wrap: wrap;
   align-content: flex-start;
 }
@@ -50,4 +50,10 @@
 
 .row {
   display: flex;
+}
+
+.table {
+  /* overflow: scroll; */
+  width: 60%;
+  margin-right: 5rem;
 }

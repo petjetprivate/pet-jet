@@ -55,26 +55,36 @@ color: white;
 }
 
 .pdf {
-    border: 5px solid red;
-    width: 20%;
-    display: inline;
-    float: right;
+    text-align: center;
+    /* width: 100%; */
+    display: block;
+    border: 2px solid red;
+    /* margin-top: 2rem; */
 }
 
 .flightView {
-    width: 75%;
-    display: inline-block;
+    /* width: 33%; */
+    display: inline;
+    /* overflow: scroll; */
+    margin-left: 3rem;
 }
 
 .chartBox {
-    width: 40%;
-    /* display: inline; */
+    /* width: 25%; */
+    /* margin-left: 2rem;
+    margin-right: 2rem;
+    margin-top: -1.5rem;
+    margin-bottom: 1rem; */
+    display: block;
 }
 
 .tables {
-    width: 100%;
+    /* width: 33%; */
     display: block;
-    /* float: right; */
+    /* overflow: scroll; */
+    justify-content: right;
+    margin-right: 3rem;
+    margin-left: 3rem;
 }
 
 .teamLead {
@@ -83,5 +93,23 @@ color: white;
 
 .admin {
     display: inline;
-    float: left;
+    width: 33%;
+    overflow: scroll;
+}
+
+.userBox {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+}
+
+.rightbar{
+    justify-content: right;
+    border: 2px solid red;
+    width: 33%
+}
+
+.middle {
+    margin: 2rem;
+    width: 33%;
 }

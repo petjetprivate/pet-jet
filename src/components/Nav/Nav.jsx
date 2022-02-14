@@ -29,9 +29,9 @@ function Nav() {
         {/* If a user is logged in, show these links */}
         {user.id && (
           <>
-            {/* <Link className="navLink" to="/UserInfo">
+            <Link className="navLink" to="/UserInfo">
               User Info
-            </Link> */}
+            </Link>
             {user.sec_level === 2 &&
             <>
             <Link className="navLink" to="/flight_event">

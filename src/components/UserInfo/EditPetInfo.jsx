@@ -46,6 +46,7 @@ return(
         placeholder="Enter your pet's name..."
         value={name}
         onChange={(e)=>setName(e.target.value)} />
+        <br />
         <label htmlFor="breed">Enter Pet Breed</label>
         <input
         className = "input"
@@ -55,6 +56,7 @@ return(
         required="required"
         placeholder="Enter your animal's breed..."
         onChange={(e)=>setBreed(e.target.value)} />
+        <br/>
         <label htmlFor="weight">Enter Pet Weight in Pounds</label>
         <input
         className = "input"
@@ -64,6 +66,7 @@ return(
         value={weight}
         placeholder="Enter your animal's weight..."
         onChange={(e)=>setWeight(e.target.value)} />
+        <br/>
         <button type="submit">Add</button>
     </form>
     </div>

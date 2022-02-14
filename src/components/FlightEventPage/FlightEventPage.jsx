@@ -40,11 +40,11 @@ function FlightEventPage() {
   };
 
   return (
-    <div>
     <div className="row">
+    <div>
       <div>
         {/* <h1>Flight Event Page</h1> */}
-        <div className="flexbox neighbors">
+        <div className="flexbox">
           {flightEvents.map((event) => {
             return (
               <div className="eventCard" key={event.id}>
@@ -89,7 +89,9 @@ function FlightEventPage() {
       </div>
       {toggle && <EditForm flipToggle={flipToggle}/>}
       </div>
+      <div className="table">
       <UserTable />
+      </div>
     </div>
   );
 }
