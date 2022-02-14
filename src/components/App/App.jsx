@@ -128,7 +128,7 @@ function App() {
             {user.id ?
               // If the user is already logged in, 
               // redirect them to the /user page
-              <Redirect to="/userInfoPage" />
+              <Redirect to="/UserInfo" />
               :
               // Otherwise, show the registration page
               <RegisterPage />

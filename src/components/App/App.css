@@ -5,7 +5,7 @@ body,
 }
 
 body {
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: "Quicksand", sans-serif;
   margin: 0px;
   font-weight: 100;
   background-color: #ffffe8;
@@ -29,6 +29,7 @@ Button
 -------------------------------------------------------------------------------- */
 
 .btn {
+  font-family: "Quicksand", sans-serif;
   display: inline-block;
   padding: 10px 20px;
   border-color: #014041;
@@ -39,6 +40,7 @@ Button
   font-size: 1.1rem;
   outline: 0;
   cursor: pointer;
+  font-weight: 200;
 }
 
 .btn_sizeMin {

@@ -5,7 +5,7 @@ function RegisterForm() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [full_name, setFullName] = useState('');
-  const [continent_origin, setContinentOrigin] = useState('');
+  const [continent_origin, setContinentOrigin] = useState('US');
   const [admPass, setAdmPass] = useState('');
   const errors = useSelector((store) => store.errors);
   const dispatch = useDispatch();
@@ -96,13 +96,13 @@ function RegisterForm() {
       <div>
         <label htmlFor="continent">
           Continent of Origin
-          <input
-            type="text"
-            name="continent_origin"
-            value={continent_origin}
-            required
-            onChange={(event) => setContinentOrigin(event.target.value)}
-          />
+        <select name="continent_origin" 
+          // value={continent_origin}
+          required
+          onChange={(event) => setContinentOrigin(event.target.value)}>
+          <option value="US" >US</option>
+          <option value="EU" >EU</option>
+        </select>
         </label>
       </div>
       <div>
@@ -111,5 +111,6 @@ function RegisterForm() {
     </form>
   );
 }
+// }setContinentOrigin(event.target.value)
 
 export default RegisterForm;

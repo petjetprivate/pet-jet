@@ -73,7 +73,7 @@ function EditForm({ flipToggle }) {
   return (
     <div>
       <div className="onThisFlight">
-        <h1>Passengers On This Flight</h1>
+        <h1>Passengers On {flightToEdit.name}</h1>
         <ul className="flightList">
           {passengers.map((flyer) => {
             if (flyer.flight_event_id === flightToEdit.id)

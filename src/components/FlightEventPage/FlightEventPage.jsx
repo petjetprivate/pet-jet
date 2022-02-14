@@ -49,11 +49,11 @@ function FlightEventPage() {
             return (
               <div className="eventCard" key={event.id}>
                 <div className="flightEventContainer">
-                  <p>Flight Name: {event.name}</p>
-                  <p>Departure Date: {event.dep_date?.split('T')[0] || ''}</p>
-                  <p>Return Date: {event.ret_date?.split('T')[0] || ''}</p>
+                  <h1>{event.name}</h1>
+                  <p>Departure: {event.dep_date?.split('T')[0] || ''}</p>
+                  <p>Return: {event.ret_date?.split('T')[0] || ''}</p>
                   <p>
-                    US Team Lead:{" "}
+                    US Lead:{" "}
                     {passengers.map((lead) => {
                       if (lead.id === event.USTeamLead) {
                         return `${lead.full_name}`;
@@ -61,7 +61,7 @@ function FlightEventPage() {
                     })}
                   </p>
                   <p>
-                    EU Team Lead:{" "}
+                    EU Lead:{" "}
                     {passengers.map((lead) => {
                       if (lead.id === event.EUTeamLead) {
                         return `${lead.full_name}`;

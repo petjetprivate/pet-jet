@@ -51,7 +51,7 @@ function UserInfo(props) {
 
   return (
     <div className="userBox">
-      <div className="flightView">
+      <div className="adminFlightView">
         {user?.sec_level > 0 && user.flight_event_id && (
           <AdminFlightView className="admin flightView" />
         )}
@@ -92,7 +92,7 @@ function UserInfo(props) {
             </tr>
           </tbody>
         </table>
-      <button className="btn btn_sizeSm" onClick={editBtn}>
+      <button className="btn" onClick={editBtn}>
         Update User Info
       </button>
       {toggle && <EditUserInfoForm flipToggle={flipToggle} />}
