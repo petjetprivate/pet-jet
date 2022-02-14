@@ -27,8 +27,10 @@ function UserInfo(props) {
   }, []);
 
   useEffect(() => {
-    dispatch({ type: "FETCH_ONE_USER" });
-  }, []);
+    dispatch({ type: 'FETCH_ONE_USER' });
+    dispatch({ type: 'FETCH_PET_DATA' });
+  }, [])
+
 
   const flipToggle = () => {
     setToggle(!toggle);

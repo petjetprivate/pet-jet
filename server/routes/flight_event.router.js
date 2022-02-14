@@ -70,8 +70,15 @@ router.delete('/:id', rejectUnauthenticated, (req, res) => {
   
   pool
   .query (sqlText, [flightToDelete])
-  .then(() => res.sendStatus(202))
-  .catch((error) => {
+  .then(result => {
+    //Change the flight_event_id back to null
+    query = `UPDATE "user"
+    SET "flight_event_id" = null, "sec_level" = 0
+    WHERE "flight_event_id" = ${req.params.id};`
+    pool.query(query)
+    res.sendStatus(202)
+    
+  }).catch((error) => {
     console.log("DELETE server error:", error);
   });
 })
@@ -100,6 +107,10 @@ router.post('/', rejectUnauthenticated, (req, res) => {
   pool.query(postText, postValues)
   .then(result => {
     //Now that both are done, send back success!
+    query = `UPDATE "user"
+    SET "sec_level" = 1
+    WHERE "id" = ${USLead.id} OR "id" = ${EULead.id};`
+    pool.query(query)
     res.send(result.rows[0]);
 }).catch(err => {
     console.log('THIS IS A CREATE FLIGHT EVENT ISSUE', err);

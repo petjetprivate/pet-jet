@@ -23,10 +23,10 @@ const handleAddPetSubmit = () => {
     }
     })
     flipToggle2()
-    // dispatch({
-    //     type:'FETCH_PET_DATA',
-    //     payload: user.id
-    // })
+    dispatch({
+        type:'FETCH_PET_DATA',
+        payload: user.id
+    })
 
 }
 
