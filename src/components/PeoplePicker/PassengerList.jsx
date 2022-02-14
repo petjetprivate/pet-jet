@@ -9,6 +9,7 @@ function PassengerList() {
     const date = new Date();
     const dispatch = useDispatch();
     const passengers = useSelector((store) => store.setUser);
+    console.log('passengers:', passengers);
     const rawSelectedDate = useSelector((store) => store.selectedDate);
     // console.log('########################################')
     // console.log(rawSelectedDate)
@@ -75,11 +76,6 @@ function PassengerList() {
     // console.log(new Date (passengers[11].avail_start))
     return (
         <div className="passengerList">
-            <p>Passengers:</p>
-            <input type="text" value={flightName} onChange={(e) => setFlightName(e.target.value)}/>
-            <button type="button" onClick={() => SubmitGroups()}>
-                submit groups
-            </button>
         <div>
         <table className="passengerTable">
         <thead>
@@ -91,8 +87,8 @@ function PassengerList() {
             <th>Available Start</th>
             <th>Available End</th>
             <th>Continent of Origin</th>
-            <th>Selected for Group</th>
-            <th>Region Team Lead</th>
+            <th>Add To Flight</th>
+            <th>Select Team Lead</th>
             </tr>
         </thead>
         <tbody>
@@ -137,6 +133,13 @@ function PassengerList() {
         </tbody>
         </table>
         </div>
+        <div className="flightNameInput">
+            <label htmlFor="flightName">Enter Flight Name</label>
+        <input required="required" name="flightName" type="text" value={flightName} onChange={(e) => setFlightName(e.target.value)}/>
+            <button type="button" onClick={() => SubmitGroups()}>
+                CREATE FLIGHT
+            </button>
+            </div>
         </div>
     )
 }

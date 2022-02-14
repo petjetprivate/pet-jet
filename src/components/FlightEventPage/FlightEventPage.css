@@ -1,27 +1,33 @@
-/* table {
-  position: relative;
-  border-collapse: collapse;
+.flightEventBtn {
+  /* margin: 1rem; */
+  border-radius: 2px;
+  width: 50%;
+  color: white;
 }
 
-td {
-  text-align: center;
+.flightEventBtn:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-th {
-  position: sticky;
-  top: 0;
-  background-color: red;
-} */
+.edit {
+  background-color: #2baa6dd8;
+}
+
+.delete {
+  background-color: #705fbed8;
+}
 
 .eventCard { 
   /* Add shadows to create the "card" effect */
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
-  width: 25%;
+  width: 17rem;
+  height: 17rem;
   padding: 2rem;
-  margin: 4rem;
-  background-color: rgb(158, 157, 157);
+  margin: 2rem;
+  background-color: #66411981;
   color: white;
+  border-radius: 5px;
 }
 
 /* On mouse-over, add a deeper shadow */
@@ -29,21 +35,19 @@ th {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.6);
 } 
 
-.hidden {
-  display: none;
-}
-
-.fixTableHead {
-  overflow-y: auto;
-  height: 100rem;
-}
-
 .flexbox {
   display: flex;
-  width: 75%;
+  width: 65rem;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-content: flex-start;
 }
 
 /* Add some padding inside the card container */
 .flightEventContainer {
   padding: 2px 16px;
+}
+
+.row {
+  display: flex;
 }

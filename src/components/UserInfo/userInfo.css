@@ -3,7 +3,7 @@ h1 {
     font-weight: 700;
     margin: 10px !important;
     padding-bottom: 20px !important;
-    color: rgb(61, 60, 60);
+    /* color: rgb(61, 60, 60); */
     border-bottom: 2px solid gainsboro;
     text-align: center;
 }
@@ -17,11 +17,10 @@ caption {
 .card {
     font-family: Arial, Helvetica, sans-serif;
     border-collapse: collapse;
-    width: 100%;
+    width: 55%;
     margin-top: 15px;
     text-align: center;
-    
-    
+    display: inline;
 }
 
 .card td, th {
@@ -37,11 +36,12 @@ caption {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: center;
-    background-color: #04AA6D;
+    background-color: #705fbed8;
     color: white;
 } 
 
 .card th {
+    width: 25%;
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: center;
@@ -49,14 +49,39 @@ caption {
 }
 
 .button {
-font-weight: 500 !important;
-background-color: #04AA6D;
-margin-top: 30px !important;
-margin-left: 0px;
-font-size: 25px !important;
-/* margin-bottom: 40px; */
-/* margin: 10px; */
+background-color: #2baa6dd8;
 text-align: center;
 color: white;
+}
 
+.pdf {
+    border: 5px solid red;
+    width: 20%;
+    display: inline;
+    float: right;
+}
+
+.flightView {
+    width: 75%;
+    display: inline-block;
+}
+
+.chartBox {
+    width: 40%;
+    /* display: inline; */
+}
+
+.tables {
+    width: 100%;
+    display: block;
+    /* float: right; */
+}
+
+.teamLead {
+    margin: 100px;
+}
+
+.admin {
+    display: inline;
+    float: left;
 }

@@ -35,8 +35,9 @@ const handleAddPetSubmit = () => {
 return(
     <>
         <div>
-        <h2>Add Pet's Information</h2>
+        {/* <h2>Add Pet's Information</h2> */}
         <form onSubmit={()=>handleAddPetSubmit()}>
+            <label htmlFor="Name">Enter Pet Name</label>
         <input
         className = "input"
         type="text"
@@ -45,6 +46,7 @@ return(
         placeholder="Enter your pet's name..."
         value={name}
         onChange={(e)=>setName(e.target.value)} />
+        <label htmlFor="breed">Enter Pet Breed</label>
         <input
         className = "input"
         type="text"
@@ -53,6 +55,7 @@ return(
         required="required"
         placeholder="Enter your animal's breed..."
         onChange={(e)=>setBreed(e.target.value)} />
+        <label htmlFor="weight">Enter Pet Weight in Pounds</label>
         <input
         className = "input"
         type="text"

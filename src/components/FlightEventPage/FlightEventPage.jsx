@@ -23,8 +23,6 @@ function FlightEventPage() {
     setToggle(!toggle);
   }
   const editBtn = (e) => {
-    // console.log("e.target.value:", e.target.value);
-
     setToggle(!toggle);
 
     dispatch({
@@ -42,22 +40,20 @@ function FlightEventPage() {
   };
 
   return (
-    <div className="fixTableHead">
+    <div>
+    <div className="row">
       <div>
-        <h1>Flight Event Page</h1>
+        {/* <h1>Flight Event Page</h1> */}
         <div className="flexbox neighbors">
           {flightEvents.map((event) => {
             return (
               <div className="eventCard" key={event.id}>
                 <div className="flightEventContainer">
-                  {/* <p>
-                    <img alt="pet jet lazer airliner" />
-                  </p> */}
                   <p>Flight Name: {event.name}</p>
-                  <p>Flight Departure Date: {event.dep_date?.split('T')[0] || ''}</p>
-                  <p>Flight Return Date: {event.ret_date?.split('T')[0] || ''}</p>
+                  <p>Departure Date: {event.dep_date?.split('T')[0] || ''}</p>
+                  <p>Return Date: {event.ret_date?.split('T')[0] || ''}</p>
                   <p>
-                    NA Team Lead ID:{" "}
+                    US Team Lead:{" "}
                     {passengers.map((lead) => {
                       if (lead.id === event.USTeamLead) {
                         return `${lead.full_name}`;
@@ -65,17 +61,21 @@ function FlightEventPage() {
                     })}
                   </p>
                   <p>
-                    EU Team Lead ID:{" "}
+                    EU Team Lead:{" "}
                     {passengers.map((lead) => {
                       if (lead.id === event.EUTeamLead) {
                         return `${lead.full_name}`;
                       }
                     })}
                   </p>
-                  <button value={event.id} onClick={editBtn}>
+                  <button 
+                    className="flightEventBtn edit"
+                    value={event.id} 
+                    onClick={editBtn}>
                     EDIT
                   </button>
                   <button
+                    className="flightEventBtn delete"
                     value={event.id}
                     onClick={(e) => deleteFlightEvent(event.id)}
                   >
@@ -87,8 +87,8 @@ function FlightEventPage() {
           })}
         </div>
       </div>
-      {/* <LineGraph /> */}
       {toggle && <EditForm flipToggle={flipToggle}/>}
+      </div>
       <UserTable />
     </div>
   );
