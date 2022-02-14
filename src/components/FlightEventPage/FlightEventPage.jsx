@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import EditForm from "./EditFlightForm.jsx";
 import UserTable from "./UserTable.jsx";
-import LineGraph from "../LineGraph/LineGraph.jsx";
 import "./FlightEventPage.css";
 
 function FlightEventPage() {
