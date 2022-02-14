@@ -143,14 +143,25 @@ return(
         value={editUser.phone_num}
         placeholder="Enter your phone number..."
         onChange={editPhone} />
-        <input
+        {/* <input
         class = "input"
         type="text"
         name="continent_origin"
         required="required"
         value={editUser.continent_origin}
         placeholder="Enter continent of origin..."
-        onChange={editContOrg} />
+        onChange={editContOrg} /> */}
+        <label htmlFor="continent">
+        Continent of Origin
+        <select 
+            name="continent_origin" 
+            value={editUser.continent_origin}
+            required
+            onChange={(event) => editContOrg(event)}>
+                <option value="US" >US</option>
+                <option value="EU" >EU</option>
+        </select>
+        </label>
         <input
         class = "input"
         type="date"
