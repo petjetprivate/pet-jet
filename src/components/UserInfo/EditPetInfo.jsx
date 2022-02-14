@@ -43,7 +43,7 @@ return(
         type="text"
         name="Name"
         required="required"
-        placeholder="Enter your pet's name..."
+        placeholder="Enter pet's name..."
         value={name}
         onChange={(e)=>setName(e.target.value)} />
         <br />
@@ -54,7 +54,7 @@ return(
         name="breed"
         value={breed}
         required="required"
-        placeholder="Enter your animal's breed..."
+        placeholder="Enter animal's breed..."
         onChange={(e)=>setBreed(e.target.value)} />
         <br/>
         <label htmlFor="weight">Enter Pet Weight in Pounds</label>
@@ -64,10 +64,10 @@ return(
         name="weight"
         required="required"
         value={weight}
-        placeholder="Enter your animal's weight..."
+        placeholder="Enter animal's weight..."
         onChange={(e)=>setWeight(e.target.value)} />
         <br/>
-        <button type="submit">Add</button>
+        <button className="btn btn_sizeSm" type="submit">SUBMIT</button>
     </form>
     </div>
         </>

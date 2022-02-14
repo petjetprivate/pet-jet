@@ -136,7 +136,7 @@ function PassengerList() {
         <div className="flightNameInput">
             <label htmlFor="flightName">Enter Flight Name</label>
         <input required="required" name="flightName" type="text" value={flightName} onChange={(e) => setFlightName(e.target.value)}/>
-            <button type="button" onClick={() => SubmitGroups()}>
+            <button className="btn btn_sizeSm" type="button" onClick={() => SubmitGroups()}>
                 CREATE FLIGHT
             </button>
             </div>

@@ -6,3 +6,7 @@ th {
 .input {
   display: inline;
 }
+
+.userInfoForm {
+ justify-content: flex-end;
+}

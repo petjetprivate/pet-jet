@@ -71,15 +71,15 @@ function UserInfo(props) {
       </div> */}
       <div className="tables">
         {/* <div> */}
-        <table className="card">
+        <table className="info card">
           <caption>Your Information</caption>
           <tbody>
             <tr>
               <th>Full Name</th>
               <th>Email</th>
               <th>Phone</th>
-              <th>Available Start Date</th>
-              <th>Available End Date </th>
+              <th>Availability Start</th>
+              <th>Availability End</th>
               <th>Continent of Origin </th>
             </tr>
             <tr>
@@ -92,8 +92,8 @@ function UserInfo(props) {
             </tr>
           </tbody>
         </table>
-      <button className="button" onClick={editBtn}>
-        Update
+      <button className="btn btn_sizeSm" onClick={editBtn}>
+        Update User Info
       </button>
       {toggle && <EditUserInfoForm flipToggle={flipToggle} />}
       
@@ -119,7 +119,7 @@ function UserInfo(props) {
           </tbody>
         </table>
         </div>
-        <button className="button" onClick={editBtn2}>
+        <button className="btn btn_sizeSm" onClick={editBtn2}>
         Add Pet
       </button>
         {/* </div> */}

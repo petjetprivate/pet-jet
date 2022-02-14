@@ -92,7 +92,7 @@ const editContOrg = (event) => {
 return(
     <><div>
     <h2>Update your information</h2>
-    <table>
+    {/* <table>
     <tbody>
         <tr>
         <th>Full Name</th>
@@ -109,16 +109,17 @@ return(
         <td>{editUser?.avail_start?.split('T')[0]}</td>
         <td>{editUser?.avail_end?.split('T')[0]}</td>
         <td>{editUser?.continent_origin}</td>
-        </tr> */}
+        </tr>
     </tbody>
-    </table>
+    </table> */}
 </div>
     
     
     
-    <div>
+    <div className="userInfoForm">
 
-        <form onSubmit={(e)=>handleAddUserInfoSubmit(e)}>
+        <form className="userInfoForm" onSubmit={(e)=>handleAddUserInfoSubmit(e)}>
+            <label htmlFor="Name">Update name</label>
         <input
         class = "input"
         type="text"
@@ -127,6 +128,8 @@ return(
         placeholder="Enter your name..."
         value={editUser.full_name}
         onChange={editFullName} />
+        <br/>
+        <label htmlFor="email">Update email</label>
         <input
         class = "input"
         type="text"
@@ -135,6 +138,8 @@ return(
         required="required"
         placeholder="Enter your email..."
         onChange={editEmail} />
+        <br/>
+        <label htmlFor="phone_num">Update Phone #</label>
         <input
         class = "input"
         type="text"
@@ -143,6 +148,8 @@ return(
         value={editUser.phone_num}
         placeholder="Enter your phone number..."
         onChange={editPhone} />
+        <br/>
+        <label htmlFor="continent_origin">Update Continent</label>
         <input
         class = "input"
         type="text"
@@ -151,6 +158,8 @@ return(
         value={editUser.continent_origin}
         placeholder="Enter continent of origin..."
         onChange={editContOrg} />
+        <br/>
+        <label htmlFor="avail_start">Select Availability Start</label>
         <input
         class = "input"
         type="date"
@@ -159,6 +168,8 @@ return(
         value={editUser.avail_start}
         placeholder=""
         onChange={editAvailStart} />
+        <br/>
+        <label htmlFor="avail_end">Select Availabity End</label>
         <input
         class = "input"
         type="date"
@@ -167,7 +178,8 @@ return(
         value={editUser.avail_end}
         placeholder=""
         onChange={editAvailEnd} />
-        <button type="submit">Add</button>
+        <br/>
+        <button className="btn btn_sizeSm" type="submit">SUBMIT</button>
     </form>
     </div>
         </>

@@ -146,7 +146,7 @@ function EditForm({ flipToggle }) {
           </select>
           <label htmlFor="euLead">EU Team Lead</label>
         </div>
-        <button type="submit">Submit</button>
+        <button className="btn btn_sizeSm" type="submit">Submit</button>
       </form>
     </div>
   );

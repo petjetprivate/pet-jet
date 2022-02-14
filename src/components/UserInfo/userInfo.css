@@ -26,6 +26,7 @@ caption {
 .card td, th {
     border: 1px solid #ddd;
     padding: 8px;
+    width: 50%;
 }
 
 .card tr:nth-child(even){background-color: #f2f2f2;}
@@ -33,28 +34,27 @@ caption {
 .card tr:hover {background-color: #ddd;}
 
 .card th {
-    padding-top: 12px;
-    padding-bottom: 12px;
+    padding-top: 6px;
+    padding-bottom: 6px;
     text-align: center;
     background-color: #705fbed8;
     color: white;
 } 
 
 .card th {
-    width: 25%;
+    /* width: 25%; */
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: center;
     color:honeydew;
 }
 
-.button {
-background-color: #2baa6dd8;
-text-align: center;
-color: white;
-}
-
 .pdf {
+    margin-top: -3rem;
+    margin-bottom: 4rem;
+    background-color: #b1aebb69;
+    border-radius: 5px;
+    box-shadow: 5px 5px #342c58d8;
     text-align: center;
     /* width: 100%; */
     display: block;
@@ -62,11 +62,15 @@ color: white;
     /* margin-top: 2rem; */
 }
 
+.pdf:hover {
+    background-color: #7a788169;
+}
+
 .flightView {
     /* width: 33%; */
     display: inline;
     /* overflow: scroll; */
-    margin-left: 3rem;
+    /* margin-left: 3rem; */
 }
 
 .chartBox {
@@ -79,10 +83,8 @@ color: white;
 }
 
 .tables {
-    /* width: 33%; */
     display: block;
-    /* overflow: scroll; */
-    justify-content: right;
+    justify-content: flex-end;
     margin-right: 3rem;
     margin-left: 3rem;
 }
@@ -101,13 +103,14 @@ color: white;
     display: flex;
     justify-content: center;
     height: 100%;
+    margin: 3rem;
 }
 
-.rightbar{
+/* .rightbar{
     justify-content: right;
     border: 2px solid red;
     width: 33%
-}
+} */
 
 .middle {
     margin: 2rem;
