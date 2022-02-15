@@ -2,7 +2,7 @@ h1 {
     font-size: 38px;
     font-weight: 400;
     margin: 10px !important;
-    padding-bottom: 20px !important;
+    padding: 20px !important;
     /* color: rgb(61, 60, 60); */
     border-bottom: 2px solid gainsboro;
     text-align: center;

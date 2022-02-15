@@ -2,13 +2,13 @@
   text-align: left;
   width: 35rem;
   height: 50%;
-  margin-left: 5rem;
+  margin: 2rem;
 }
 
 .editFlightForm {
   width: 35rem;
-  margin-left: 5rem;
-  align-content: center;
+  margin: 2rem;
+  align-items: flex-end;
 }
 
 .flightList {
@@ -16,15 +16,22 @@
 }
 
 .input {
-  display: block;
+  justify-self: right;
+  display: inline;
 }
 
 .purps {
-  background-color: #2baa6d73;
+  justify-content: right;
+  font-family: "Quicksand", sans-serif;
+  border-radius: 5px;
+  justify-content: center;
+  background-color: #846fdfde;
   margin: 2rem;
-  box-shadow: 5px 5px 5px 5px rgb(4, 82, 23);
+  box-shadow: 5px 5px 5px 5px #433779de;
+  border: 2px groove #fcff5d;
 }
 
 .purps:hover {
-  background-color: #20805273;
+  background-color: rgb(163, 146, 238);
+  box-shadow: 7px 7px 10px 10px #433779de;
 }

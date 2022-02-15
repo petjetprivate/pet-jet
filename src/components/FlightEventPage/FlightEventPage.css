@@ -27,6 +27,10 @@
   background-color: #705fbed8;
 }
 
+.delete:hover {
+  background-color: #816dd8d2;
+}
+
 .eventCard { 
   /* Add shadows to create the "card" effect */
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -39,6 +43,7 @@
   background-color: #66411981;
   color: white;
   border-radius: 5px;
+  border: 2px groove #2baa6dd8;
 }
 
 /* On mouse-over, add a deeper shadow */
@@ -66,6 +71,16 @@
 
 .table {
   /* overflow: scroll; */
+  height: 0%;
   width: 60%;
   margin-right: 5rem;
+  border: 3px solid #c7c5cd;
+  padding: 1rem;
+  box-shadow: 3px 3px 3px 3px #8e8a9b;
+  border-radius: 5px;
+}
+
+.table:hover {
+  box-shadow: 7px 7px 7px 7px #8e8a9b;
+  background-color: #bcb3d825;
 }

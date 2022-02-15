@@ -83,36 +83,31 @@ function EditForm({ flipToggle }) {
       </div>
       <form className="editFlightForm" onSubmit={editFlightEvent}>
         <h1>Edit Flight Event Form</h1>
-        <label htmlFor="name"></label>
-          Name
-          <input
-            name="name"
-            className="input"
-            onChange={editName}
-            value={flightToEdit.name || ""}
-          />
+        <input
+          name="name"
+          className="input"
+          onChange={editName}
+          value={flightToEdit.name || ""}
+        />
+        <label htmlFor="name">Name</label>
         <br />
-        <label htmlFor="departure">
-          Departure
-          <input
-            name="departure"
-            type="date"
-            className="input"
-            onChange={editDepDate}
-            value={flightToEdit.dep_date || ""}
-          />
-        </label>
+        <input
+          name="departure"
+          type="date"
+          className="input"
+          onChange={editDepDate}
+          value={flightToEdit.dep_date || ""}
+        />
+        <label htmlFor="departure">Departure </label>
         <br />
-        <label htmlFor="return">
-          Return
-          <input
-            name="return"
-            type="date"
-            className="input"
-            onChange={editRetDate}
-            value={flightToEdit.ret_date || ""}
-          />
-        </label>
+        <input
+          name="return"
+          type="date"
+          className="input"
+          onChange={editRetDate}
+          value={flightToEdit.ret_date || ""}
+        />
+        <label htmlFor="return">Return</label>
         <br />
         <div className="dropdown">
           <select onChange={editUSTeamLead} value={flightToEdit.USTeamLead}>
@@ -148,7 +143,9 @@ function EditForm({ flipToggle }) {
           </select>
           <label htmlFor="euLead">EU Team Lead</label>
         </div>
-        <button className="btn btn_sizeSm" type="submit">Submit</button>
+        <button className="btn btn_sizeSm" type="submit">
+          Submit
+        </button>
       </form>
     </div>
   );
