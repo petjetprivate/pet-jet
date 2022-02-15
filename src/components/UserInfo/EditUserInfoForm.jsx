@@ -121,7 +121,7 @@ return(
         <form className="userInfoForm" onSubmit={(e)=>handleAddUserInfoSubmit(e)}>
             <label htmlFor="Name">Update name</label>
         <input
-        class = "input"
+        className = "input"
         type="text"
         name="Name"
         required="required"
@@ -131,7 +131,7 @@ return(
         <br/>
         <label htmlFor="email">Update email</label>
         <input
-        class = "input"
+        className = "input"
         type="text"
         name="email"
         value={editUser.email}
@@ -141,14 +141,14 @@ return(
         <br/>
         <label htmlFor="phone_num">Update Phone #</label>
         <input
-        class = "input"
+        className = "input"
         type="text"
         name="phone_num"
         required="required"
         value={editUser.phone_num}
         placeholder="Enter your phone number..."
         onChange={editPhone} />
-
+        <br />
         <label htmlFor="continent">
         Continent of Origin
         <select 
@@ -159,9 +159,11 @@ return(
                 <option value="US" >US</option>
                 <option value="EU" >EU</option>
         </select>
+        <br />
         </label>
+        <label htmlFor="avail_start" >Select Availability Start</label>
         <input
-        class = "input"
+        className = "input"
         type="date"
         name="avail_start"
         required="required"
@@ -171,7 +173,7 @@ return(
         <br/>
         <label htmlFor="avail_end">Select Availabity End</label>
         <input
-        class = "input"
+        className = "input"
         type="date"
         name="avail_end"
         required="required"

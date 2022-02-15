@@ -87,10 +87,10 @@ function AdminFlightView() {
 
   return (
     <div>
-    <div className="sticky">
+    <div>
       <h1>Flight Event Contacts</h1>
       </div>
-      <table>
+      <table className="card">
         <thead>
           <tr>
             <th>Username</th>

@@ -18,3 +18,13 @@
 .input {
   display: block;
 }
+
+.purps {
+  background-color: #2baa6d73;
+  margin: 2rem;
+  box-shadow: 5px 5px 5px 5px rgb(4, 82, 23);
+}
+
+.purps:hover {
+  background-color: #20805273;
+}

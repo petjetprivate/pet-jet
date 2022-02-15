@@ -71,7 +71,7 @@ function EditForm({ flipToggle }) {
   };
 
   return (
-    <div>
+    <div className="purps">
       <div className="onThisFlight">
         <h1>Passengers On {flightToEdit.name}</h1>
         <ul className="flightList">
@@ -83,7 +83,7 @@ function EditForm({ flipToggle }) {
       </div>
       <form className="editFlightForm" onSubmit={editFlightEvent}>
         <h1>Edit Flight Event Form</h1>
-        <label htmlFor="name">
+        <label htmlFor="name"></label>
           Name
           <input
             name="name"
@@ -91,7 +91,7 @@ function EditForm({ flipToggle }) {
             onChange={editName}
             value={flightToEdit.name || ""}
           />
-        </label>
+        <br />
         <label htmlFor="departure">
           Departure
           <input
@@ -102,6 +102,7 @@ function EditForm({ flipToggle }) {
             value={flightToEdit.dep_date || ""}
           />
         </label>
+        <br />
         <label htmlFor="return">
           Return
           <input
@@ -112,6 +113,7 @@ function EditForm({ flipToggle }) {
             value={flightToEdit.ret_date || ""}
           />
         </label>
+        <br />
         <div className="dropdown">
           <select onChange={editUSTeamLead} value={flightToEdit.USTeamLead}>
             {passengers.map((flyer) => {

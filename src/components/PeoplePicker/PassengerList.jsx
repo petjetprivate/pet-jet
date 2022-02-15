@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router";
 import './PeoplePicker.css'
 let selectedLeads = []
 let selectedPassengers = []
 
 function PassengerList() {
+    const history = useHistory();
     const [flightName, setFlightName] = useState('');
     const date = new Date();
     const dispatch = useDispatch();
@@ -70,6 +72,7 @@ function PassengerList() {
             }
         })
         setFlightName('')
+        history.push('/flight_event')
     }
 
 

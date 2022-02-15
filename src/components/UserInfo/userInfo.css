@@ -52,7 +52,7 @@ caption {
 .pdf {
     margin-top: -3rem;
     margin-bottom: 4rem;
-    background-color: #b1aebb69;
+    background-color: #c7c5cd69;
     border-radius: 5px;
     box-shadow: 5px 5px 5px 5px #342c58d8;
     text-align: center;
@@ -63,7 +63,7 @@ caption {
 }
 
 .pdf:hover {
-    background-color: #7a788169;
+    background-color: #d6cff069;
 }
 
 .flightView {
@@ -99,6 +99,7 @@ caption {
     display: inline;
     width: 33%;
     overflow: scroll;
+    height: auto;
 }
 
 .userBox {

@@ -36,7 +36,7 @@ Button
   border-width: 1px 1px 3px;
   border-radius: 4px;
   background-color: #2baa6dd8;
-  color: #f8f8f8;
+  color: white !important;
   font-size: 1.1rem;
   outline: 0;
   cursor: pointer;
@@ -50,7 +50,7 @@ Button
 
 .btn_sizeSm {
   padding: 10px 15px;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 
 .btn_sizeFull {
