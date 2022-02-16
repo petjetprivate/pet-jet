@@ -50,24 +50,26 @@ function FlightEventPage() {
               <div className="eventCard" key={event.id}>
                 <div className="flightEventContainer">
                   <h1>{event.name}</h1>
-                  <p>Departure: {event.dep_date?.split('T')[0] || ''}</p>
-                  <p>Return: {event.ret_date?.split('T')[0] || ''}</p>
-                  <p>
+                  <ul className="list">
+                  <li>Departure: {event.dep_date?.split('T')[0] || ''}</li>
+                  <li>Return: {event.ret_date?.split('T')[0] || ''}</li>
+                  <li>
                     US Lead:{" "}
                     {passengers.map((lead) => {
                       if (lead.id === event.USTeamLead) {
                         return `${lead.full_name}`;
                       }
                     })}
-                  </p>
-                  <p>
+                  </li>
+                  <li>
                     EU Lead:{" "}
                     {passengers.map((lead) => {
                       if (lead.id === event.EUTeamLead) {
                         return `${lead.full_name}`;
                       }
                     })}
-                  </p>
+                  </li>
+                  <li>
                   <button 
                     className="flightEventBtn edit"
                     value={event.id} 
@@ -80,14 +82,17 @@ function FlightEventPage() {
                     onClick={(e) => deleteFlightEvent(event.id)}
                   >
                     DELETE
-                  </button>
+                  </button></li>
+                  </ul>
                 </div>
               </div>
             );
           })}
         </div>
       </div>
+      <div className="editForm">
       {toggle && <EditForm flipToggle={flipToggle}/>}
+      </div>
       </div>
       <div className="table">
       <UserTable />

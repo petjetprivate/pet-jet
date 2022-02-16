@@ -24,6 +24,7 @@
 }
 .navLink {
   /* display: inline-block; */
+  margin-left: 3rem;
   color: white;
   background-color: #04AA6D;
   text-align: center;

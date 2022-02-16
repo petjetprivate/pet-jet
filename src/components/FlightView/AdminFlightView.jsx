@@ -88,7 +88,7 @@ function AdminFlightView() {
   return (
     <div>
     <div>
-      <h1>Flight Event Contacts</h1>
+      <h1>Contacts</h1>
       </div>
       <table className="card">
         <thead>

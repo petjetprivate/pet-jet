@@ -1,5 +1,6 @@
 import React, { useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
+import './EditPetInfo.css'
 
 
 const EditPetInfoForm = ({flipToggle2}) => {
@@ -34,7 +35,7 @@ const handleAddPetSubmit = () => {
 
 return(
     <>
-        <div>
+        <div className="petInfoForm">
         {/* <h2>Add Pet's Information</h2> */}
         <form onSubmit={()=>handleAddPetSubmit()}>
             <label htmlFor="Name">Enter Pet Name</label>

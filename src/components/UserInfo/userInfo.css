@@ -31,7 +31,10 @@ caption {
 
 .card tr:nth-child(even){background-color: #f2f2f2;}
 
-.card tr:hover {background-color: #ddd;}
+.card tr:hover {
+    background-color: black !important;
+    color: white;
+}
 
 .card th {
     padding-top: 6px;
@@ -63,7 +66,7 @@ caption {
 }
 
 .pdf:hover {
-    background-color: #d6cff069;
+    background-color: #ffffff65;
 }
 
 .flightView {
@@ -121,5 +124,12 @@ caption {
 }
 
 .adminFlightView {
+    padding: 1rem;
     overflow: scroll;
+    box-shadow: 3px 3px 3px 3px #8e8a9b;
+}
+
+.adminFlightView:hover {
+    box-shadow: 3px 3px 4px 5px #5c5570ce;
+    background-color: rgb(253, 255, 140);
 }

@@ -91,7 +91,7 @@ const editContOrg = (event) => {
 
 return(
     <><div>
-    <h2>Update your information</h2>
+    <h2>Update Information</h2>
     {/* <table>
     <tbody>
         <tr>

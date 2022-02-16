@@ -51,90 +51,89 @@ function UserInfo(props) {
 
   return (
     <div className="userBox">
-      <div className="adminFlightView">
-        {user?.sec_level > 0 && user.flight_event_id && (
-          <AdminFlightView className="admin flightView" />
-        )}
-        {user?.sec_level < 1 && user.flight_event_id && <UserFlightView className="flightView" />}
-      </div>
+      {user.flight_event_id && (
+        <div className="adminFlightView">
+          {user?.sec_level > 0 && user.flight_event_id && (
+            <AdminFlightView className="admin flightView" />
+          )}
+          {user?.sec_level < 1 && <UserFlightView className="flightView" />}
+        </div>
+      )}
       <div className="middle">
-      <div>
-        <PDF className="pdf" />
-      </div>
-      <div className="chartBox">
-        {!chart.isLoading && <Chart />}
-      </div>
+        <div>
+          <PDF className="pdf" />
+        </div>
+        <div className="chartBox">{!chart.isLoading && <Chart />}</div>
       </div>
       <div className="rightBar">
-      {/* <div>
+        {/* <div>
         <PDF className="pdf" />
       </div> */}
-      <div className="tables">
-        {/* <div> */}
-        <table className="info card">
-          <caption>Your Information</caption>
-          <tbody>
-            <tr>
-              <th>Full Name</th>
-              <th>Email</th>
-              <th>Phone</th>
-              <th>Availability Start</th>
-              <th>Availability End</th>
-              <th>Continent of Origin </th>
-            </tr>
-            <tr>
-              <td>{user?.full_name}</td>
-              <td>{user?.email}</td>
-              <td>{user?.phone_num}</td>
-              <td>{user?.avail_start?.split("T")[0]}</td>
-              <td>{user?.avail_end?.split("T")[0]}</td>
-              <td>{user?.continent_origin}</td>
-            </tr>
-          </tbody>
-        </table>
-      <button className="btn" onClick={editBtn}>
-        Update User Info
-      </button>
-      {toggle && <EditUserInfoForm flipToggle={flipToggle} />}
-      
+        <div className="tables">
+          {/* <div> */}
+          <table className="info card">
+            <caption>User Information</caption>
+            <tbody>
+              <tr>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Availability Start</th>
+                <th>Availability End</th>
+                <th>Continent of Origin </th>
+              </tr>
+              <tr>
+                <td>{user?.full_name}</td>
+                <td>{user?.email}</td>
+                <td>{user?.phone_num}</td>
+                <td>{user?.avail_start?.split("T")[0]}</td>
+                <td>{user?.avail_end?.split("T")[0]}</td>
+                <td>{user?.continent_origin}</td>
+              </tr>
+            </tbody>
+          </table>
+          <button className="btn" onClick={editBtn}>
+            Update User Info
+          </button>
+          {toggle && <EditUserInfoForm flipToggle={flipToggle} />}
 
-      <div>
-        <table className="card">
-          <caption>Your Pet Information</caption>
-          <tbody>
-            <tr>
-              <th>Pet Name</th>
-              <th>Breed</th>
-              <th>Weight</th>
-            </tr>
-            {pets.petInfo.map((pet) => {
-              return (
-                <tr key={pet.id}>
-                  <td>{pet.name}</td>
-                  <td>{pet.breed}</td>
-                  <td>{pet.weight + "lbs"}</td>
+          <div>
+            <table className="card">
+              <caption>Pet Information</caption>
+              <tbody>
+                <tr>
+                  <th>Pet Name</th>
+                  <th>Breed</th>
+                  <th>Weight</th>
                 </tr>
-              );
-            })}
-          </tbody>
-        </table>
+                {pets.petInfo.map((pet) => {
+                  return (
+                    <tr key={pet.id}>
+                      <td>{pet.name}</td>
+                      <td>{pet.breed}</td>
+                      <td>{pet.weight + "lbs"}</td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
+          <button className="btn btn_sizeSm" onClick={editBtn2}>
+            Add Pet
+          </button>
+          {/* </div> */}
+          {toggle2 && <EditPetInfoForm flipToggle2={flipToggle2} />}
         </div>
-        <button className="btn btn_sizeSm" onClick={editBtn2}>
-        Add Pet
-      </button>
-        {/* </div> */}
-        {toggle2 && <EditPetInfoForm flipToggle2={flipToggle2} />}
-      </div>
-      {/* <button className="button" onClick={editBtn2}>
+        {/* <button className="button" onClick={editBtn2}>
         Add Pet
       </button> */}
-      {/* {toggle2 && <EditPetInfoForm flipToggle2={flipToggle2} />} */}
-      {/* </div> */}
-      {/* <div className="chartBox">
+        {/* {toggle2 && <EditPetInfoForm flipToggle2={flipToggle2} />} */}
+        {/* </div> */}
+        {/* <div className="chartBox">
           {!chart.isLoading && <Chart />}
         </div> */}
-      {/* </Container> */}
-    </div>
+        {/* </Container> */}
+      </div>
     </div>
   );
 }

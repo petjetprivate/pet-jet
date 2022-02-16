@@ -29,6 +29,7 @@
   margin: 2rem;
   box-shadow: 5px 5px 5px 5px #433779de;
   border: 2px groove #fcff5d;
+  height: 75%;
 }
 
 .purps:hover {
