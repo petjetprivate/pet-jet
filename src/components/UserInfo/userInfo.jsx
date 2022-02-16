@@ -28,7 +28,7 @@ function UserInfo(props) {
 
   useEffect(() => {
     dispatch({ type: "FETCH_ONE_USER" });
-    dispatch({ type: 'FETCH_PET_DATA' });
+    dispatch({ type: "FETCH_PET_DATA" });
   }, []);
 
   const flipToggle = () => {
@@ -50,45 +50,56 @@ function UserInfo(props) {
   console.log();
 
   return (
-    <div>
-      <div className="flightView">
-        {user?.sec_level > 0 && <AdminFlightView className="admin flightView"/>}
-        {user?.sec_level < 1 && <UserFlightView className="flightView"/>}
+    <div className="userBox">
+      {user.flight_event_id && (
+        <div className="adminFlightView">
+          {user?.sec_level > 0 && user.flight_event_id && (
+            <AdminFlightView className="admin flightView" />
+          )}
+          {user?.sec_level < 1 && <UserFlightView className="flightView" />}
         </div>
-      {/* <Container className="white-container-transfer" maxWidth="xl"> */}
-          <PDF className="pdf"/>
+      )}
+      <div className="middle">
+        <div>
+          <PDF className="pdf" />
+        </div>
+        <div className="chartBox">{!chart.isLoading && <Chart />}</div>
+      </div>
+      <div className="rightBar">
+        {/* <div>
+        <PDF className="pdf" />
+      </div> */}
         <div className="tables">
           {/* <div> */}
-            <table className="card">
-              <caption>Your Information</caption>
-              <tbody>
-                <tr>
-                  <th>Full Name</th>
-                  <th>Email</th>
-                  <th>Phone</th>
-                  <th>Available Start Date</th>
-                  <th>Available End Date </th>
-                  <th>Continent of Origin </th>
-                </tr>
-                <tr>
-                  <td>{user?.full_name}</td>
-                  <td>{user?.email}</td>
-                  <td>{user?.phone_num}</td>
-                  <td>{user?.avail_start?.split("T")[0]}</td>
-                  <td>{user?.avail_end?.split("T")[0]}</td>
-                  <td>{user?.continent_origin}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <button className="button" onClick={editBtn}>
-            Update
+          <table className="info card">
+            <caption>User Information</caption>
+            <tbody>
+              <tr>
+                <th>Full Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Availability Start</th>
+                <th>Availability End</th>
+                <th>Continent of Origin </th>
+              </tr>
+              <tr>
+                <td>{user?.full_name}</td>
+                <td>{user?.email}</td>
+                <td>{user?.phone_num}</td>
+                <td>{user?.avail_start?.split("T")[0]}</td>
+                <td>{user?.avail_end?.split("T")[0]}</td>
+                <td>{user?.continent_origin}</td>
+              </tr>
+            </tbody>
+          </table>
+          <button className="btn" onClick={editBtn}>
+            Update User Info
           </button>
           {toggle && <EditUserInfoForm flipToggle={flipToggle} />}
 
           <div>
             <table className="card">
-              <caption>Your Pet Information</caption>
+              <caption>Pet Information</caption>
               <tbody>
                 <tr>
                   <th>Pet Name</th>
@@ -107,15 +118,22 @@ function UserInfo(props) {
               </tbody>
             </table>
           </div>
-          <button className="button" onClick={editBtn2}>
+          <button className="btn btn_sizeSm" onClick={editBtn2}>
             Add Pet
           </button>
+          {/* </div> */}
           {toggle2 && <EditPetInfoForm flipToggle2={flipToggle2} />}
-        {/* </div> */}
-        <div className="chartBox">
-          {!chart.isLoading && <Chart />}
         </div>
-      {/* </Container> */}
+        {/* <button className="button" onClick={editBtn2}>
+        Add Pet
+      </button> */}
+        {/* {toggle2 && <EditPetInfoForm flipToggle2={flipToggle2} />} */}
+        {/* </div> */}
+        {/* <div className="chartBox">
+          {!chart.isLoading && <Chart />}
+        </div> */}
+        {/* </Container> */}
+      </div>
     </div>
   );
 }

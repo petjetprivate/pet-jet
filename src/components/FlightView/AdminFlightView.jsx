@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import './AdminFlightView.css'
 
 function AdminFlightView() {
   const dispatch = useDispatch();
@@ -86,8 +87,10 @@ function AdminFlightView() {
 
   return (
     <div>
-      <h1>Flight Event Contacts</h1>
-      <table>
+    <div>
+      <h1>Contacts</h1>
+      </div>
+      <table className="card">
         <thead>
           <tr>
             <th>Username</th>
@@ -109,8 +112,8 @@ function AdminFlightView() {
                 <td>{passenger.full_name}</td>
                 <td>{passenger.phone_num}</td>
                 <td>{passenger.email}</td>
-                <td>{passenger.avail_start.split("T")[0]}</td>
-                <td>{passenger.avail_end.split("T")[0]}</td>
+                <td>{passenger.avail_start?.split("T")[0]}</td>
+                <td>{passenger.avail_end?.split("T")[0]}</td>
                 <td>
                   <label htmlFor="contract">
                     <input

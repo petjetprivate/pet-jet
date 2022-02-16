@@ -29,6 +29,7 @@ function Nav() {
         {/* If a user is logged in, show these links */}
         {user.id && (
           <>
+
           {user.sec_level === 1 || user.sec_level === 0 &&
             <>
             <Link className="navLink" to="/UserInfo">

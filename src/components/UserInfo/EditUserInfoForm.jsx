@@ -91,8 +91,8 @@ const editContOrg = (event) => {
 
 return(
     <><div>
-    <h2>Update your information</h2>
-    <table>
+    <h2>Update Information</h2>
+    {/* <table>
     <tbody>
         <tr>
         <th>Full Name</th>
@@ -109,48 +109,46 @@ return(
         <td>{editUser?.avail_start?.split('T')[0]}</td>
         <td>{editUser?.avail_end?.split('T')[0]}</td>
         <td>{editUser?.continent_origin}</td>
-        </tr> */}
+        </tr>
     </tbody>
-    </table>
+    </table> */}
 </div>
     
     
     
-    <div>
+    <div className="userInfoForm">
 
-        <form onSubmit={(e)=>handleAddUserInfoSubmit(e)}>
+        <form className="userInfoForm" onSubmit={(e)=>handleAddUserInfoSubmit(e)}>
+            <label htmlFor="Name">Update name</label>
         <input
-        class = "input"
+        className = "input"
         type="text"
         name="Name"
         required="required"
         placeholder="Enter your name..."
         value={editUser.full_name}
         onChange={editFullName} />
+        <br/>
+        <label htmlFor="email">Update email</label>
         <input
-        class = "input"
+        className = "input"
         type="text"
         name="email"
         value={editUser.email}
         required="required"
         placeholder="Enter your email..."
         onChange={editEmail} />
+        <br/>
+        <label htmlFor="phone_num">Update Phone #</label>
         <input
-        class = "input"
+        className = "input"
         type="text"
         name="phone_num"
         required="required"
         value={editUser.phone_num}
         placeholder="Enter your phone number..."
         onChange={editPhone} />
-        {/* <input
-        class = "input"
-        type="text"
-        name="continent_origin"
-        required="required"
-        value={editUser.continent_origin}
-        placeholder="Enter continent of origin..."
-        onChange={editContOrg} /> */}
+        <br />
         <label htmlFor="continent">
         Continent of Origin
         <select 
@@ -161,24 +159,29 @@ return(
                 <option value="US" >US</option>
                 <option value="EU" >EU</option>
         </select>
+        <br />
         </label>
+        <label htmlFor="avail_start" >Select Availability Start</label>
         <input
-        class = "input"
+        className = "input"
         type="date"
         name="avail_start"
         required="required"
         value={editUser.avail_start}
         placeholder=""
         onChange={editAvailStart} />
+        <br/>
+        <label htmlFor="avail_end">Select Availabity End</label>
         <input
-        class = "input"
+        className = "input"
         type="date"
         name="avail_end"
         required="required"
         value={editUser.avail_end}
         placeholder=""
         onChange={editAvailEnd} />
-        <button type="submit">Add</button>
+        <br/>
+        <button className="btn btn_sizeSm" type="submit">SUBMIT</button>
     </form>
     </div>
         </>

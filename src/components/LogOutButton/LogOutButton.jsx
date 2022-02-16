@@ -1,8 +1,10 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-// import SweetAlert from 'react-bootstrap-sweetalert';
+import { useHistory } from 'react-router'
+
 
 function LogOutButton(props) {
+  const history = useHistory();
   const dispatch = useDispatch();
   
   const handleSignOut = () => {
@@ -28,6 +30,7 @@ function LogOutButton(props) {
     //     swal("Awesome! Continue planning your trip");
     //   }
     // });
+    history.push('/home');
   };
 
   return (

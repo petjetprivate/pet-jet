@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import setTeamLead from "../../redux/reducers/teamLead.reducer";
+// import setTeamLead from "../../redux/reducers/teamLead.reducer";
 
 function UserFlightView() {
   const dispatch = useDispatch();
@@ -15,7 +15,7 @@ function UserFlightView() {
 
   return (
     <div className="teamLead">
-      <p>TEAM LEAD</p>
+      <h1>YOUR TEAM LEAD</h1>
         {lead.map((one) => {
           return (
             <ul key={one.id}>

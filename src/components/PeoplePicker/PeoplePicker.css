@@ -33,3 +33,7 @@
 .flightNameInput {
     float: right;
 }
+
+.btn {
+    margin-right: 2rem;
+}

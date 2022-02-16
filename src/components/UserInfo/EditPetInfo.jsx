@@ -1,5 +1,6 @@
 import React, { useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
+import './EditPetInfo.css'
 
 
 const EditPetInfoForm = ({flipToggle2}) => {
@@ -34,7 +35,7 @@ const handleAddPetSubmit = () => {
 
 return(
     <>
-        <div>
+        <div className="petInfoForm">
         {/* <h2>Add Pet's Information</h2> */}
         <form onSubmit={()=>handleAddPetSubmit()}>
             <label htmlFor="Name">Enter Pet Name</label>
@@ -43,9 +44,10 @@ return(
         type="text"
         name="Name"
         required="required"
-        placeholder="Enter your pet's name..."
+        placeholder="Enter pet's name..."
         value={name}
         onChange={(e)=>setName(e.target.value)} />
+        <br />
         <label htmlFor="breed">Enter Pet Breed</label>
         <input
         className = "input"
@@ -53,8 +55,9 @@ return(
         name="breed"
         value={breed}
         required="required"
-        placeholder="Enter your animal's breed..."
+        placeholder="Enter animal's breed..."
         onChange={(e)=>setBreed(e.target.value)} />
+        <br/>
         <label htmlFor="weight">Enter Pet Weight in Pounds</label>
         <input
         className = "input"
@@ -62,9 +65,10 @@ return(
         name="weight"
         required="required"
         value={weight}
-        placeholder="Enter your animal's weight..."
+        placeholder="Enter animal's weight..."
         onChange={(e)=>setWeight(e.target.value)} />
-        <button type="submit">Add</button>
+        <br/>
+        <button className="btn btn_sizeSm" type="submit">SUBMIT</button>
     </form>
     </div>
         </>

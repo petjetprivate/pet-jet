@@ -1,8 +1,8 @@
 h1 {
     font-size: 38px;
-    font-weight: 700;
+    font-weight: 400;
     margin: 10px !important;
-    padding-bottom: 20px !important;
+    padding: 20px !important;
     /* color: rgb(61, 60, 60); */
     border-bottom: 2px solid gainsboro;
     text-align: center;
@@ -26,55 +26,72 @@ caption {
 .card td, th {
     border: 1px solid #ddd;
     padding: 8px;
+    width: 50%;
 }
 
 .card tr:nth-child(even){background-color: #f2f2f2;}
 
-.card tr:hover {background-color: #ddd;}
+.card tr:hover {
+    background-color: black !important;
+    color: white;
+}
 
 .card th {
-    padding-top: 12px;
-    padding-bottom: 12px;
+    padding-top: 6px;
+    padding-bottom: 6px;
     text-align: center;
     background-color: #705fbed8;
     color: white;
 } 
 
 .card th {
-    width: 25%;
+    /* width: 25%; */
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: center;
     color:honeydew;
 }
 
-.button {
-background-color: #2baa6dd8;
-text-align: center;
-color: white;
+.pdf {
+    margin-top: -3rem;
+    margin-bottom: 4rem;
+    background-color: #c7c5cd69;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px 5px #342c58d8;
+    text-align: center;
+    /* width: 100%; */
+    display: block;
+    border: 2px solid red;
+    /* margin-top: 2rem; */
 }
 
-.pdf {
-    border: 5px solid red;
-    width: 20%;
-    display: inline;
-    float: right;
+.pdf:hover {
+    background-color: #ffffff65;
 }
 
 .flightView {
-    width: 75%;
-    display: inline-block;
+    /* width: 33%; */
+    display: inline;
+    /* overflow: scroll; */
+    /* margin-left: 3rem; */
 }
 
 .chartBox {
-    width: 40%;
-    /* display: inline; */
+    /* width: 25%; */
+    /* margin-left: 2rem;
+    margin-right: 2rem;
+    margin-top: -1.5rem;
+    margin-bottom: 1rem; */
+    /* box-shadow: 5px 5px 5px 5px #342c58d8; */
+    display: block;
+    border-radius: 5px;
 }
 
 .tables {
-    width: 100%;
     display: block;
-    /* float: right; */
+    justify-content: flex-end;
+    margin-right: 3rem;
+    margin-left: 3rem;
 }
 
 .teamLead {
@@ -83,5 +100,36 @@ color: white;
 
 .admin {
     display: inline;
-    float: left;
+    width: 33%;
+    overflow: scroll;
+    height: auto;
+}
+
+.userBox {
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    margin: 3rem;
+}
+
+/* .rightbar{
+    justify-content: right;
+    border: 2px solid red;
+    width: 33%
+} */
+
+.middle {
+    margin: 2rem;
+    width: 33%;
+}
+
+.adminFlightView {
+    padding: 1rem;
+    overflow: scroll;
+    box-shadow: 3px 3px 3px 3px #8e8a9b;
+}
+
+.adminFlightView:hover {
+    box-shadow: 3px 3px 4px 5px #5c5570ce;
+    background-color: rgb(253, 255, 140);
 }

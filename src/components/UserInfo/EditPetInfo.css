@@ -1,13 +1,4 @@
-th {
-  background-color: #705fbed8;
-  color: white;
-}
-
-.input {
-  display: inline;
-}
-
-.userInfoForm {
+.petInfoForm {
   background-color: #6bd8d834;
   border: 2px groove rgba(251, 255, 0, 0.692);
   border-radius: 5px;

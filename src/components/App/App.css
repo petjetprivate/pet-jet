@@ -5,7 +5,7 @@ body,
 }
 
 body {
-  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: "Quicksand", sans-serif;
   margin: 0px;
   font-weight: 100;
   background-color: #ffffe8;
@@ -29,16 +29,18 @@ Button
 -------------------------------------------------------------------------------- */
 
 .btn {
+  font-family: "Quicksand", sans-serif;
   display: inline-block;
   padding: 10px 20px;
   border-color: #014041;
   border-width: 1px 1px 3px;
   border-radius: 4px;
-  background-color: #04AA6D;
-  color: #f8f8f8;
+  background-color: #2baa6dd8;
+  color: white !important;
   font-size: 1.1rem;
   outline: 0;
   cursor: pointer;
+  font-weight: 200;
 }
 
 .btn_sizeMin {
@@ -48,7 +50,7 @@ Button
 
 .btn_sizeSm {
   padding: 10px 15px;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
 }
 
 .btn_sizeFull {

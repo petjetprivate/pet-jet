@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router";
 import './PeoplePicker.css'
 let selectedLeads = []
 let selectedPassengers = []
 
 function PassengerList() {
+    const history = useHistory();
     const [flightName, setFlightName] = useState('');
     const date = new Date();
     const dispatch = useDispatch();
@@ -70,6 +72,7 @@ function PassengerList() {
             }
         })
         setFlightName('')
+        history.push('/flight_event')
     }
 
 
@@ -136,7 +139,7 @@ function PassengerList() {
         <div className="flightNameInput">
             <label htmlFor="flightName">Enter Flight Name</label>
         <input required="required" name="flightName" type="text" value={flightName} onChange={(e) => setFlightName(e.target.value)}/>
-            <button type="button" onClick={() => SubmitGroups()}>
+            <button className="btn btn_sizeSm" type="button" onClick={() => SubmitGroups()}>
                 CREATE FLIGHT
             </button>
             </div>

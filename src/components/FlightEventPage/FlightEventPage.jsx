@@ -40,34 +40,36 @@ function FlightEventPage() {
   };
 
   return (
-    <div>
     <div className="row">
+    <div>
       <div>
         {/* <h1>Flight Event Page</h1> */}
-        <div className="flexbox neighbors">
+        <div className="flexbox">
           {flightEvents.map((event) => {
             return (
               <div className="eventCard" key={event.id}>
                 <div className="flightEventContainer">
-                  <p>Flight Name: {event.name}</p>
-                  <p>Departure Date: {event.dep_date?.split('T')[0] || ''}</p>
-                  <p>Return Date: {event.ret_date?.split('T')[0] || ''}</p>
-                  <p>
-                    US Team Lead:{" "}
+                  <h1>{event.name}</h1>
+                  <ul className="list">
+                  <li>Departure: {event.dep_date?.split('T')[0] || ''}</li>
+                  <li>Return: {event.ret_date?.split('T')[0] || ''}</li>
+                  <li>
+                    US Lead:{" "}
                     {passengers.map((lead) => {
                       if (lead.id === event.USTeamLead) {
                         return `${lead.full_name}`;
                       }
                     })}
-                  </p>
-                  <p>
-                    EU Team Lead:{" "}
+                  </li>
+                  <li>
+                    EU Lead:{" "}
                     {passengers.map((lead) => {
                       if (lead.id === event.EUTeamLead) {
                         return `${lead.full_name}`;
                       }
                     })}
-                  </p>
+                  </li>
+                  <li>
                   <button 
                     className="flightEventBtn edit"
                     value={event.id} 
@@ -80,16 +82,21 @@ function FlightEventPage() {
                     onClick={(e) => deleteFlightEvent(event.id)}
                   >
                     DELETE
-                  </button>
+                  </button></li>
+                  </ul>
                 </div>
               </div>
             );
           })}
         </div>
       </div>
+      <div className="editForm">
       {toggle && <EditForm flipToggle={flipToggle}/>}
       </div>
+      </div>
+      <div className="table">
       <UserTable />
+      </div>
     </div>
   );
 }
