@@ -4,13 +4,6 @@
 
 This version uses React, Redux, Express, Passport, and PostgreSQL (a full list of dependencies can be found in `package.json`).
 
-We **STRONGLY** recommend following these instructions carefully. It's a lot, and will take some time to set up, but your life will be much easier this way in the long run.
-
-## Use the Template for This Repository (Don't Clone)
-
-- Don't Fork or Clone. Instead, click the `Use this Template` button, and make a copy to your personal account.
-
-
 ### Prerequisites
 
 Node.js, PostgreSQL, Nodemon
@@ -47,4 +40,4 @@ Thank you to Chris Nelson for trusting us with this project. Thank you to Matt B
 
 ## Contacts
 
-<a href="https://www.linkedin.com/in/Amber Sorenson"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /></a>  <a href="mailto:"><img src=https://raw.githubusercontent.com/johnturner4004/readme-generator/master/src/components/assets/images/email_me_button_icon_151852.svg /></a>
+<a href="https://www.linkedin.com/in/amber-sorenson-420a89225/">Amber Sorenson</a>
