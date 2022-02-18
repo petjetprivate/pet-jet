@@ -41,6 +41,10 @@ If you would like to name your database something else, you will need to change 
 
 Thank you to Chris Nelson for trusting us with this project. Thank you to Matt Black, and everyone at Prime Digital Academy, for not only teaching us how to code this project, but also how to learn technology as it develops.
 
+## Acknowledgements
+
+Thank you to Chris Nelson for trusting us with this project. Thank you to Matt Black, and everyone at Prime Digital Academy, for not only teaching us how to code this project, but also how to learn technology as it develops.
+
 ## Contacts
 
-<a href="https://www.linkedin.com/in/Amber Sorenson, Jerome Horton, Zane Klausing, Adam Iverson">
+<a href="https://www.linkedin.com/in/Amber Sorenson, Jerome Horton, Zane Klausing, Adam Iverson"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" /></a>  <a href="mailto:"><img src=https://raw.githubusercontent.com/johnturner4004/readme-generator/master/src/components/assets/images/email_me_button_icon_151852.svg /></a>
