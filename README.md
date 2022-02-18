@@ -10,6 +10,12 @@
 
 Node.js, PostgreSQL, Nodemon
 
+### Screenshots
+![Screen Shot 2022-02-18 at 10 38 17 AM](https://user-images.githubusercontent.com/88250950/154727163-2c1d08c1-36f6-48e6-ab74-d8b6320655c4.png)
+![Screen Shot 2022-02-18 at 10 37 41 AM](https://user-images.githubusercontent.com/88250950/154727169-faa6f6d2-483f-4101-a5a8-3646dce55c5d.png)
+![Screen Shot 2022-02-18 at 10 37 19 AM](https://user-images.githubusercontent.com/88250950/154727173-972b8db6-82dc-4651-b9c5-207dbd08e656.png)
+
+
 ### Installation
 
 1. Create a database named pet-jet
@@ -32,9 +38,6 @@ CREATE TABLE "user" (
 
 If you would like to name your database something else, you will need to change `pet-jet` to the name of your new database name in `server/modules/pool.js`
 
-## Acknowledgements
-
-Thank you to Chris Nelson for trusting us with this project. Thank you to Matt Black, and everyone at Prime Digital Academy, for not only teaching us how to code this project, but also how to learn technology as it develops.
 
 ## Acknowledgements
 
