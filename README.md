@@ -2,7 +2,9 @@
 # PetJet
 <a href="https://www.heroku.com/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/heroku/heroku-original.svg" height="40px" width="40px" /></a><a href="https://developer.mozilla.org/en-US/docs/Web/HTML"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" height="40px" width="40px" /></a><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" height="40px" width="40px" /></a><a href="https://nodejs.org/en/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" height="40px" width="40px" /></a><a href="https://www.postgresql.org/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" height="40px" width="40px" /></a><a href="https://reactjs.org/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" height="40px" width="40px" /></a><a href="https://redux.js.org/"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redux/redux-original.svg" height="40px" width="40px" /></a>
 
-This version uses React, Redux, Express, Passport, and PostgreSQL (a full list of dependencies can be found in `package.json`).
+### Deployment
+
+<a href="https://pet-jet.herokuapp.com/#/home">PetJet on Heroku</a>
 
 ### Prerequisites
 
@@ -41,3 +43,6 @@ Thank you to Chris Nelson for trusting us with this project. Thank you to Matt B
 ## Contacts
 
 <a href="https://www.linkedin.com/in/amber-sorenson-420a89225/">Amber Sorenson</a>
+<a hrerf="https://www.linkedin.com/in/jerome-d-horton/">Jerome Horton</a>
+<a href="https://www.linkedin.com/in/zane-klausing-805347225/">Zane Klausing</a>
+<a href="https://www.linkedin.com/in/adam-iverson-7ba890a4/">Adam Iverson</a>
